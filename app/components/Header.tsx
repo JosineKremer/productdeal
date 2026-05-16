@@ -23,7 +23,7 @@ export default function Header() {
         {/* Top bar */}
         <div style={{ backgroundColor: "#173441" }} className="hidden md:block text-white text-xs py-1.5 px-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <span className="opacity-70">Vergelijk de beste deals van 1000+ winkels</span>
+            <span className="opacity-70">Vergelijk de beste deals van 300+ webshops</span>
             <div className="flex gap-5 opacity-80">
               <Link href="/over-ons" className="hover:opacity-100 transition-opacity">Over ons</Link>
               <Link href="/contact" className="hover:opacity-100 transition-opacity">Contact</Link>
