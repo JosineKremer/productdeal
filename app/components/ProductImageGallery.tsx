@@ -29,7 +29,7 @@ export default function ProductImageGallery({ images, title }: Props) {
       <div className="flex flex-col gap-3">
         <div
           className="relative rounded-2xl overflow-hidden bg-gray-50 cursor-zoom-in"
-          style={{ aspectRatio: "1 / 1" }}
+          style={{ aspectRatio: "4 / 3" }}
           onClick={() => setZoomed(true)}
         >
           <img
