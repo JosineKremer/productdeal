@@ -104,16 +104,19 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </div>
             <p className="text-xs text-gray-500 mb-4">Prijsrange: {product.priceRange} bij {product.storeCount} winkels</p>
 
+            <a
+              href="#vergelijk"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-white font-bold text-sm transition-all hover:opacity-90 hover:shadow-lg mb-3"
+              style={{ backgroundColor: "#00ca41" }}
+            >
+              Bekijk beste deal bij {product.bestStore}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+
             {/* Beste winkel details */}
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-5 h-5 rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ backgroundColor: "#00ca41" }}>
-                {STORES[0].name.charAt(0)}
-              </div>
-              <p className="text-xs font-semibold" style={{ color: "#1b693d" }}>
-                Informatie van {STORES[0].name}
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-2 mb-4">
+            <div className="grid grid-cols-2 gap-2">
               {[
                 { icon: "M5 13l4 4L19 7", label: "Voorraad", value: `${STORES[0].stock} stuks` },
                 { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "Levering", value: STORES[0].deliveryDate },
@@ -131,17 +134,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </div>
               ))}
             </div>
-
-            <a
-              href="#vergelijk"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-white font-bold text-sm transition-all hover:opacity-90 hover:shadow-lg"
-              style={{ backgroundColor: "#00ca41" }}
-            >
-              Bekijk beste deal bij {product.bestStore}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
           </div>
 
           {/* Vertrouwen */}
