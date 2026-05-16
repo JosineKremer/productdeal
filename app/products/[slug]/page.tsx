@@ -10,7 +10,7 @@ const RELATED_PRODUCTS = [
 ];
 
 const STORES = [
-  { name: "SportsDirect", price: "€ 23,99", originalPrice: null, shipping: "Gratis verzending", deliveryDate: "komende donderdag", stock: 6, onTime: 91.84, seller: "Glemo", url: "#", rating: 4.5, reviews: 1204 },
+  { name: "SportsDirect", price: "€ 23,99", originalPrice: null, shipping: "Gratis verzending", deliveryDate: "komende donderdag", stock: 6, onTime: 91.84, seller: "SportsDirect", url: "#", rating: 4.5, reviews: 1204 },
   { name: "Zalando", price: "€ 26,95", originalPrice: null, shipping: "Gratis bezorging · 100 dagen retour", deliveryDate: "overmorgen", stock: 12, onTime: 97.2, seller: "Zalando", url: "#", rating: 4.7, reviews: 8921 },
   { name: "bol.com", price: "€ 27,99", originalPrice: null, shipping: "Gratis bezorging morgen", deliveryDate: "morgen", stock: 3, onTime: 94.1, seller: "bol.com", url: "#", rating: 4.6, reviews: 15203 },
 ];
@@ -172,10 +172,16 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </div>
           ))}
 
-          {/* Beschrijving */}
-          <p className="text-sm text-gray-600 leading-relaxed">{product.description}</p>
         </div>
       </div>
+
+      {/* Beschrijving */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold mb-4" style={{ color: "#173441" }}>Omschrijving</h2>
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <p className="text-sm text-gray-600 leading-relaxed">{product.description}</p>
+        </div>
+      </section>
 
       {/* Specificaties */}
       <section className="mb-10">
