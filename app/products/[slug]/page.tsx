@@ -105,6 +105,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <p className="text-xs text-gray-500 mb-4">Prijsrange: {product.priceRange} bij {product.storeCount} winkels</p>
 
             {/* Beste winkel details */}
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-5 h-5 rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ backgroundColor: "#00ca41" }}>
+                {STORES[0].name.charAt(0)}
+              </div>
+              <p className="text-xs font-semibold" style={{ color: "#1b693d" }}>
+                Informatie van {STORES[0].name}
+              </p>
+            </div>
             <div className="grid grid-cols-2 gap-2 mb-4">
               {[
                 { icon: "M5 13l4 4L19 7", label: "Voorraad", value: `${STORES[0].stock} stuks` },
