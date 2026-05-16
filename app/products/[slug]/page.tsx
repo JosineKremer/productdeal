@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProductImageGallery from "@/app/components/ProductImageGallery";
 import PriceHistoryChart from "@/app/components/PriceHistoryChart";
-import ProductTabs from "@/app/components/ProductTabs";
+import ProductDetailTabs from "@/app/components/ProductDetailTabs";
 
 const RELATED_PRODUCTS = [
   { id: "r1", title: "James & Nicholson Vintage Shirt Groen", brand: "James & Nicholson", price: "€ 23,99", href: "/products/jn-vintage-groen" },
@@ -84,62 +84,25 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <span style={{ color: "#173441" }} className="font-medium line-clamp-1">{product.title}</span>
       </nav>
 
-      {/* Main grid */}
+      {/* Main grid: foto links, info + winkels rechts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
         <ProductImageGallery images={product.images} title={product.title} />
 
-        {/* Info kolom */}
-        <div>
-          <Link href={product.brandHref} className="text-sm font-bold hover:underline" style={{ color: "#00ca41" }}>
-            {product.brand}
-          </Link>
-          <h1 className="text-2xl md:text-3xl font-extrabold mb-4 mt-1 leading-tight" style={{ color: "#173441" }}>
-            {product.title}
-          </h1>
-
-          {/* Prijsblok */}
-          <div className="rounded-2xl p-5 mb-5" style={{ backgroundColor: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-            <div className="flex items-baseline gap-3 mb-1">
-              <span className="text-3xl font-extrabold" style={{ color: "#173441" }}>{product.lowestPrice}</span>
-              <span className="text-sm text-gray-400">laagste prijs</span>
-            </div>
-            <p className="text-xs text-gray-500 mb-4">Prijsrange: {product.priceRange} bij {product.storeCount} winkels</p>
-
-            <a
-              href="#vergelijk"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-white font-bold text-sm transition-all hover:opacity-90 hover:shadow-lg mb-3"
-              style={{ backgroundColor: "#00ca41" }}
-            >
-              Bekijk beste deal bij {product.bestStore}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-
-            {/* Beste winkel details */}
-            <div className="grid grid-cols-2 gap-2">
-              {[
-                { icon: "M5 13l4 4L19 7", label: "Voorraad", value: `${STORES[0].stock} stuks` },
-                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "Levering", value: STORES[0].deliveryDate },
-                { icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6", label: "Verkoper", value: STORES[0].seller },
-                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Op tijd", value: `${STORES[0].onTime}%` },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2 bg-white/60 rounded-xl px-3 py-2">
-                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: "#1b693d" }}>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
-                  </svg>
-                  <div>
-                    <p className="text-xs text-gray-400 leading-none">{item.label}</p>
-                    <p className="text-xs font-bold mt-0.5" style={{ color: "#173441" }}>{item.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Info + winkel vergelijking */}
+        <div className="flex flex-col gap-4">
+          {/* Merk + titel */}
+          <div>
+            <Link href={product.brandHref} className="text-sm font-bold hover:underline" style={{ color: "#00ca41" }}>
+              {product.brand}
+            </Link>
+            <h1 className="text-xl md:text-2xl font-extrabold mt-0.5 leading-tight" style={{ color: "#173441" }}>
+              {product.title}
+            </h1>
           </div>
 
-          {/* Varianten: kleur, maat, type etc. */}
+          {/* Varianten */}
           {product.variants.map((variant) => (
-            <div key={variant.type} className="mb-5">
+            <div key={variant.type}>
               <p className="text-sm font-semibold mb-2" style={{ color: "#173441" }}>
                 {variant.type}: <span className="font-normal text-gray-500">{variant.active}</span>
               </p>
@@ -161,14 +124,77 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </div>
           ))}
 
+          {/* Winkel vergelijking */}
+          <div>
+            <div className="flex items-baseline justify-between mb-3">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-extrabold" style={{ color: "#173441" }}>{product.lowestPrice}</span>
+                <span className="text-sm text-gray-400">laagste prijs</span>
+              </div>
+              <span className="text-xs text-gray-400">{product.storeCount} winkels</span>
+            </div>
 
+            <div className="space-y-2">
+              {STORES.map((store, i) => (
+                <div
+                  key={store.name}
+                  className="rounded-xl border transition-all hover:shadow-sm"
+                  style={{ borderColor: i === 0 ? "#00ca41" : "#e2e8f0", backgroundColor: i === 0 ? "#f0fdf4" : "white" }}
+                >
+                  <div className="px-3 py-3 flex items-center gap-3">
+                    {/* Logo */}
+                    <div className="w-10 h-10 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 overflow-hidden p-1">
+                      <img
+                        src={`https://www.google.com/s2/favicons?domain=${store.domain}&sz=64`}
+                        alt={store.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    {/* Winkel info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <p className="font-bold text-sm" style={{ color: "#173441" }}>{store.name}</p>
+                        {i === 0 && (
+                          <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: "#dcfce7", color: "#166534" }}>
+                            Beste prijs
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-400 truncate">{store.shipping}</p>
+                      <div className="flex gap-3 mt-0.5">
+                        <span className="text-xs text-gray-400">
+                          <span className="font-medium" style={{ color: "#173441" }}>{store.stock}</span> op voorraad
+                        </span>
+                        <span className="text-xs text-gray-400">
+                          Levering <span className="font-medium" style={{ color: "#173441" }}>{store.deliveryDate}</span>
+                        </span>
+                      </div>
+                    </div>
+                    {/* Prijs + knop */}
+                    <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+                      <span className="font-extrabold text-lg" style={{ color: "#173441" }}>{store.price}</span>
+                      <a
+                        href={store.url}
+                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold text-white transition-all hover:opacity-90"
+                        style={{ backgroundColor: i === 0 ? "#00ca41" : "#173441" }}
+                      >
+                        Bekijk
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      <ProductTabs
+      <ProductDetailTabs
         description={product.description}
         specs={product.specs}
-        stores={STORES}
       />
 
       {/* Prijsgeschiedenis */}
