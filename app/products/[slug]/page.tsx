@@ -10,9 +10,9 @@ const RELATED_PRODUCTS = [
 ];
 
 const STORES = [
-  { name: "SportsDirect", price: "€ 23,99", originalPrice: null, shipping: "Gratis verzending", deliveryDate: "komende donderdag", stock: 6, onTime: 91.84, seller: "SportsDirect", url: "#", rating: 4.5, reviews: 1204 },
-  { name: "Zalando", price: "€ 26,95", originalPrice: null, shipping: "Gratis bezorging · 100 dagen retour", deliveryDate: "overmorgen", stock: 12, onTime: 97.2, seller: "Zalando", url: "#", rating: 4.7, reviews: 8921 },
-  { name: "bol.com", price: "€ 27,99", originalPrice: null, shipping: "Gratis bezorging morgen", deliveryDate: "morgen", stock: 3, onTime: 94.1, seller: "bol.com", url: "#", rating: 4.6, reviews: 15203 },
+  { name: "SportsDirect", domain: "sportsdirect.com", price: "€ 23,99", originalPrice: null, shipping: "Gratis verzending", deliveryDate: "komende donderdag", stock: 6, onTime: 91.84, seller: "SportsDirect", url: "#", rating: 4.5, reviews: 1204 },
+  { name: "Zalando", domain: "zalando.nl", price: "€ 26,95", originalPrice: null, shipping: "Gratis bezorging · 100 dagen retour", deliveryDate: "overmorgen", stock: 12, onTime: 97.2, seller: "Zalando", url: "#", rating: 4.7, reviews: 8921 },
+  { name: "bol.com", domain: "bol.com", price: "€ 27,99", originalPrice: null, shipping: "Gratis bezorging morgen", deliveryDate: "morgen", stock: 3, onTime: 94.1, seller: "bol.com", url: "#", rating: 4.6, reviews: 15203 },
 ];
 
 const PRICE_HISTORY = [
@@ -221,11 +221,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="px-5 py-4">
                 {/* Bovenste rij: logo + naam + prijs + knop */}
                 <div className="flex items-center gap-4">
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                    style={{ backgroundColor: i === 0 ? "#00ca41" : "#173441" }}
-                  >
-                    {store.name.charAt(0)}
+                  <div className="w-11 h-11 rounded-xl bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 overflow-hidden p-1.5">
+                    <img
+                      src={`https://www.google.com/s2/favicons?domain=${store.domain}&sz=64`}
+                      alt={store.name}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-bold text-sm" style={{ color: "#173441" }}>{store.name}</p>
