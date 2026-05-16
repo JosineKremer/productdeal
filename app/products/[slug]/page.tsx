@@ -103,6 +103,27 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <span className="text-sm text-gray-400">laagste prijs</span>
             </div>
             <p className="text-xs text-gray-500 mb-4">Prijsrange: {product.priceRange} bij {product.storeCount} winkels</p>
+
+            {/* Beste winkel details */}
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {[
+                { icon: "M5 13l4 4L19 7", label: "Voorraad", value: `${STORES[0].stock} stuks` },
+                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "Levering", value: STORES[0].deliveryDate },
+                { icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6", label: "Verkoper", value: STORES[0].seller },
+                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Op tijd", value: `${STORES[0].onTime}%` },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-2 bg-white/60 rounded-xl px-3 py-2">
+                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: "#1b693d" }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                  </svg>
+                  <div>
+                    <p className="text-xs text-gray-400 leading-none">{item.label}</p>
+                    <p className="text-xs font-bold mt-0.5" style={{ color: "#173441" }}>{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <a
               href="#vergelijk"
               className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-white font-bold text-sm transition-all hover:opacity-90 hover:shadow-lg"
