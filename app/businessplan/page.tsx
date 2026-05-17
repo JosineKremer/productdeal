@@ -186,63 +186,116 @@ export default function Businessplan() {
           <h2 className="font-serif text-nacht font-light mb-16" style={{ fontSize: "clamp(28px, 3.5vw, 42px)", letterSpacing: "0.05em", lineHeight: 1.15 }}>
             Investering & exploitatie.
           </h2>
-          <div className="grid md:grid-cols-2 gap-16">
+
+          {/* Investeringsoverzicht + exploitatie */}
+          <div className="grid md:grid-cols-2 gap-16 mb-16">
             <div>
               <p className="font-sans font-light uppercase text-steen mb-6" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
                 Eenmalige investering
               </p>
               {[
-                { post: "Aankoop pand", bedrag: "€350.000 – €500.000" },
-                { post: "Verbouwing & inrichting", bedrag: "€150.000 – €200.000" },
-                { post: "Technische installaties", bedrag: "€60.000 – €90.000" },
-                { post: "Inventaris & apparatuur", bedrag: "€25.000 – €40.000" },
-                { post: "Café-inrichting", bedrag: "€20.000 – €30.000" },
-                { post: "Marketing & branding", bedrag: "€15.000 – €25.000" },
-                { post: "Werkkapitaal (6 mnd)", bedrag: "€40.000 – €60.000" },
-                { post: "Onvoorzien (10%)", bedrag: "€67.000 – €97.000" },
+                { post: "Aankoop pand", bedrag: "€550.000 – €750.000", note: "eigen pand, waardevast actief" },
+                { post: "Verbouwing & inrichting", bedrag: "€200.000 – €300.000", note: "thermale installaties, interieur" },
+                { post: "Technische installaties", bedrag: "€60.000 – €90.000", note: "water, stoom, ventilatie, elektra" },
+                { post: "Inventaris & apparatuur", bedrag: "€25.000 – €40.000", note: "plunge units, jacuzzi, massagetafels" },
+                { post: "Café-inrichting", bedrag: "€20.000 – €30.000", note: "bar, meubilair, koffieapparaat" },
+                { post: "Marketing & branding", bedrag: "€15.000 – €25.000", note: "huisstijl, website, opening" },
+                { post: "Werkkapitaal (6 mnd)", bedrag: "€40.000 – €60.000", note: "buffer opbouwfase" },
+                { post: "Onvoorzien (10%)", bedrag: "€92.000 – €130.000", note: "" },
               ].map((r) => (
-                <div key={r.post} className="flex justify-between py-3 border-b border-steen/15">
-                  <span className="font-sans font-light" style={{ fontSize: "14px", color: "#5C5248" }}>{r.post}</span>
-                  <span className="font-sans font-light" style={{ fontSize: "14px", color: "#2C2A25" }}>{r.bedrag}</span>
+                <div key={r.post} className="py-3 border-b border-steen/15">
+                  <div className="flex justify-between">
+                    <span className="font-sans font-light" style={{ fontSize: "14px", color: "#5C5248" }}>{r.post}</span>
+                    <span className="font-sans font-light" style={{ fontSize: "14px", color: "#2C2A25" }}>{r.bedrag}</span>
+                  </div>
+                  {r.note && (
+                    <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>{r.note}</div>
+                  )}
                 </div>
               ))}
-              <div className="flex justify-between py-4 mt-1">
-                <span className="font-serif font-light text-nacht" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>Totaal</span>
-                <span className="font-serif font-light text-warm" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>€737.000 – €1.062.000</span>
+              <div className="flex justify-between py-4 mt-1" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+                <span className="font-serif font-light text-nacht" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>Totaal all-in</span>
+                <span className="font-serif font-light text-warm" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>€1.002.000 – €1.425.000</span>
               </div>
+              <p className="font-sans font-light mt-3" style={{ fontSize: "12px", color: "#C8BAA8" }}>
+                Het pand (€550k–€750k) is een waardevast actief en telt niet als verliespost — het opgebouwde eigen vermogen blijft behouden.
+              </p>
             </div>
+
             <div>
               <p className="font-sans font-light uppercase text-steen mb-6" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
                 Maandelijkse exploitatie (jaar 1)
               </p>
               {[
-                { post: "Hypotheeklasten", bedrag: "€1.800 – €2.500" },
-                { post: "Personeel (3–5 FTE)", bedrag: "€8.000 – €12.000" },
-                { post: "Energie (thermaal)", bedrag: "€2.000 – €3.500" },
-                { post: "Inkoop café & massages", bedrag: "€1.500 – €2.500" },
-                { post: "Marketing & social", bedrag: "€1.000 – €2.000" },
-                { post: "Overige kosten", bedrag: "€2.100 – €3.600" },
+                { post: "Hypotheeklasten pand", bedrag: "€3.000 – €4.200", note: "4,5% rente, 25 jaar looptijd" },
+                { post: "Personeel (3–5 FTE)", bedrag: "€8.000 – €12.000", note: "mix part-time en full-time" },
+                { post: "Energie (thermaal)", bedrag: "€2.000 – €3.500", note: "hoog verbruik sauna, stoom, water" },
+                { post: "Inkoop café & massages", bedrag: "€1.500 – €2.500", note: "~30% van horeca-omzet" },
+                { post: "Marketing & social media", bedrag: "€1.000 – €2.000", note: "doorlopend na opening" },
+                { post: "Verzekeringen & admin", bedrag: "€800 – €1.400", note: "bedrijf, aansprakelijkheid, boekhouding" },
+                { post: "Onderhoud & schoonmaak", bedrag: "€800 – €1.200", note: "dagelijks + periodiek" },
+                { post: "Overige kosten", bedrag: "€500 – €1.000", note: "software, verbruiksmaterialen" },
               ].map((r) => (
-                <div key={r.post} className="flex justify-between py-3 border-b border-steen/15">
-                  <span className="font-sans font-light" style={{ fontSize: "14px", color: "#5C5248" }}>{r.post}</span>
-                  <span className="font-sans font-light" style={{ fontSize: "14px", color: "#2C2A25" }}>{r.bedrag}</span>
+                <div key={r.post} className="py-3 border-b border-steen/15">
+                  <div className="flex justify-between">
+                    <span className="font-sans font-light" style={{ fontSize: "14px", color: "#5C5248" }}>{r.post}</span>
+                    <span className="font-sans font-light" style={{ fontSize: "14px", color: "#2C2A25" }}>{r.bedrag}</span>
+                  </div>
+                  {r.note && (
+                    <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>{r.note}</div>
+                  )}
                 </div>
               ))}
-              <div className="flex justify-between py-4 mt-1">
+              <div className="flex justify-between py-4 mt-1" style={{ borderTop: "0.5px solid #C8BAA8" }}>
                 <span className="font-serif font-light text-nacht" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>Break-even omzet</span>
-                <span className="font-serif font-light text-warm" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>~€22.000 / maand</span>
+                <span className="font-serif font-light text-warm" style={{ fontSize: "18px", letterSpacing: "0.03em" }}>~€25.000 / maand</span>
               </div>
-              <div className="mt-10 p-8 bg-nacht">
-                <p className="font-sans text-lin/30 uppercase font-light mb-3" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-                  Omzetpotentieel jaar 1
-                </p>
-                <p className="font-serif text-lin font-light" style={{ fontSize: "clamp(22px, 3vw, 32px)", letterSpacing: "0.05em" }}>
-                  €18.000 – €28.000
-                </p>
-                <p className="font-sans text-lin/30 font-light mt-2" style={{ fontSize: "13px" }}>
-                  per maand (conservatieve schatting)
-                </p>
-              </div>
+            </div>
+          </div>
+
+          {/* Omzet + terugverdientijd */}
+          <div className="grid md:grid-cols-3 gap-[2px]" style={{ background: "#C8BAA8" }}>
+            <div className="p-8 bg-nacht">
+              <p className="font-sans text-lin/30 uppercase font-light mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                Omzetpotentieel jaar 1
+              </p>
+              <p className="font-serif text-lin font-light" style={{ fontSize: "clamp(20px, 2.5vw, 28px)", letterSpacing: "0.05em" }}>
+                €20.000 – €30.000
+              </p>
+              <p className="font-sans text-lin/30 font-light mt-2" style={{ fontSize: "13px" }}>
+                per maand · conservatieve schatting
+              </p>
+              <p className="font-sans text-lin/20 font-light mt-3 leading-relaxed" style={{ fontSize: "12px" }}>
+                Gebaseerd op 400–550 bezoekers/mnd à €45, aangevuld met massages, café en events.
+              </p>
+            </div>
+            <div className="p-8 bg-wit">
+              <p className="font-sans text-steen uppercase font-light mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                Stabiele exploitatie (jaar 2–3)
+              </p>
+              <p className="font-serif text-nacht font-light" style={{ fontSize: "clamp(20px, 2.5vw, 28px)", letterSpacing: "0.05em" }}>
+                €28.000 – €40.000
+              </p>
+              <p className="font-sans font-light mt-2" style={{ fontSize: "13px", color: "#8C7F6E" }}>
+                per maand · bij volle bezetting
+              </p>
+              <p className="font-sans font-light mt-3 leading-relaxed" style={{ fontSize: "12px", color: "#C8BAA8" }}>
+                Nettoprofit na alle kosten: €8.000 – €15.000 per maand (€96k – €180k per jaar).
+              </p>
+            </div>
+            <div className="p-8 bg-wit">
+              <p className="font-sans text-steen uppercase font-light mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                Terugverdientijd
+              </p>
+              <p className="font-serif text-nacht font-light" style={{ fontSize: "clamp(20px, 2.5vw, 28px)", letterSpacing: "0.05em" }}>
+                4 – 7 jaar
+              </p>
+              <p className="font-sans font-light mt-2" style={{ fontSize: "13px", color: "#8C7F6E" }}>
+                operationele investering
+              </p>
+              <p className="font-sans font-light mt-3 leading-relaxed" style={{ fontSize: "12px", color: "#C8BAA8" }}>
+                De operationele investering (€450k–€675k excl. pand) is terugverdiend in 4–7 jaar. Het pand zelf is een waardevast actief dat bij verkoop volledig behouden blijft.
+              </p>
             </div>
           </div>
         </div>
