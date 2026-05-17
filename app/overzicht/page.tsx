@@ -63,6 +63,36 @@ export default function Overzicht() {
         </div>
       </section>
 
+      {/* FOTOGRID */}
+      <section className="bg-nacht py-0">
+        <div className="grid grid-cols-4 gap-[2px]">
+          {[
+            { src: "/sfeer/overzicht.png", alt: "Overzicht" },
+            { src: "/sfeer/sauna.png", alt: "Sauna" },
+            { src: "/sfeer/coldplunge.png", alt: "Cold Plunge" },
+            { src: "/sfeer/exterieur.png", alt: "Exterieur" },
+            { src: "/sfeer/firecircle.png", alt: "Fire Circle" },
+            { src: "/sfeer/jacuzzi.png", alt: "Jacuzzi" },
+            { src: "/sfeer/steamdome.png", alt: "Steam Dome" },
+            { src: "/sfeer/tuin.png", alt: "Tuin" },
+          ].map((img) => (
+            <div key={img.src} className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition-colors duration-500" />
+              <div className="absolute bottom-3 left-3">
+                <span className="font-sans text-lin/60 uppercase font-light" style={{ fontSize: "8px", letterSpacing: "0.25em" }}>
+                  {img.alt}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* LINKS */}
       <section className="flex-1 bg-lin py-24 px-6">
         <div className="max-w-3xl mx-auto">
