@@ -333,6 +333,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── OVERZICHT FOTO ──────────────────────────────────────── */}
+      <div className="relative w-full overflow-hidden" style={{ height: "80vh" }}>
+        <img
+          src="/sfeer/overzicht.png"
+          alt="Luchtfoto Norde — dome, pools, tuin en fire circle vanuit de lucht"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute bottom-10 left-10 right-10 md:right-auto">
+          <p
+            className="font-serif text-lin font-light italic leading-tight"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+          >
+            Een plek op zichzelf.
+          </p>
+          <p
+            className="font-sans text-lin/40 uppercase font-light mt-3"
+            style={{ fontSize: "9px", letterSpacing: "0.3em" }}
+          >
+            Norde Social Recovery Club · Groningen
+          </p>
+        </div>
+      </div>
+
       {/* ── CONCEPT ─────────────────────────────────────────────── */}
       <section id="concept" className="bg-lin py-24 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
@@ -478,30 +502,6 @@ export default function Home() {
 
       {/* ── SFEERBEELDEN GALERIJ ────────────────────────────────── */}
       <section id="sfeer" className="bg-nacht py-0">
-
-        {/* Overzicht — volledig breed */}
-        <div className="relative w-full overflow-hidden" style={{ height: "80vh" }}>
-          <img
-            src="/sfeer/overzicht.png"
-            alt="Luchtfoto Norde — dome, pools, tuin en fire circle vanuit de lucht"
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-          <div className="absolute bottom-10 left-10 right-10 md:right-auto">
-            <p
-              className="font-serif text-lin font-light italic leading-tight"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
-            >
-              Een plek op zichzelf.
-            </p>
-            <p
-              className="font-sans text-lin/40 uppercase font-light mt-3"
-              style={{ fontSize: "9px", letterSpacing: "0.3em" }}
-            >
-              Norde Social Recovery Club · Groningen
-            </p>
-          </div>
-        </div>
 
         {/* 2-koloms: Het café + Cold plunge */}
         <div className="grid grid-cols-1 md:grid-cols-2">
