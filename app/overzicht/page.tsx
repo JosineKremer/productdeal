@@ -1,25 +1,22 @@
 export default function Overzicht() {
   const links = [
     {
+      meta: "Intern · Vertrouwelijk",
+      title: "Businessplan 2025–2027",
+      desc: "Concept, markt, financieel plan en go-to-market strategie",
+      href: "/businessplan",
+    },
+    {
       meta: "Website · Live",
       title: "De website",
       desc: "Openbare homepage van Norde Social Recovery Club",
       href: "/",
-      cold: false,
     },
     {
       meta: "Brand · Huisstijl",
       title: "Huisstijlgids",
       desc: "Kleurpalet, typografie, logo en visuele identiteit",
       href: "/huisstijl.html",
-      cold: true,
-    },
-    {
-      meta: "Intern · Vertrouwelijk",
-      title: "Businessplan 2025–2027",
-      desc: "Concept, markt, financieel plan en go-to-market strategie",
-      href: "/businessplan",
-      cold: false,
     },
   ];
 
@@ -63,28 +60,8 @@ export default function Overzicht() {
         </div>
       </section>
 
-      {/* FOTOGRID */}
-      <section className="bg-nacht py-0">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-[2px]">
-          {[
-            { src: "/sfeer/overzicht.png", alt: "Overzicht" },
-            { src: "/sfeer/sauna.png", alt: "Sauna" },
-            { src: "/sfeer/coldplunge.png", alt: "Cold Plunge" },
-            { src: "/sfeer/firecircle.png", alt: "Fire Circle" },
-          ].map((img) => (
-            <div key={img.src} className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* LINKS */}
-      <section className="flex-1 bg-lin py-24 px-6">
+      <section className="flex-1 bg-lin py-12 px-6">
         <div className="max-w-3xl mx-auto">
 
           <div style={{ marginTop: "0" }}>
@@ -129,6 +106,22 @@ export default function Overzicht() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FOTOGRID */}
+      <section className="bg-nacht py-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-[2px]">
+          {[
+            { src: "/sfeer/overzicht.png", alt: "Overzicht" },
+            { src: "/sfeer/sauna.png", alt: "Sauna" },
+            { src: "/sfeer/coldplunge.png", alt: "Cold Plunge" },
+            { src: "/sfeer/firecircle.png", alt: "Fire Circle" },
+          ].map((img) => (
+            <div key={img.src} className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
+              <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+            </div>
+          ))}
         </div>
       </section>
 
