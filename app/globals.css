@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Norde huisstijl — versie 1.0 */
+  --color-nacht:      #2C2A25;
+  --color-eiken:      #3D2B1A;
+  --color-ijssel:     #1C2E40;
+  --color-steen:      #C8BAA8;
+  --color-lin:        #F2EDE6;
+  --color-koud:       #4A7A9B;
+  --color-warm:       #A07040;
+  --color-koud-licht: #B8D4E8;
+  --color-warm-licht: #D4A878;
+  --color-wit:        #FAF8F4;
+
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans:  var(--font-jost), "Jost", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-lin);
+  color: var(--color-nacht);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-koud);
+  color: var(--color-lin);
 }
