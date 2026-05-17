@@ -206,13 +206,22 @@ export default function Home() {
             ))}
           </div>
 
-          <a
-            href="#reserveer"
-            className="font-sans text-lin uppercase bg-warm hover:bg-warm-licht transition-colors duration-200 font-light"
-            style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "10px 20px" }}
-          >
-            Reserveer
-          </a>
+          <div className="flex items-center gap-5">
+            <a
+              href="/overzicht"
+              className="font-sans text-lin/40 hover:text-lin/70 uppercase transition-colors duration-200 font-light"
+              style={{ fontSize: "9px", letterSpacing: "0.3em" }}
+            >
+              ← Overzicht
+            </a>
+            <a
+              href="#reserveer"
+              className="font-sans text-lin uppercase bg-warm hover:bg-warm-licht transition-colors duration-200 font-light"
+              style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "10px 20px" }}
+            >
+              Reserveer
+            </a>
+          </div>
         </div>
       </nav>
 

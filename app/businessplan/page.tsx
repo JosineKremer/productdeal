@@ -37,9 +37,13 @@ export default function Businessplan() {
               Social Recovery Club
             </div>
           </a>
-          <div className="font-sans text-lin/30 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-            Businessplan · Vertrouwelijk
-          </div>
+          <a
+            href="/overzicht"
+            className="font-sans text-lin/30 hover:text-lin/60 uppercase font-light transition-colors duration-200"
+            style={{ fontSize: "9px", letterSpacing: "0.3em" }}
+          >
+            ← Overzicht
+          </a>
         </div>
       </nav>
 

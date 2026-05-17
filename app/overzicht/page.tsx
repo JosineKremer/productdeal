@@ -58,36 +58,26 @@ export default function Overzicht() {
           </h1>
           <div className="w-px bg-lin/20 my-5" style={{ height: "28px" }} />
           <p className="font-sans text-lin/40 uppercase font-light" style={{ fontSize: "10px", letterSpacing: "0.35em" }}>
-            Overzicht documenten
+            Norde Social Recovery Club
           </p>
         </div>
       </section>
 
       {/* FOTOGRID */}
       <section className="bg-nacht py-0">
-        <div className="grid grid-cols-4 gap-[2px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-[2px]">
           {[
             { src: "/sfeer/overzicht.png", alt: "Overzicht" },
             { src: "/sfeer/sauna.png", alt: "Sauna" },
             { src: "/sfeer/coldplunge.png", alt: "Cold Plunge" },
-            { src: "/sfeer/exterieur.png", alt: "Exterieur" },
             { src: "/sfeer/firecircle.png", alt: "Fire Circle" },
-            { src: "/sfeer/jacuzzi.png", alt: "Jacuzzi" },
-            { src: "/sfeer/steamdome.png", alt: "Steam Dome" },
-            { src: "/sfeer/tuin.png", alt: "Tuin" },
           ].map((img) => (
             <div key={img.src} className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition-colors duration-500" />
-              <div className="absolute bottom-3 left-3">
-                <span className="font-sans text-lin/60 uppercase font-light" style={{ fontSize: "8px", letterSpacing: "0.25em" }}>
-                  {img.alt}
-                </span>
-              </div>
             </div>
           ))}
         </div>
@@ -97,14 +87,8 @@ export default function Overzicht() {
       <section className="flex-1 bg-lin py-24 px-6">
         <div className="max-w-3xl mx-auto">
 
-          <div className="flex items-center gap-5 mb-12">
-            <span className="font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light text-steen">
-              Documenten
-            </span>
-            <div className="flex-1 bg-steen/40" style={{ height: "0.5px" }} />
-          </div>
+          <div style={{ marginTop: "0" }}>
 
-          <div>
             {links.map((link, i) => (
               <a
                 key={i}
