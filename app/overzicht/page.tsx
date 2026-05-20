@@ -2,7 +2,7 @@ export default function Overzicht() {
   const links = [
     {
       meta: "Intern · Vertrouwelijk",
-      title: "Businessplan 2025–2027",
+      title: "Businessplan 2025-2028",
       desc: "Concept, kernwaarden, duurzaamheid, markt en go-to-market strategie",
       href: "/businessplan",
       lock: false,
@@ -10,14 +10,14 @@ export default function Overzicht() {
     {
       meta: "Intern · Investeerders",
       title: "Financieel Plan",
-      desc: "Investering, exploitatie, omzetprognose en conservatief scenario — beveiligd",
+      desc: "Investering, exploitatie, omzetprognose en conservatief scenario - beveiligd",
       href: "/businessplan/financieel",
       lock: true,
     },
     {
       meta: "Website · Live",
       title: "De website",
-      desc: "Openbare homepage van NOORD Social Recovery Club",
+      desc: "Openbare homepage van NORDE Wellness Recovery Club",
       href: "/",
       lock: false,
     },
@@ -36,8 +36,8 @@ export default function Overzicht() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-nacht" style={{ height: "52px" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-14 h-full flex items-center justify-between">
-          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "22px", letterSpacing: "0.05em", lineHeight: 1 }}>
-            NOORD
+          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "16px", letterSpacing: "0.05em", lineHeight: 1 }}>
+            NORDE
           </a>
           <div className="font-sans text-lin/30 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
             Overzicht
@@ -53,10 +53,10 @@ export default function Overzicht() {
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-6" style={{ minHeight: "42vh" }}>
           <div className="font-sans text-lin/30 uppercase font-light mb-8" style={{ fontSize: "9px", letterSpacing: "0.4em" }}>
-            Groningen · Opening 2026
+            Groningen · Opening 2028
           </div>
           <h1 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(52px, 10vw, 110px)", letterSpacing: "0.06em", lineHeight: 1 }}>
-            NOORD
+            NORDE
           </h1>
           <div className="w-px bg-lin/20 my-5" style={{ height: "28px" }} />
           <p className="font-sans text-lin/40 uppercase font-light" style={{ fontSize: "10px", letterSpacing: "0.35em" }}>

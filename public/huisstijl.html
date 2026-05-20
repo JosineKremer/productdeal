@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NORDE — Huisstijlgids</title>
+<title>NORDE - Huisstijlgids</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
+  @font-face { font-family: 'Nord'; src: url('/fonts/nord-light.ttf') format('truetype'); font-weight: 300; font-style: normal; }
+  @font-face { font-family: 'Nord'; src: url('/fonts/nord-regular.ttf') format('truetype'); font-weight: 400; font-style: normal; }
+  @font-face { font-family: 'Nord'; src: url('/fonts/nord-bold.ttf') format('truetype'); font-weight: 700; font-style: normal; }
+  @font-face { font-family: 'Nord'; src: url('/fonts/nord-black.ttf') format('truetype'); font-weight: 900; font-style: normal; }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -19,6 +24,7 @@
     --koud-licht:#B8D4E8;
     --warm-licht:#D4A878;
     --wit:       #FAF8F4;
+    --brand:     'Nord', system-ui, sans-serif;
     --display:   'Cormorant Garamond', Georgia, serif;
     --body:      'Jost', sans-serif;
   }
@@ -70,10 +76,10 @@
   }
 
   .cover-name {
-    font-family: var(--display);
-    font-weight: 300;
+    font-family: var(--brand);
+    font-weight: 900;
     font-size: clamp(72px, 10vw, 140px);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.05em;
     color: var(--lin);
     line-height: 1;
     display: block;
@@ -219,18 +225,18 @@
   .logo-box-warm { background: var(--eiken); }
 
   .logo-display {
-    font-family: var(--display);
-    font-weight: 300;
-    letter-spacing: 0.2em;
+    font-family: var(--brand);
+    font-weight: 900;
+    letter-spacing: 0.05em;
     font-size: 52px;
     color: var(--lin);
     line-height: 1;
   }
 
   .logo-display-dark {
-    font-family: var(--display);
-    font-weight: 300;
-    letter-spacing: 0.2em;
+    font-family: var(--brand);
+    font-weight: 900;
+    letter-spacing: 0.05em;
     font-size: 52px;
     color: var(--nacht);
     line-height: 1;
@@ -257,13 +263,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
   }
 
   .logo-split-name {
-    font-family: var(--display);
-    font-weight: 300;
+    font-family: var(--brand);
+    font-weight: 900;
     font-size: 48px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
     color: var(--lin);
     line-height: 1;
     position: absolute;
@@ -320,6 +328,7 @@
 
   .logo-rule {
     height: 0.5px;
+    width: 140px;
     background: rgba(242,237,230,0.2);
     margin: 12px 0;
   }
@@ -406,13 +415,14 @@
   }
 
   .type-specimen-large {
-    font-family: var(--display);
-    font-weight: 300;
+    font-family: var(--brand);
+    font-weight: 900;
     font-size: clamp(64px, 8vw, 112px);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.03em;
     line-height: 0.9;
     color: var(--nacht);
     margin-bottom: 40px;
+    text-transform: uppercase;
   }
 
   .type-specimen-italic {
@@ -599,10 +609,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: var(--display);
+    font-family: var(--brand);
     font-size: 28px;
-    font-weight: 300;
-    letter-spacing: 0.15em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
     color: var(--lin);
     white-space: nowrap;
   }
@@ -637,10 +647,10 @@
   }
 
   .tag-name {
-    font-family: var(--display);
+    font-family: var(--brand);
     font-size: 20px;
-    font-weight: 300;
-    letter-spacing: 0.15em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
     color: var(--nacht);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -666,10 +676,10 @@
   }
 
   .footer-name {
-    font-family: var(--display);
+    font-family: var(--brand);
     font-size: 40px;
-    font-weight: 300;
-    letter-spacing: 0.2em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
     color: var(--lin);
   }
 
@@ -696,7 +706,7 @@
 </head>
 <body>
 <nav style="position:fixed;top:0;left:0;right:0;height:52px;background:#2C2A25;display:flex;align-items:center;padding:0 40px;z-index:100;justify-content:space-between;">
-  <a href="/" style="font-family:'Cormorant Garamond',serif;font-weight:300;color:#F2EDE6;font-size:22px;letter-spacing:0.2em;text-decoration:none;line-height:1;">NORDE</a>
+  <a href="/" style="font-family:'Nord',system-ui,sans-serif;font-weight:900;color:#F2EDE6;font-size:16px;letter-spacing:0.05em;text-decoration:none;line-height:1;">NORDE</a>
   <a href="/overzicht" style="font-family:'Jost',sans-serif;font-weight:300;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(242,237,230,0.4);text-decoration:none;">← Overzicht</a>
 </nav>
 
@@ -713,7 +723,7 @@
   <div class="cover-brand">
     <span class="cover-name">NORDE</span>
     <div class="cover-divider"></div>
-    <div class="cover-sub">Huisstijlgids · Versie 1.0 · 2025</div>
+    <div class="cover-sub">Huisstijlgids · Versie 2.0 · 2026</div>
   </div>
 </div>
 
@@ -723,25 +733,25 @@
   <a href="#kleur">Kleur</a>
   <a href="#typografie">Typografie</a>
   <a href="#gebruik">Gebruik</a>
-  <a href="#stem">Stem</a>
   <a href="#toepassingen">Toepassingen</a>
 </nav>
 
 <!-- INTRO -->
 <section>
   <div class="section-label">Over dit document</div>
-  <h2>De identiteit van Norde</h2>
-  <p>Norde is een boutique thermaal wellness concept in Groningen. Onze identiteit is gebouwd op één kerngedachte: het contrast tussen warmte en kou. Dit contrast zit in alles, van het logo tot de toon van onze teksten, van de materialen in het interieur tot de kleuren op papier.</p>
-  <p>Dit document beschrijft hoe het merk Norde wordt toegepast. Consequent en met overtuiging, zodat elke uitdrukking van het merk herkenbaar, sterk en oprecht is.</p>
+  <h2>De identiteit van NORDE</h2>
+  <p>NORDE is een boutique thermaal wellness concept in Groningen. Onze identiteit is gebouwd op één kerngedachte: het contrast tussen warmte en kou. Dit contrast zit in alles - van het logo tot de toon van onze teksten, van de materialen in het interieur tot de kleuren op papier.</p>
+  <p>Versie 2.0 introduceert <strong>Nord Black</strong> als nieuw merkfont voor het woordmerk en de koppen - een geometrisch, zwaar sans-serif lettertype dat NORDE een directere, hedendaagse uitstraling geeft.</p>
+  <p>Dit document beschrijft hoe het merk NORDE wordt toegepast. Consequent en met overtuiging, zodat elke uitdrukking van het merk herkenbaar, sterk en oprecht is.</p>
 </section>
 
 <div class="divider"></div>
 
 <!-- LOGO -->
 <section id="logo">
-  <div class="section-label">01 — Logo</div>
+  <div class="section-label">01 - Logo</div>
   <h2>Het woordmerk</h2>
-  <p>Het logo van Norde is een gesplitst woordmerk. De linkerhelft staat in koud nachtblauw, de rechterhelft in warm eikenhout-bruin. Samen vormen ze de naam. De splitsing is het logo.</p>
+  <p>Het logo van NORDE is een gesplitst woordmerk in <strong>Nord Black (900)</strong> - een geometrisch, zwaar sans-serif lettertype met een directe, hedendaagse uitstraling. De linkerhelft staat in koud nachtblauw, de rechterhelft in warm eikenhout-bruin. Samen vormen ze de naam. De splitsing is het logo.</p>
 
   <div class="logo-grid">
 
@@ -750,20 +760,19 @@
       <div class="logo-split-cold">
         <div class="logo-temp-cold">8°</div>
         <div class="logo-rule"></div>
-        <div class="logo-sub">SOCIAL RECOVERY</div>
+        <div class="logo-sub">WELLNESS RECOVERY</div>
         <div class="logo-sub">CLUB · GRONINGEN</div>
         <div style="height:8px"></div>
-        <div class="logo-sub" style="opacity:0.3">EST. 2027</div>
+        <div class="logo-sub" style="opacity:0.3">EST. 2028</div>
       </div>
       <div class="logo-split-warm">
         <div class="logo-temp-warm">90°</div>
         <div class="logo-rule"></div>
-        <div class="logo-sub">SOCIAL RECOVERY</div>
+        <div class="logo-sub">WELLNESS RECOVERY</div>
         <div class="logo-sub">CLUB · GRONINGEN</div>
         <div style="height:8px"></div>
-        <div class="logo-sub" style="opacity:0.3">EST. 2027</div>
+        <div class="logo-sub" style="opacity:0.3">EST. 2028</div>
       </div>
-      <div class="logo-split-line"></div>
       <div class="logo-split-name">NORDE</div>
     </div>
 
@@ -788,10 +797,10 @@
     <!-- Minimaal: alleen temperaturen -->
     <div class="logo-box" style="background:#F2EDE6; border:0.5px solid #C8BAA8; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:8px;">
       <div style="font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.4em; color:var(--koud); font-weight:300;">8°</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300; letter-spacing:0.2em; color:var(--nacht); line-height:1;">NORDE</div>
+      <div style="font-family:'Nord',system-ui,sans-serif; font-size:48px; font-weight:900; letter-spacing:0.05em; color:var(--nacht); line-height:1;">NORDE</div>
       <div style="font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.4em; color:var(--warm); font-weight:300;">90°</div>
       <div style="height:0.5px; width:80px; background:#C8BAA8; margin:8px 0;"></div>
-      <div style="font-family:'Jost',sans-serif; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--steen);">Social Recovery Club · Groningen</div>
+      <div style="font-family:'Jost',sans-serif; font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--steen);">Wellness Recovery Club · Groningen</div>
     </div>
 
   </div>
@@ -801,7 +810,7 @@
 
 <!-- KLEUR -->
 <section id="kleur">
-  <div class="section-label">02 — Kleurpalet</div>
+  <div class="section-label">02 - Kleurpalet</div>
   <h2>Vijf kernkleuren</h2>
   <p>Het palet is ontleend aan de materialen en het landschap van Noord-Nederland. Hout, steen, water, linnen en de avondlucht boven de polder. Twee accentkleuren verwijzen direct naar het thermale concept.</p>
 
@@ -851,9 +860,9 @@
 
 <!-- TYPOGRAFIE -->
 <section id="typografie">
-  <div class="section-label">03 — Typografie</div>
-  <h2>Twee lettertypes</h2>
-  <p>Cormorant Garamond als display lettertype — tijdloos, Europees, met karakter. Jost Light als functioneel lettertype voor body tekst en labels. Samen geven ze Norde zowel warmte als helderheid.</p>
+  <div class="section-label">03 - Typografie</div>
+  <h2>Drie lettertypes</h2>
+  <p><strong>Nord</strong> als merk- en displayfont voor het logo en koppen - zwaar, geometrisch, hedendaags. <strong>Cormorant Garamond</strong> als ornamentaal serif voor temperatuur-accenten (8°, 90°) en kleine elegante details. <strong>Jost Light</strong> als functioneel lettertype voor body tekst en labels. Samen geven ze NORDE karakter, warmte én helderheid.</p>
 
   <div class="type-section">
     <div class="type-specimen-large">Stilte.<br>Warmte.<br>Contrast.</div>
@@ -864,28 +873,28 @@
 
     <div class="type-meta-row">
       <div>
-        <div class="type-meta-label">Display — Cormorant Garamond</div>
+        <div class="type-meta-label">Merk &amp; display - Nord Black</div>
         <div class="type-scale-row">
           <div class="type-scale-item">
             <span class="type-scale-size">112px</span>
-            <span style="font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:var(--nacht);">Kop 1</span>
+            <span style="font-family:'Nord',system-ui,sans-serif; font-size:40px; font-weight:900; letter-spacing:0.03em; color:var(--nacht); text-transform:uppercase;">Kop 1</span>
           </div>
           <div class="type-scale-item">
             <span class="type-scale-size">56px</span>
-            <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--nacht);">Kop 2</span>
+            <span style="font-family:'Nord',system-ui,sans-serif; font-size:28px; font-weight:700; letter-spacing:0.03em; color:var(--nacht); text-transform:uppercase;">Kop 2</span>
           </div>
           <div class="type-scale-item">
             <span class="type-scale-size">32px</span>
-            <span style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; color:var(--nacht);">Kop 3</span>
+            <span style="font-family:'Nord',system-ui,sans-serif; font-size:20px; font-weight:700; letter-spacing:0.03em; color:var(--nacht); text-transform:uppercase;">Kop 3</span>
           </div>
           <div class="type-scale-item">
             <span class="type-scale-size">22px</span>
-            <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; font-weight:300; color:#8C7F6E;">Quote / tagline cursief</span>
+            <span style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; letter-spacing:0.25em; color:#8C7F6E;">8°&nbsp;&nbsp;90°</span>
           </div>
         </div>
       </div>
       <div>
-        <div class="type-meta-label">Body — Jost Light</div>
+        <div class="type-meta-label">Body - Jost Light</div>
         <div class="type-scale-row">
           <div class="type-scale-item">
             <span class="type-scale-size">16px</span>
@@ -913,33 +922,33 @@
 
 <!-- GEBRUIK -->
 <section id="gebruik">
-  <div class="section-label">04 — Logo gebruik</div>
+  <div class="section-label">04 - Logo gebruik</div>
   <h2>Wat wel en niet mag</h2>
 
   <div class="usage-grid">
     <div class="usage-box do" style="border:0.5px solid #C8D8C8;">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; letter-spacing:0.18em; color:var(--nacht);">NORDE</div>
+      <div style="font-family:'Nord',system-ui,sans-serif; font-size:32px; font-weight:900; letter-spacing:0.05em; color:var(--nacht);">NORDE</div>
       <div>
         <div class="do-indicator">✓ Correct</div>
-        <div class="usage-label" style="color:#5A8A5A;">Woordmerk op rustige achtergrond, voldoende witruimte</div>
+        <div class="usage-label" style="color:#5A8A5A;">Woordmerk in Nord Black, op rustige achtergrond met voldoende witruimte</div>
       </div>
     </div>
 
     <div class="usage-box dont" style="border:0.5px solid #D8C8C8;">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; letter-spacing:0.18em; color:var(--nacht);" class="dont-text">NORDE</div>
+      <div style="font-family:'Nord',system-ui,sans-serif; font-size:32px; font-weight:300; letter-spacing:0.05em; color:var(--nacht);" class="dont-text">NORDE</div>
       <div>
         <div class="dont-indicator">✗ Niet doen</div>
-        <div class="usage-label" style="color:#8A5A5A;">Logo vet maken of andere gewichten gebruiken</div>
+        <div class="usage-label" style="color:#8A5A5A;">Logo licht maken of andere gewichten gebruiken - altijd Nord Black (900)</div>
       </div>
     </div>
 
     <div class="usage-box do" style="border:0.5px solid #C8D8C8;">
       <div style="display:flex; gap:0; width:160px; height:60px;">
         <div style="flex:1; background:var(--ijssel); display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; letter-spacing:0.1em; color:var(--lin);">NOR</span>
+          <span style="font-family:'Nord',system-ui,sans-serif; font-size:20px; font-weight:900; letter-spacing:0.05em; color:var(--lin);">NOR</span>
         </div>
         <div style="flex:1; background:var(--eiken); display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; letter-spacing:0.1em; color:var(--lin);">DE</span>
+          <span style="font-family:'Nord',system-ui,sans-serif; font-size:20px; font-weight:900; letter-spacing:0.05em; color:var(--lin);">DE</span>
         </div>
       </div>
       <div>
@@ -949,15 +958,15 @@
     </div>
 
     <div class="usage-box dont" style="border:0.5px solid #D8C8C8;">
-      <div style="font-family:'Arial',sans-serif; font-size:32px; font-weight:400; letter-spacing:0.05em; color:var(--nacht);">NORDE</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; letter-spacing:0.18em; color:var(--nacht);">NORDE</div>
       <div>
         <div class="dont-indicator">✗ Niet doen</div>
-        <div class="usage-label" style="color:#8A5A5A;">Andere lettertypes gebruiken voor het logo</div>
+        <div class="usage-label" style="color:#8A5A5A;">Andere lettertypes gebruiken voor het logo (geen serif, geen Arial)</div>
       </div>
     </div>
 
     <div class="usage-box do" style="border:0.5px solid #C8D8C8; background:var(--nacht);">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; letter-spacing:0.18em; color:var(--lin);">NORDE</div>
+      <div style="font-family:'Nord',system-ui,sans-serif; font-size:32px; font-weight:900; letter-spacing:0.05em; color:var(--lin);">NORDE</div>
       <div>
         <div class="do-indicator" style="color:#8ABA8A;">✓ Correct</div>
         <div class="usage-label" style="color:rgba(242,237,230,0.4);">Logo in licht op donkere achtergrond</div>
@@ -965,7 +974,7 @@
     </div>
 
     <div class="usage-box dont" style="border:0.5px solid #D8C8C8; background: linear-gradient(135deg, #667eea, #764ba2);">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; letter-spacing:0.18em; color:white;">NORDE</div>
+      <div style="font-family:'Nord',system-ui,sans-serif; font-size:32px; font-weight:900; letter-spacing:0.05em; color:white;">NORDE</div>
       <div>
         <div class="dont-indicator" style="color:#FFAAAA;">✗ Niet doen</div>
         <div class="usage-label" style="color:rgba(255,255,255,0.5);">Logo op drukke of gekleurde achtergronden</div>
@@ -976,48 +985,9 @@
 
 <div class="divider"></div>
 
-<!-- STEM -->
-<section id="stem">
-  <div class="section-label">05 — Stem &amp; toon</div>
-  <h2>Hoe Norde schrijft</h2>
-  <p>Norde schrijft zoals het voelt: rustig, eerlijk, zonder overdrijving. Geen wellness-jargon. Geen uitroeptekens. Geen lijstjes met voordelen. Alleen wat waar is.</p>
-
-  <div class="tone-grid">
-    <div class="tone-box-dark">
-      <div class="tone-quote">"Kom tot rust. Voel het contrast. Keer terug."</div>
-      <div class="tone-note">Tagline — kort, direct, driedelig</div>
-    </div>
-    <div class="tone-box">
-      <div class="tone-quote-light">"Een plek om even te stoppen met rennen."</div>
-      <div class="tone-note-light">Bodytekst — geen jargon, menselijk</div>
-    </div>
-    <div class="tone-box">
-      <div class="tone-quote-light">"De sauna staat op 90°. Het bad op 8°. Jij bepaalt hoe lang."</div>
-      <div class="tone-note-light">Feitelijk, concreet, geeft autonomie</div>
-    </div>
-    <div class="tone-box-dark">
-      <div class="tone-quote">"Stilte is ook een faciliteit."</div>
-      <div class="tone-note">Bon mot — kort, onverwacht, oprecht</div>
-    </div>
-  </div>
-
-  <div style="margin-top:2px; display:grid; grid-template-columns:1fr 1fr; gap:2px;">
-    <div class="tone-box" style="background:#F5F0F0; border-color:#D8C8C8;">
-      <div class="tone-note-light" style="color:#8A5A5A; margin-bottom:12px;">✗ Niet zo schrijven</div>
-      <div class="tone-quote-light" style="opacity:0.5; text-decoration:line-through; font-size:17px;">"Jouw ultieme wellness journey begint hier! Ervaar onze transformatieve thermale rituelen en voel je herboren!"</div>
-    </div>
-    <div class="tone-box" style="background:#F0F5F0; border-color:#C8D8C8;">
-      <div class="tone-note-light" style="color:#5A8A5A; margin-bottom:12px;">✓ Zo schrijven</div>
-      <div class="tone-quote-light" style="font-size:17px;">"Twee uur. Warmte, kou, stilte. Meer is het niet. Meer heb je niet nodig."</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- TOEPASSINGEN -->
 <section id="toepassingen">
-  <div class="section-label">06 — Toepassingen</div>
+  <div class="section-label">05 - Toepassingen</div>
   <h2>Het merk in de praktijk</h2>
 
   <div class="app-grid">
@@ -1041,7 +1011,7 @@
       <div class="tag-mockup">
         <div class="tag-hole"></div>
         <div class="tag-name">NORDE</div>
-        <div class="tag-sub">Social Recovery<br>Club · Groningen</div>
+        <div class="tag-sub">Wellness Recovery<br>Club · Groningen</div>
       </div>
       <div style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--steen); margin-top:24px;">Hangtag · Linnen handdoek</div>
     </div>
@@ -1049,7 +1019,7 @@
     <!-- Koffiekop -->
     <div class="app-box" style="background:var(--nacht);">
       <div style="width:100px; height:100px; border-radius:50% 50% 45% 45%; background:var(--lin); border:0.5px solid #DDD4C5; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:2px;">
-        <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:300; letter-spacing:0.15em; color:var(--nacht);">N</div>
+        <div style="font-family:'Nord',system-ui,sans-serif; font-size:18px; font-weight:900; letter-spacing:0.05em; color:var(--nacht);">N</div>
         <div style="height:0.5px; width:20px; background:var(--steen);"></div>
         <div style="font-family:'Jost',sans-serif; font-size:5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--steen);">ORDE</div>
       </div>
@@ -1060,16 +1030,16 @@
     <div class="app-box" style="background:var(--ijssel);">
       <div style="display:flex; flex-direction:column; gap:2px; width:180px;">
         <div style="background:rgba(242,237,230,0.05); padding:12px 16px; border-left:1px solid var(--koud-licht);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:300; letter-spacing:0.1em; color:var(--lin);">Sauna · 90°</div>
+          <div style="font-family:'Nord',system-ui,sans-serif; font-size:12px; font-weight:300; letter-spacing:0.1em; color:var(--lin); text-transform:uppercase; white-space:nowrap;">Sauna · 90°</div>
         </div>
         <div style="background:rgba(242,237,230,0.05); padding:12px 16px; border-left:1px solid var(--koud-licht);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:300; letter-spacing:0.1em; color:var(--lin);">Cold Plunge · 8°</div>
+          <div style="font-family:'Nord',system-ui,sans-serif; font-size:12px; font-weight:300; letter-spacing:0.1em; color:var(--lin); text-transform:uppercase; white-space:nowrap;">Cold Plunge · 8°</div>
         </div>
         <div style="background:rgba(242,237,230,0.05); padding:12px 16px; border-left:1px solid var(--koud-licht);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:300; letter-spacing:0.1em; color:var(--lin);">Steam Dome</div>
+          <div style="font-family:'Nord',system-ui,sans-serif; font-size:12px; font-weight:300; letter-spacing:0.1em; color:var(--lin); text-transform:uppercase; white-space:nowrap;">Steam Dome</div>
         </div>
         <div style="background:rgba(242,237,230,0.05); padding:12px 16px; border-left:1px solid var(--koud-licht);">
-          <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:300; letter-spacing:0.1em; color:var(--lin);">Café &amp; Bar</div>
+          <div style="font-family:'Nord',system-ui,sans-serif; font-size:12px; font-weight:300; letter-spacing:0.1em; color:var(--lin); text-transform:uppercase; white-space:nowrap;">Café &amp; Bar</div>
         </div>
       </div>
       <div style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(184,212,232,0.4); margin-top:24px;">Bewegwijzering · Interieur</div>
@@ -1082,12 +1052,12 @@
 <footer>
   <div>
     <div class="footer-name">NORDE</div>
-    <div style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(242,237,230,0.3); margin-top:8px;">Social Recovery Club · Groningen</div>
+    <div style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(242,237,230,0.3); margin-top:8px;">Wellness Recovery Club · Groningen</div>
   </div>
   <div class="footer-meta">
-    Huisstijlgids Versie 1.0<br>
+    Huisstijlgids Versie 2.0<br>
     Vertrouwelijk document<br>
-    © 2025 Norde
+    © 2026 NORDE
   </div>
 </footer>
 

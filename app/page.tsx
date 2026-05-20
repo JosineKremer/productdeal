@@ -25,10 +25,10 @@ function SectionLabel({
 const facilities = [
   {
     name: "Buitenzwembad",
-    sub: "28–30°C · zoutwater · buiten",
+    sub: "30-32°C · zoutwater · buiten",
     temp: "28°",
     koud: false,
-    desc: "Verwarmd buitenzwembad met zoutwaterinstallatie. Geen chloor — elektrolyse reinigt het water. Zachter voor de huid, duurzamer voor de natuur.",
+    desc: "Verwarmd buitenzwembad met zoutwaterinstallatie. Geen chloor - elektrolyse reinigt het water. Zachter voor de huid, duurzamer voor de natuur.",
     icon: (
       <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
         <path d="M4 22c2-2 4-2 6 0s4 2 6 0 4-2 6 0 4 2 6 0" />
@@ -39,8 +39,8 @@ const facilities = [
     ),
   },
   {
-    name: "Magnesiumjacuzzi",
-    sub: "38°C · 8–10 personen · buiten",
+    name: "Magnesium jacuzzi",
+    sub: "38°C · 8-10 personen · buiten",
     temp: "38°",
     koud: false,
     desc: "Magnesiumchloride in het water bevordert spierherstel en ontspanning. Buiten, warm, intiem. Geen kunstmatige toevoegingen.",
@@ -85,7 +85,7 @@ const facilities = [
   },
   {
     name: "Steam Dome",
-    sub: "45–50°C · eucalyptus & kruiden",
+    sub: "45-50°C · eucalyptus & kruiden",
     temp: "45°",
     koud: false,
     desc: "Witte organische koepelstructuur. Eucalyptus en kruiden in de stoom. Geen chemicaliën, alleen aromatherapie.",
@@ -130,10 +130,10 @@ const facilities = [
   },
   {
     name: "Wellness Tuin",
-    sub: "Noord-Nederlands polderlandschap",
+    sub: "Het Groningse landschap",
     temp: null,
     koud: false,
-    desc: "Uitsluitend inheemse planten. Geen bestrijdingsmiddelen. Insectenhotels. Fauna-vriendelijke verlichting.",
+    desc: "Uitsluitend inheemse planten. Geen bestrijdingsmiddelen. Insectenhotels. Faunavriendelijke verlichting.",
     icon: (
       <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
         <path d="M16 28V16" />
@@ -146,48 +146,6 @@ const facilities = [
   },
 ];
 
-const pricing = [
-  {
-    name: "Thermale Dagpas",
-    duration: "3 uur · volledig circuit",
-    price: "45",
-    note: "incl. handdoek & badjas",
-    items: [
-      "Sauna, steam dome, cold plunge",
-      "Buitenzwembad & magnesiumjacuzzi",
-      "Fire circle (indien beschikbaar)",
-      "Onbeperkt café gebruik",
-    ],
-    highlight: false,
-  },
-  {
-    name: "Dag + Massage",
-    duration: "3 uur circuit + 60 min massage",
-    price: "115",
-    note: "meest gekozen",
-    items: [
-      "Volledig thermaal circuit",
-      "60 min Zweedse of deep tissue",
-      "Private behandelkamer",
-      "Incl. handdoek & badjas",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Maandlidmaatschap",
-    duration: "8 bezoeken per maand",
-    price: "160",
-    note: "per maand · opzegbaar",
-    items: [
-      "8× thermaal circuit",
-      "10% korting op massage",
-      "Voorrang bij reservering",
-      "Toegang tot events",
-    ],
-    highlight: false,
-  },
-];
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-full bg-lin">
@@ -196,8 +154,8 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-nacht" style={{ height: "52px" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-14 h-full flex items-center justify-between">
 
-          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "22px", letterSpacing: "0.05em", lineHeight: 1 }}>
-            NOORD
+          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "16px", letterSpacing: "0.05em", lineHeight: 1 }}>
+            NORDE
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -221,13 +179,6 @@ export default function Home() {
             >
               ← Overzicht
             </a>
-            <a
-              href="#reserveer"
-              className="font-sans text-lin uppercase bg-warm hover:bg-warm-licht transition-colors duration-200 font-light"
-              style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "10px 20px" }}
-            >
-              Reserveer
-            </a>
           </div>
         </div>
       </nav>
@@ -235,19 +186,19 @@ export default function Home() {
       {/* ── HERO ────────────────────────────────────────────────── */}
       <section id="hero" className="relative" style={{ minHeight: "100svh" }}>
 
-        {/* Split background — full bleed incl. behind nav */}
+        {/* Split background - full bleed incl. behind nav */}
         <div className="absolute inset-0 grid grid-cols-2">
           <div className="bg-ijssel" />
           <div className="bg-eiken" />
         </div>
 
-        {/* Temperature labels — absolutely positioned */}
+        {/* Temperature labels - absolutely positioned */}
         <div className="absolute inset-0 z-10 pointer-events-none">
-          {/* 8° — left of center split, upper half */}
+          {/* 8° - left of center split, upper half */}
           <div className="absolute" style={{ top: "37%", right: "54%", paddingRight: "clamp(16px, 3vw, 48px)" }}>
             <span className="font-serif text-lin/35 font-light" style={{ fontSize: "clamp(13px, 1.3vw, 17px)", letterSpacing: "0.25em" }}>8°</span>
           </div>
-          {/* 90° — right of center split, lower half */}
+          {/* 90° - right of center split, lower half */}
           <div className="absolute" style={{ top: "69%", left: "54%", paddingLeft: "clamp(16px, 3vw, 48px)" }}>
             <span className="font-serif text-lin/35 font-light" style={{ fontSize: "clamp(13px, 1.3vw, 17px)", letterSpacing: "0.25em" }}>90°</span>
           </div>
@@ -263,16 +214,16 @@ export default function Home() {
             WELLNESS RECOVERY CLUB
           </p>
 
-          {/* NOORD wordmark */}
-          <div className="text-lin text-center" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(72px, 18vw, 240px)", letterSpacing: "0.04em", lineHeight: 1 }}>
-            NOORD
+          {/* NORDE wordmark */}
+          <div className="text-lin text-center" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(54px, 13.5vw, 180px)", letterSpacing: "0.04em", lineHeight: 1 }}>
+            NORDE
           </div>
 
-          {/* Bottom group: line + GRONINGEN 2027 */}
+          {/* Bottom group: line + GRONINGEN 2028 */}
           <div className="flex flex-col items-center gap-5">
             <div style={{ width: "48px", height: "0.5px", background: "rgba(242,237,230,0.25)" }} />
             <p className="text-lin/40 text-center" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(9px, 1.1vw, 14px)", letterSpacing: "0.4em" }}>
-              GRONINGEN &nbsp;·&nbsp; 2027
+              GRONINGEN &nbsp;·&nbsp; 2028
             </p>
           </div>
         </div>
@@ -282,19 +233,16 @@ export default function Home() {
       <div className="relative w-full overflow-hidden" style={{ height: "80vh" }}>
         <img
           src="/sfeer/overzicht.png"
-          alt="Luchtfoto Norde — wellness tuin, pools en fire circle in Noord-Nederlands landschap"
+          alt="Luchtfoto Norde - wellness tuin, pools en fire circle in Noord-Nederlands landschap"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         <div className="absolute bottom-10 left-10 right-10 md:right-auto">
-          <p className="font-serif text-lin font-light italic leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-            Natuur is geen achtergrond.
+          <p className="text-lin leading-tight" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(1.6rem, 4vw, 2.8rem)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+            De eerste wellness recovery club
           </p>
-          <p className="font-serif text-lin/50 font-light italic" style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", marginTop: "4px" }}>
-            Het is het concept.
-          </p>
-          <p className="font-sans text-lin/40 uppercase font-light mt-3" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-            NOORD Social Recovery Club · Groningen
+          <p className="text-lin/60" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(0.95rem, 1.8vw, 1.3rem)", letterSpacing: "0.15em", textTransform: "uppercase", marginTop: "8px" }}>
+            van Groningen.
           </p>
         </div>
       </div>
@@ -308,14 +256,14 @@ export default function Home() {
               className="text-nacht"
               style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(36px, 4vw, 52px)", letterSpacing: "0.03em", lineHeight: 1.1 }}
             >
-              Geen resort. Geen spa.
+              Werken in de stad.
               <br />
-              <em className="italic" style={{ color: "#8C7F6E" }}>
-                Een wellness tuin.
+              <em className="not-italic" style={{ color: "#8C7F6E" }}>
+                Herstellen in de tuin.
               </em>
             </h2>
             <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-              NOORD is een plek om even te stoppen met rennen, de telefoon weg te leggen en je lichaam te laten voelen wat het nodig heeft. De tuin is het product, niet het gebouw.
+              NORDE is een plek om even te stoppen met rennen, de telefoon weg te leggen en je lichaam te laten voelen wat het nodig heeft. De tuin is het product, niet het gebouw.
             </p>
             <p className="mt-4 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
               Alles wat je hier ziet groeien komt uit deze streek. Alles wat verwarmt of koelt, werkt zonder gas. We meten elk jaar wat we verbruiken en maken dat openbaar.
@@ -341,18 +289,18 @@ export default function Home() {
             <div className="absolute inset-y-0 left-1/2 w-px" style={{ background: "rgba(242,237,230,0.12)" }} />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
               <div className="font-serif text-koud-licht/50 font-light" style={{ fontSize: "11px", letterSpacing: "0.4em" }}>8°</div>
-              <div className="font-serif text-lin font-light my-3" style={{ fontSize: "clamp(36px, 5vw, 52px)", letterSpacing: "0.2em", lineHeight: 1 }}>
-                NOORD
+              <div className="text-lin my-3" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(36px, 5vw, 52px)", letterSpacing: "0.05em", lineHeight: 1 }}>
+                NORDE
               </div>
               <div className="font-serif text-warm-licht/50 font-light" style={{ fontSize: "11px", letterSpacing: "0.4em" }}>90°</div>
               <div className="w-14 my-5" style={{ height: "0.5px", background: "rgba(242,237,230,0.18)" }} />
-              <p className="font-serif text-lin/70 italic font-light leading-snug" style={{ fontSize: "clamp(18px, 2.5vw, 24px)" }}>
-                "Warmte. Kou.
+              <p className="text-lin/70 leading-snug" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(16px, 2vw, 20px)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                Warmte. Kou.
                 <br />
-                Stilte."
+                Herstel.
               </p>
               <p className="mt-6 font-sans text-lin/30 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-                NOORD Groningen · 2026
+                NORDE Groningen · 2026
               </p>
             </div>
           </div>
@@ -365,15 +313,15 @@ export default function Home() {
           {[
             {
               label: "Natuur",
-              desc: "De tuin is het product, niet het gebouw. Inheems groen, geen exoten, fauna-vriendelijk. Een polderlandschap als setting.",
+              desc: "Inheems groen, geen exoten, faunavriendelijk. Het Groningse landschap als setting.",
             },
             {
               label: "Contrast",
-              desc: "Warmte tot 90°. Kou tot 8°. Het lichaam schakelt terug naar wat het weet. Zonder apps, zonder bijsluiter.",
+              desc: "Sauna 90°. Cold plunge 8°. Steam 45°. Jacuzzi 38°.",
             },
             {
               label: "Stilte",
-              desc: "Geen muziek, geen wellness-jargon. Alleen de geluiden van stoom, water en vuur. Stilte is ook een faciliteit.",
+              desc: "Hier hoor je stoom, water, vuur en wind.",
             },
           ].map((pillar, i) => (
             <div
@@ -381,7 +329,7 @@ export default function Home() {
               className={`px-10 py-16 ${i < 2 ? "md:border-r" : ""}`}
               style={{ borderColor: "rgba(242,237,230,0.08)" }}
             >
-              <p className="font-serif text-warm-licht font-light italic mb-6" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
+              <p className="text-warm-licht mb-6" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
                 {pillar.label}
               </p>
               <p className="font-sans font-light text-sm leading-relaxed" style={{ color: "rgba(242,237,230,0.4)" }}>
@@ -398,7 +346,7 @@ export default function Home() {
           <div className="relative overflow-hidden" style={{ height: "65vh" }}>
             <img
               src="/sfeer/exterieur.png"
-              alt="Café-paviljoen Norde — half open met groendak en buitenterras"
+              alt="Café-paviljoen Norde - half open met groendak en buitenterras"
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
@@ -412,7 +360,7 @@ export default function Home() {
           <div className="relative overflow-hidden" style={{ height: "65vh" }}>
             <img
               src="/sfeer/coldplunge.png"
-              alt="Cold plunge met gefilterd grondwater — Norde Groningen"
+              alt="Cold plunge met gefilterd grondwater - Norde Groningen"
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
@@ -431,7 +379,7 @@ export default function Home() {
         <div className="relative w-full overflow-hidden" style={{ height: "70vh" }}>
           <img
             src="/sfeer/sauna.png"
-            alt="Pinewood Sauna — FSC grenenhout met warmteterugwinning · Norde Groningen"
+            alt="Pinewood Sauna - FSC grenenhout met warmteterugwinning · Norde Groningen"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -440,7 +388,7 @@ export default function Home() {
               SAUNA
             </p>
             <p className="font-sans text-lin/35 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-              SAUNA · NOORD
+              SAUNA · NORDE
             </p>
           </div>
         </div>
@@ -449,28 +397,28 @@ export default function Home() {
           <div className="md:col-span-2 relative overflow-hidden" style={{ height: "60vh" }}>
             <img
               src="/sfeer/firecircle.png"
-              alt="Fire circle — koperen vuurschaal in het Groningse polderlandschap"
+              alt="Fire circle - koperen vuurschaal in het Groningse landschap"
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
             <div className="absolute bottom-10 left-10">
               <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.8rem", letterSpacing: "0.03em" }}>Fire circle</p>
               <p className="font-sans text-lin/40 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-                Koperen vuurschaal · Polderlandschap · Verbinding
+                Koperen vuurschaal · Het Groningse landschap · Verbinding
               </p>
             </div>
           </div>
           <div className="relative overflow-hidden" style={{ height: "60vh" }}>
             <img
               src="/sfeer/steamdome.png"
-              alt="Steam dome — eucalyptus en kruiden, geen chemicaliën · Norde"
+              alt="Steam dome - eucalyptus en kruiden, geen chemicaliën · Norde"
               className="w-full h-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8">
               <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.5rem", letterSpacing: "0.03em" }}>Steam dome</p>
               <p className="font-sans text-lin/40 uppercase font-light mt-1" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
-                45–50° · Eucalyptus · Geen chemicaliën
+                45-50° · Eucalyptus · Geen chemicaliën
               </p>
             </div>
           </div>
@@ -479,17 +427,38 @@ export default function Home() {
         <div className="relative w-full overflow-hidden" style={{ height: "60vh" }}>
           <img
             src="/sfeer/jacuzzi.png"
-            alt="Magnesiumjacuzzi buiten in het Groningse polderlandschap — Norde"
+            alt="Magnesium jacuzzi buiten in het Groningse landschap - Norde"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
           <div className="absolute bottom-10 left-10">
             <p className="text-lin flex items-baseline gap-3" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.8rem", letterSpacing: "0.03em" }}>
-              Magnesiumjacuzzi
+              Magnesium jacuzzi
               <span className="font-serif text-warm-licht/80 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>38°</span>
             </p>
             <p className="font-sans text-lin/40 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
               Magnesiumchloride · Spierherstel · Buiten
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WAT NORDE ANDERS MAAKT ──────────────────────────────── */}
+      <section id="onderscheid" className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Wat NORDE anders maakt</SectionLabel>
+          <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Boutique. Duurzaam. Kleinschalig.
+          </h2>
+          <div className="mt-8 space-y-5 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+            <p>
+              Geen massale spa met dagarrangementen, massale drukte en een restaurant als tussenstop. NORDE is boutique, kleinschalig en ontworpen voor stadjers die wellness niet zien als luxe uitzondering, maar als onderdeel van hun routine.
+            </p>
+            <p>
+              Op fietsafstand van de stad stap je in een andere versnelling. Sauna, stoom, jacuzzi, koud bad. Goede koffie, lokale producten, rust.
+            </p>
+            <p>
+              Adults only. Duurzaam gebouwd.
             </p>
           </div>
         </div>
@@ -507,7 +476,7 @@ export default function Home() {
               Elk element in de tuin heeft een eigen verhaal.
             </h2>
             <p className="font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-              Het water in de jacuzzi is anders dan het water in de plunge. De hitte van de sauna voelt anders dan de stoom van de dome. Dat is geen toeval. Reserveer een tijdslot van 3 uur.
+              Het water in de jacuzzi is anders dan het water in de plunge. De hitte van de sauna voelt anders dan de stoom van de dome.
             </p>
           </div>
 
@@ -573,26 +542,11 @@ export default function Home() {
               <h2 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
                 Duurzaamheid is geen toevoeging.
                 <br />
-                <em className="italic text-warm-licht">Het is de fundering.</em>
+                <em className="not-italic text-warm-licht">Het is de fundering.</em>
               </h2>
               <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "rgba(242,237,230,0.5)" }}>
                 Geen gas. Geen chloor. Geen greenwashing. Alles wat je hier ziet groeien komt uit deze streek. We meten elk jaar wat we verbruiken en maken dat openbaar.
               </p>
-              <div className="mt-10 space-y-0">
-                {[
-                  { quote: "Natuur is geen achtergrond." },
-                  { quote: "Het is het concept." },
-                  { quote: "Stilte is ook een faciliteit." },
-                ].map((q, i) => (
-                  <p
-                    key={i}
-                    className="font-serif text-lin/30 font-light italic py-4"
-                    style={{ fontSize: "clamp(16px, 2vw, 22px)", borderTop: "0.5px solid rgba(242,237,230,0.07)" }}
-                  >
-                    {q.quote}
-                  </p>
-                ))}
-              </div>
             </div>
 
             <div className="space-y-0">
@@ -612,9 +566,9 @@ export default function Home() {
                   pijler: "Water",
                   icon: "◌",
                   maatregelen: [
-                    "Zoutwaterbad — elektrolyse, geen chloor",
-                    "Magnesiumjacuzzi — geen kunstmatige toevoegingen",
-                    "Cold plunge — puur gefilterd grondwater",
+                    "Zoutwaterbad - elektrolyse, geen chloor",
+                    "Magnesium jacuzzi - geen kunstmatige toevoegingen",
+                    "Cold plunge - puur gefilterd grondwater",
                     "Regenwateropvang & grijs water hergebruik",
                     "UV-filtratie, geen chemicaliën",
                   ],
@@ -626,12 +580,12 @@ export default function Home() {
                     "Uitsluitend inheemse planten",
                     "Geen bestrijdingsmiddelen",
                     "Insectenhotels & voedselbos-elementen",
-                    "Fauna-vriendelijke verlichting",
-                    "Noord-Nederlands polderlandschap",
+                    "Faunavriendelijke verlichting",
+                    "Het Groningse landschap",
                   ],
                 },
                 {
-                  pijler: "Café",
+                  pijler: "Cafe",
                   icon: "◎",
                   maatregelen: [
                     "Lokale leveranciers max 50km",
@@ -662,10 +616,10 @@ export default function Home() {
           {/* Waterfilosofie */}
           <div className="grid md:grid-cols-5 gap-[2px]" style={{ background: "rgba(242,237,230,0.06)" }}>
             {[
-              { naam: "Zoutwaterbad", temp: "28–30°", detail: "Elektrolyse genereert eigen reiniging. Geen chloor. Zachter voor huid en natuur." },
-              { naam: "Magnesiumjacuzzi", temp: "38°", detail: "Magnesiumchloride bevordert spierherstel. Klein warm volume." },
+              { naam: "Zoutwaterbad", temp: "30-32°", detail: "Elektrolyse genereert eigen reiniging. Geen chloor. Zachter voor huid en natuur." },
+              { naam: "Magnesium jacuzzi", temp: "38°", detail: "Magnesiumchloride bevordert spierherstel. Klein warm volume." },
               { naam: "Cold Plunge", temp: "8°", detail: "Puur gefilterd grondwater. Gesloten circuit. Geen toevoegingen." },
-              { naam: "Steam Dome", temp: "45–50°", detail: "Eucalyptus en kruiden. Geen chemicaliën. Aromatherapie." },
+              { naam: "Steam Dome", temp: "45-50°", detail: "Eucalyptus en kruiden. Geen chemicaliën. Aromatherapie." },
               { naam: "SAUNA", temp: "90°", detail: "FSC-hout. Warmteterugwinning. Traditioneel opgiet met etherische oliën." },
             ].map((w) => (
               <div key={w.naam} className="p-6" style={{ background: "rgba(255,255,255,0.02)" }}>
@@ -689,7 +643,7 @@ export default function Home() {
           <blockquote className="text-nacht leading-snug" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(1.8rem, 4.5vw, 3rem)", letterSpacing: "0.02em" }}>
             Transparant over keuzes.
             <br />
-            <em className="italic" style={{ color: "#8C7F6E" }}>Geen greenwashing.</em>
+            <em className="not-italic" style={{ color: "#8C7F6E" }}>Geen greenwashing.</em>
           </blockquote>
           <p className="mt-8 font-sans font-light leading-relaxed mx-auto" style={{ fontSize: "15px", color: "#5C5248", maxWidth: "480px" }}>
             We publiceren jaarlijks ons energieverbruik, onze CO₂-uitstoot en onze waterrapportage. Eerlijk is eerlijk.
@@ -697,87 +651,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TARIEVEN ────────────────────────────────────────────── */}
-      <section id="tarieven" className="bg-lin py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <SectionLabel>Tarieven</SectionLabel>
-          <div className="grid md:grid-cols-2 gap-16 items-end mb-16">
-            <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em" }}>
-              Transparant geprijsd.
-            </h2>
-            <p className="font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-              Introductietarieven voor early birds. Schrijf je in en ontvang 20% korting op je eerste 3 maanden.
-            </p>
-          </div>
+      {/* ── TARIEVEN & WACHTLIJST ───────────────────────────────── */}
+      <section id="wachtlijst" className="bg-lin py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Tarieven &amp; wachtlijst</SectionLabel>
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+                Een keer, regelmatig,
+                <br />
+                <em className="not-italic" style={{ color: "#8C7F6E" }}>of vast.</em>
+              </h2>
+              <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+                NORDE blijft laagdrempelig. Een dagkaart is genoeg om langs te komen. Wie vaker komt, kan kiezen voor een 10-rittenkaart of een abonnement. Concrete tarieven volgen zodra de locatie definitief is.
+              </p>
 
-          <div className="grid md:grid-cols-3 gap-[2px]">
-            {pricing.map((plan) => (
-              <div
-                key={plan.name}
-                className="relative flex flex-col p-10"
-                style={{
-                  background: plan.highlight ? "#2C2A25" : "#FAF8F4",
-                  border: plan.highlight ? "none" : "0.5px solid #C8BAA8",
-                }}
-              >
-                {plan.highlight && (
-                  <span
-                    className="absolute top-0 right-0 bg-warm text-lin font-sans font-light uppercase"
-                    style={{ fontSize: "8px", letterSpacing: "0.3em", padding: "8px 16px" }}
-                  >
-                    {plan.note}
-                  </span>
-                )}
-                <p className="font-sans font-light uppercase mb-2" style={{ fontSize: "9px", letterSpacing: "0.3em", color: plan.highlight ? "rgba(242,237,230,0.4)" : "#C8BAA8" }}>
-                  {plan.duration}
-                </p>
-                <h3 style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "24px", letterSpacing: "0.03em", color: plan.highlight ? "#F2EDE6" : "#2C2A25" }}>
-                  {plan.name}
-                </h3>
-                <div className="my-8 flex items-baseline gap-1">
-                  <span className="font-serif font-light" style={{ fontSize: "52px", color: plan.highlight ? "#D4A878" : "#A07040" }}>
-                    €{plan.price}
-                  </span>
-                  {plan.name.includes("Maand") && (
-                    <span className="font-sans font-light" style={{ fontSize: "13px", color: plan.highlight ? "rgba(242,237,230,0.35)" : "#C8BAA8" }}>
-                      /maand
-                    </span>
-                  )}
-                </div>
-                <ul className="space-y-3 flex-1 mb-10">
-                  {plan.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <svg viewBox="0 0 16 16" width="13" className="mt-0.5 shrink-0" style={{ color: plan.highlight ? "#D4A878" : "#4A7A9B" }} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                        <path d="M3 8l3.5 3.5L13 4" />
-                      </svg>
-                      <span className="font-sans font-light text-sm" style={{ color: plan.highlight ? "rgba(242,237,230,0.7)" : "#5C5248" }}>
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                {!plan.highlight && (
-                  <p className="font-sans font-light mb-4" style={{ fontSize: "12px", color: "#C8BAA8" }}>
-                    {plan.note}
-                  </p>
-                )}
-                <a
-                  href="#reserveer"
-                  className="text-center font-sans font-light uppercase transition-colors duration-200 hover:opacity-80"
-                  style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "14px", background: plan.highlight ? "#A07040" : "transparent", color: plan.highlight ? "#F2EDE6" : "#2C2A25", border: plan.highlight ? "none" : "0.5px solid #2C2A25" }}
-                >
-                  Reserveer
-                </a>
+              <div className="mt-10 grid grid-cols-3 gap-px" style={{ background: "#C8BAA8" }}>
+                {[
+                  { label: "Dagkaart", note: "Eenmalig" },
+                  { label: "10-ritten", note: "Regelmatig" },
+                  { label: "Abonnement", note: "Vast" },
+                ].map((tier) => (
+                  <div key={tier.label} className="bg-lin p-5">
+                    <p className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "13px", letterSpacing: "0.03em" }}>
+                      {tier.label}
+                    </p>
+                    <p className="mt-2 font-sans font-light uppercase" style={{ fontSize: "9px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                      {tier.note}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
 
-          <p className="text-center mt-8 font-sans font-light" style={{ fontSize: "13px", color: "#C8BAA8" }}>
-            Cadeaubonnen beschikbaar voor elk bedrag.{" "}
-            <a href="#reserveer" className="underline underline-offset-2" style={{ color: "#A07040" }}>
-              Vraag een cadeaubon aan.
-            </a>
-          </p>
+            <div className="space-y-6">
+              <p className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "20px", letterSpacing: "0.03em", lineHeight: 1.3 }}>
+                Schrijf je in voor de wachtlijst.
+              </p>
+              <p className="font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                Eerste inschrijvers horen als eerste wanneer locatie, tarieven en opening bekend zijn.
+              </p>
+              <form className="flex flex-col sm:flex-row" action="#">
+                <input
+                  type="email"
+                  placeholder="jouw@email.nl"
+                  className="flex-1 font-sans font-light text-nacht placeholder:text-nacht/30 px-5 py-4 outline-none"
+                  style={{ fontSize: "13px", background: "#FAF8F4", border: "0.5px solid #C8BAA8" }}
+                />
+                <button
+                  type="submit"
+                  className="font-sans text-lin uppercase font-light bg-warm hover:bg-warm-licht transition-colors duration-200 whitespace-nowrap"
+                  style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "16px 24px" }}
+                >
+                  Schrijf me in
+                </button>
+              </form>
+              <p className="font-sans font-light" style={{ fontSize: "11px", color: "#C8BAA8" }}>
+                Geen spam. Alleen updates over NORDE.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -790,10 +723,10 @@ export default function Home() {
               <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
                 Verbinding in de natuur.
                 <br />
-                <em className="italic" style={{ color: "#8C7F6E" }}>Een community.</em>
+                <em className="not-italic" style={{ color: "#8C7F6E" }}>Een community.</em>
               </h2>
               <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-                NOORD organiseert regelmatig events voor leden en bezoekers. Van maandbaden onder de sterrenhemel tot workshops en besloten groepsbijeenkomsten rondom de fire circle.
+                NORDE organiseert regelmatig events voor leden en bezoekers. Van maandbaden onder de sterrenhemel tot workshops en besloten groepsbijeenkomsten rondom de fire circle.
               </p>
               <div className="mt-10 space-y-0">
                 {[
@@ -826,40 +759,178 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── RESERVEER ───────────────────────────────────────────── */}
-      <section id="reserveer" className="relative py-28 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 grid grid-cols-2">
-          <div className="bg-ijssel" />
-          <div className="bg-eiken" />
-        </div>
-        <div className="relative z-10 max-w-xl mx-auto">
-          <div className="font-sans text-lin/30 uppercase font-light mb-6" style={{ fontSize: "9px", letterSpacing: "0.4em" }}>
-            Opening 2026 · Groningen
-          </div>
-          <h2 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "0.03em" }}>
-            Wees er als eerste bij.
+      {/* ── HET VERHAAL ─────────────────────────────────────────── */}
+      <section id="verhaal" className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Het verhaal</SectionLabel>
+          <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Niet bedacht
+            <br />
+            <em className="not-italic" style={{ color: "#8C7F6E" }}>achter een bureau.</em>
           </h2>
-          <p className="mt-6 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "rgba(242,237,230,0.5)" }}>
-            Schrijf je in voor de waitlist. Early birds ontvangen 20% korting op de eerste drie maanden en een exclusieve uitnodiging voor de soft launch.
+          <div className="mt-8 max-w-2xl space-y-5 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+            <p>
+              Josine Kremer en Yuri Solinger zijn partners - in het leven en in NORDE. Beiden geworteld in het Groningse noorden, reisden ze samen de wereld over. Bali bleef hangen. Daar leerden ze het idee van een recovery club kennen. Geen wellness als beauty, maar als rust. Geen ritueel om beter te lijken, maar om beter te voelen.
+            </p>
+            <p>
+              Terug thuis miste het iets. Bad Nieuweschans is mooi, maar voelt niet als hun plek. Een wellness gericht op de jonge werkende stadjer ontbrak.
+            </p>
+            <p>
+              Daar komt NORDE uit voort. Josine brengt het verhaal, Yuri brengt het ondernemerschap - samen bouwen ze NORDE van concept tot opening.
+            </p>
+          </div>
+
+          {/* Founder grid */}
+          <div className="mt-20 grid md:grid-cols-2 gap-10">
+            <div>
+              <div className="relative aspect-square overflow-hidden bg-lin">
+                <img
+                  src="/team/josine.jpg"
+                  alt="Josine Kremer - oprichter NORDE"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="mt-6 font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                Oprichter &amp; contactpersoon
+              </p>
+              <p className="mt-2 text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "22px", letterSpacing: "0.03em" }}>
+                Josine Kremer
+              </p>
+              <p className="mt-3 font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                Geboren in Stadskanaal, sinds 2010 stadjer. Achtergrond in communicatie, design en marketing. Brengt concept, merk en positionering.
+              </p>
+            </div>
+            <div>
+              <div className="relative aspect-square overflow-hidden bg-lin">
+                <img
+                  src="/team/yuri.jpg"
+                  alt="Yuri Solinger - oprichter NORDE"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="mt-6 font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                Oprichter
+              </p>
+              <p className="mt-2 text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "22px", letterSpacing: "0.03em" }}>
+                Yuri Solinger
+              </p>
+              <p className="mt-3 font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                Opgegroeid in Eenrum. Voormalig schaatser, daarna ondernemer in e-commerce. Specialiseert in het opzetten, aansturen en financieel gezond maken van bedrijven.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VOOR GRONINGEN ──────────────────────────────────────── */}
+      <section id="stad" className="bg-lin py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Voor Groningen</SectionLabel>
+          <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Wat NORDE
+            <br />
+            <em className="not-italic" style={{ color: "#8C7F6E" }}>de stad oplevert.</em>
+          </h2>
+          <p className="mt-8 max-w-2xl font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+            NORDE is geen externe investering die toevallig in Groningen landt. Het is een lokaal initiatief van twee Groningers, gebouwd met Groningse partners. Drie vlakken waarop NORDE iets teruggeeft aan de stad.
           </p>
-          <form className="mt-10 flex flex-col sm:flex-row max-w-sm mx-auto" action="#">
-            <input
-              type="email"
-              placeholder="jouw@email.nl"
-              className="flex-1 font-sans font-light text-lin placeholder:text-lin/30 px-5 py-4 outline-none"
-              style={{ fontSize: "13px", background: "rgba(242,237,230,0.1)", border: "0.5px solid rgba(242,237,230,0.2)" }}
-            />
-            <button
-              type="submit"
-              className="font-sans text-lin uppercase font-light bg-warm hover:bg-warm-licht transition-colors duration-200 whitespace-nowrap"
-              style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "16px 24px" }}
-            >
-              Schrijf je in
-            </button>
-          </form>
-          <p className="mt-4 font-sans font-light" style={{ fontSize: "11px", color: "rgba(242,237,230,0.25)" }}>
-            Geen spam. Alleen updates over NOORD Groningen.
-          </p>
+
+          <div className="mt-16 grid md:grid-cols-3 gap-x-10 gap-y-12">
+            {[
+              {
+                label: "Werk en lokale economie",
+                desc: "Vast team van 3-5 medewerkers, plus oproepkrachten. Materialen, beplanting en F&B uit leveranciers binnen 50 km - geen ketens, wel Groningse makers. Tijdens de bouwfase: lokale aannemers en ontwerpers.",
+              },
+              {
+                label: "Disconnectie voor jonge werkenden",
+                desc: "Burn-outcijfers onder 25- tot 40-jarigen stijgen jaarlijks. Schermen blijven aan, werkdruk volgt thuis. NORDE is een tegenwicht: telefoonloos, een paar uur niets, herhaalbaar in de week.",
+              },
+              {
+                label: "Duurzaam en kleinschalig",
+                desc: "Gasvrij, zonnepanelen, regenwateropvang, inheemse beplanting, geen chloor. Sluit aan op gemeentelijke klimaatdoelen. Boutique-schaal, fietsafstand bedoeld - minder druk op de omgeving dan een dagspa-formule.",
+              },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="font-sans font-light uppercase mb-4" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                  {item.label}
+                </p>
+                <p className="font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATUS & ROUTE ──────────────────────────────────────── */}
+      <section id="status" className="bg-nacht py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <SectionLabel light>Status &amp; route</SectionLabel>
+          <h2 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Op weg naar
+            <br />
+            <em className="not-italic" style={{ color: "#D4A878" }}>opening 2028.</em>
+          </h2>
+
+          <div className="mt-16 grid md:grid-cols-5 gap-px" style={{ background: "rgba(242,237,230,0.12)" }}>
+            {[
+              { phase: "01", label: "Concept", detail: "Businessplan en positionering afgerond.", status: "Afgerond" },
+              { phase: "02", label: "Financiering", detail: "Gesprekken met investeerders lopen.", status: "In de pijplijn" },
+              { phase: "03", label: "Locatie", detail: "Actief zoekend in en rond Groningen.", status: "Actief" },
+              { phase: "04", label: "Vergunning", detail: "Start na locatieselectie.", status: "Volgend" },
+              { phase: "05", label: "Opening", detail: "Soft launch en opening in 2028.", status: "Doel" },
+            ].map((stage) => (
+              <div key={stage.phase} className="bg-nacht p-8 flex flex-col justify-between" style={{ minHeight: "260px" }}>
+                <div>
+                  <div className="font-serif text-warm-licht/60 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>{stage.phase}</div>
+                  <p className="mt-4 text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "15px", letterSpacing: "0.03em" }}>
+                    {stage.label}
+                  </p>
+                  <p className="mt-3 font-sans font-light leading-relaxed" style={{ fontSize: "12px", color: "rgba(242,237,230,0.55)" }}>{stage.detail}</p>
+                </div>
+                <p className="mt-6 font-sans font-light uppercase" style={{ fontSize: "9px", letterSpacing: "0.3em", color: "#D4A878" }}>
+                  {stage.status}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT ─────────────────────────────────────────────── */}
+      <section id="contact" className="bg-wit py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+                Contact.
+              </h2>
+              <p className="mt-8 font-sans font-light leading-relaxed max-w-md" style={{ fontSize: "15px", color: "#5C5248" }}>
+                NORDE wordt gebouwd door Josine Kremer en Yuri Solinger. Voor alles rondom NORDE - direct contact via Josine.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <p className="font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>Contactpersoon</p>
+                <p className="mt-2 text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "24px", letterSpacing: "0.03em" }}>Josine Kremer</p>
+                <p className="font-sans font-light" style={{ fontSize: "13px", color: "#5C5248" }}>Oprichter NORDE</p>
+              </div>
+              <div className="pt-8" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+                <p className="font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>E-mail</p>
+                <a href="mailto:hallo@norde.nl" className="mt-2 inline-block text-nacht hover:text-warm transition-colors" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "18px", letterSpacing: "0.02em" }}>
+                  hallo@norde.nl
+                </a>
+              </div>
+              <div className="pt-8" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+                <p className="font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>Telefoon</p>
+                <a href="tel:+31657582152" className="mt-2 inline-block text-nacht hover:text-warm transition-colors" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "18px", letterSpacing: "0.02em" }}>
+                  +31 6 57 58 21 52
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -911,13 +982,13 @@ export default function Home() {
                 <li>
                   <a href="mailto:hallo@norde.nl" className="hover:text-lin/70 transition-colors duration-200">hallo@norde.nl</a>
                 </li>
-                <li className="pt-2 text-lin/20" style={{ fontSize: "11px" }}>Opening verwacht Q1 2026</li>
+                <li className="pt-2 text-lin/20" style={{ fontSize: "11px" }}>Opening verwacht 2028</li>
               </ul>
             </div>
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-sans font-light text-lin/20" style={{ fontSize: "11px" }}>
-            <p>© 2026 NOORD Social Recovery Club Groningen. Alle rechten voorbehouden.</p>
+            <p>© 2026 NORDE Wellness Recovery Club Groningen. Alle rechten voorbehouden.</p>
             <div className="flex gap-6">
               {["Privacybeleid", "Algemene voorwaarden"].map((link) => (
                 <a key={link} href="#" className="hover:text-lin/40 transition-colors duration-200">{link}</a>

@@ -29,8 +29,8 @@ export default function Businessplan() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-nacht" style={{ height: "52px" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-14 h-full flex items-center justify-between">
-          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "22px", letterSpacing: "0.05em", lineHeight: 1 }}>
-            NOORD
+          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "16px", letterSpacing: "0.05em", lineHeight: 1 }}>
+            NORDE
           </a>
           <a
             href="/overzicht"
@@ -48,14 +48,14 @@ export default function Businessplan() {
           Vertrouwelijk document · Versie 1.0 · Mei 2025
         </div>
         <h1 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(42px, 8vw, 96px)", letterSpacing: "0.06em", lineHeight: 1 }}>
-          NOORD
+          NORDE
         </h1>
         <div className="w-px bg-lin/20 my-6" style={{ height: "32px" }} />
         <p className="font-sans text-lin/40 uppercase font-light" style={{ fontSize: "10px", letterSpacing: "0.35em" }}>
-          Social Recovery Club · Groningen
+          Wellness Recovery Club · Groningen
         </p>
         <p className="mt-3 font-serif text-lin/50 italic font-light" style={{ fontSize: "clamp(18px, 2.5vw, 26px)" }}>
-          Businessplan 2025 – 2027
+          Businessplan 2025 - 2028
         </p>
         <div className="mt-12 flex gap-10 font-sans text-lin/25 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
           <span>Opening 2026</span>
@@ -69,25 +69,25 @@ export default function Businessplan() {
       {/* EXECUTIVE SUMMARY */}
       <section className="bg-lin py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <SectionLabel>01 — Executive Summary</SectionLabel>
+          <SectionLabel>01 - Executive Summary</SectionLabel>
           <div className="grid md:grid-cols-2 gap-16">
             <div>
               <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 42px)", letterSpacing: "0.03em", lineHeight: 1.15 }}>
                 Boutique thermaal wellness in het hart van Groningen.
               </h2>
               <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-                NOORD is een wellness tuin in het Noord-Nederlandse landschap. Geen resort, geen spa — een plek om te stoppen met rennen en je lichaam te laten voelen wat het nodig heeft. Warmte, kou, stilte. Adults only, kleinschalig, altijd reserveren.
+                NORDE is een wellness tuin in het Noord-Nederlandse landschap. Geen resort, geen spa - een plek om te stoppen met rennen en je lichaam te laten voelen wat het nodig heeft. Warmte, kou, stilte. Adults only, kleinschalig, altijd reserveren.
               </p>
               <p className="mt-4 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-                Duurzaamheid is geen toevoeging — het is de fundering. Geen gasaansluiting, geen chloor, uitsluitend inheems groen. Er is momenteel geen vergelijkbaar concept in Groningen.
+                Duurzaamheid is geen toevoeging - het is de fundering. Geen gasaansluiting, geen chloor, uitsluitend inheems groen. Er is momenteel geen vergelijkbaar concept in Groningen.
               </p>
             </div>
             <div>
-              <Stat label="Doelgroep" value="Jonge professionals 25–40 jaar" />
-              <Stat label="Investering" value="€1.200.000 – €1.600.000 all-in" />
-              <Stat label="Break-even" value="Verwacht binnen 24–36 maanden" />
-              <Stat label="Opening" value="1–2 jaar na start traject" />
-              <Stat label="Locatie" value="Groningen, eigen pand (koop)" />
+              <Stat label="Doelgroep" value="Jonge professionals 25-40 jaar" />
+              <Stat label="Investering" value="€1.200.000 - €1.600.000 all-in" />
+              <Stat label="Break-even" value="Verwacht binnen 24-36 maanden" />
+              <Stat label="Opening" value="1-2 jaar na start traject" />
+              <Stat label="Locatie" value="Groningen, eigen grond (koop)" />
             </div>
           </div>
         </div>
@@ -96,12 +96,12 @@ export default function Businessplan() {
       {/* KERNWAARDEN & DUURZAAMHEID */}
       <section className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
         <div className="max-w-5xl mx-auto">
-          <SectionLabel>01.2 — Kernwaarden & Duurzaamheid</SectionLabel>
+          <SectionLabel>01.2 - Kernwaarden & Duurzaamheid</SectionLabel>
           <h2 className="text-nacht mb-4" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 42px)", letterSpacing: "0.03em", lineHeight: 1.15 }}>
             Duurzaamheid is de fundering.
           </h2>
           <p className="font-sans font-light mb-16 leading-relaxed" style={{ fontSize: "15px", color: "#5C5248", maxWidth: "600px" }}>
-            Niet als toevoeging, niet als marketinglabel. Duurzaamheid is de basis van elke beslissing — van de beplanting in de tuin tot de leverancier van de koffie.
+            Niet als toevoeging, niet als marketinglabel. Duurzaamheid is de basis van elke beslissing - van de beplanting in de tuin tot de leverancier van de koffie.
           </p>
 
           <div className="grid md:grid-cols-3 gap-[2px] mb-12" style={{ background: "#C8BAA8" }}>
@@ -109,8 +109,8 @@ export default function Businessplan() {
               { waarde: "Natuur-first", toelichting: "De tuin is het product, niet het gebouw. Inheems groen, geen exoten, biodiversiteit als uitgangspunt." },
               { waarde: "Contrast", toelichting: "Warmte (90°) versus kou (8°) als kern van de beleving. Thermale rituelen zonder wellness-jargon." },
               { waarde: "Geen gas", toelichting: "Geen gasaansluiting. Warmtepompen, zonnepanelen en zonnecollectoren. Warmteterugwinning sauna." },
-              { waarde: "Puur water", toelichting: "Zoutwaterbad (geen chloor), magnesiumjacuzzi, gefilterd grondwater cold plunge, geen chemicaliën." },
-              { waarde: "Stilte", toelichting: "Geen ruis, geen haast, geen wellness-jargon. Stilte is ook een faciliteit." },
+              { waarde: "Puur water", toelichting: "Zoutwaterbad (geen chloor), magnesium jacuzzi, gefilterd grondwater cold plunge, geen chemicaliën." },
+              { waarde: "Stilte", toelichting: "Geen ruis, geen haast. Hier hoor je stoom, water, vuur en wind." },
               { waarde: "Eerlijkheid", toelichting: "Transparant over keuzes. Jaarlijkse CO₂-rapportage. Geen greenwashing." },
             ].map((k) => (
               <div key={k.waarde} className="p-8 bg-wit">
@@ -123,8 +123,8 @@ export default function Businessplan() {
           <div className="grid md:grid-cols-4 gap-[2px]" style={{ background: "#C8BAA8" }}>
             {[
               { pijler: "Energie", kleur: "#1C2E40", maatregelen: ["Geen gasaansluiting", "Warmtepomp verwarming", "Zonnepanelen + zonnecollectoren", "Warmteterugwinning sauna", "Groendak café-paviljoen"] },
-              { pijler: "Water", kleur: "#2C2A25", maatregelen: ["Zoutwaterbad — geen chloor", "Magnesiumjacuzzi — geen toevoegingen", "Cold plunge — gefilterd grondwater", "Regenwateropvang", "UV-filtratie"] },
-              { pijler: "Tuin", kleur: "#2C2A25", maatregelen: ["Uitsluitend inheemse planten", "Geen bestrijdingsmiddelen", "Insectenhotels", "Voedselbos-elementen", "Fauna-vriendelijke verlichting"] },
+              { pijler: "Water", kleur: "#2C2A25", maatregelen: ["Zoutwaterbad - geen chloor", "Magnesium jacuzzi - geen toevoegingen", "Cold plunge - gefilterd grondwater", "Regenwateropvang", "UV-filtratie"] },
+              { pijler: "Tuin", kleur: "#2C2A25", maatregelen: ["Uitsluitend inheemse planten", "Geen bestrijdingsmiddelen", "Insectenhotels", "Voedselbos-elementen", "Faunavriendelijke verlichting"] },
               { pijler: "Café", kleur: "#3D2B1A", maatregelen: ["Lokale leveranciers max 50km", "Biologisch menu", "Geen wegwerpplastic", "FSC-hout interieur", "Jaarlijkse CO₂-rapportage"] },
             ].map((p) => (
               <div key={p.pijler} className="p-8" style={{ background: p.kleur }}>
@@ -147,7 +147,7 @@ export default function Businessplan() {
       <section className="bg-nacht py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-5 mb-10">
-            <span className="font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light text-lin/30">02 — Concept</span>
+            <span className="font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light text-lin/30">02 - Concept</span>
             <div className="flex-1 bg-lin/10" style={{ height: "0.5px" }} />
           </div>
           <h2 className="text-lin mb-16" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 42px)", letterSpacing: "0.03em", lineHeight: 1.15 }}>
@@ -155,14 +155,14 @@ export default function Businessplan() {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[1px]" style={{ background: "rgba(242,237,230,0.06)" }}>
             {[
-              { name: "Buitenzwembad", detail: "28–30°C · zoutwater · 15–20 personen", desc: "Verwarmd buitenzwembad met zoutwaterinstallatie. Geen chloor — elektrolyse reinigt. Zachter voor huid en natuur." },
-              { name: "Magnesiumjacuzzi", detail: "38°C · buiten · 8–10 personen", desc: "Magnesiumchloride bevordert spierherstel. Klein warm volume, bewuste herstelervaring. Geen kunstmatige toevoegingen." },
+              { name: "Buitenzwembad", detail: "30-32°C · zoutwater · 15-20 personen", desc: "Verwarmd buitenzwembad met zoutwaterinstallatie. Geen chloor - elektrolyse reinigt. Zachter voor huid en natuur." },
+              { name: "Magnesium jacuzzi", detail: "38°C · buiten · 8-10 personen", desc: "Magnesiumchloride bevordert spierherstel. Klein warm volume, bewuste herstelervaring. Geen kunstmatige toevoegingen." },
               { name: "Cold Plunge", detail: "8°C · gefilterd grondwater", desc: "Puur gefilterd grondwater. Gesloten circuit, geen toevoegingen. Het rauwste element van de tuin." },
-              { name: "Pinewood Sauna", detail: "90°C · FSC grenenhout · 8–12 personen", desc: "Traditionele Scandinavische droge sauna van FSC-gecertificeerd grenenhout. Warmteterugwinning. Traditioneel opgiet." },
-              { name: "Steam Dome", detail: "45–50°C · eucalyptus · 4–6 personen", desc: "Organische witte koepelstructuur. Eucalyptus en kruiden. Geen chemicaliën, alleen aromatherapie." },
-              { name: "Fire Circle", detail: "Koperen vuurschaal · 10–15 personen", desc: "Koperen vuurschaal in de open tuin. Seizoensgebonden. Maandbaden. Verbinding." },
-              { name: "Café-paviljoen", detail: "Half open · groendak · 20–30 personen", desc: "Vrijstaand paviljoen met groendak en ronde centrale haard. Lokale producten max 50km. Geen wegwerpplastic." },
-              { name: "Wellness Tuin", detail: "Noord-Nederlands polderlandschap", desc: "Uitsluitend inheemse planten. Geen bestrijdingsmiddelen. Insectenhotels. Fauna-vriendelijke verlichting." },
+              { name: "Pinewood Sauna", detail: "90°C · FSC grenenhout · 8-12 personen", desc: "Traditionele Scandinavische droge sauna van FSC-gecertificeerd grenenhout. Warmteterugwinning. Traditioneel opgiet." },
+              { name: "Steam Dome", detail: "45-50°C · eucalyptus · 4-6 personen", desc: "Organische witte koepelstructuur. Eucalyptus en kruiden. Geen chemicaliën, alleen aromatherapie." },
+              { name: "Fire Circle", detail: "Koperen vuurschaal · 10-15 personen", desc: "Koperen vuurschaal in de open tuin. Seizoensgebonden. Maandbaden. Verbinding." },
+              { name: "Café-paviljoen", detail: "Half open · groendak · 20-30 personen", desc: "Vrijstaand paviljoen met groendak en ronde centrale haard. Lokale producten max 50km. Geen wegwerpplastic." },
+              { name: "Wellness Tuin", detail: "Het Groningse landschap", desc: "Uitsluitend inheemse planten. Geen bestrijdingsmiddelen. Insectenhotels. Faunavriendelijke verlichting." },
               { name: "Massage", detail: "Private cabines · 2 ruimtes", desc: "Zweedse en deep tissue in stille privéruimtes." },
             ].map((f) => (
               <div key={f.name} className="p-8" style={{ background: "#1C2E40" }}>
@@ -184,20 +184,20 @@ export default function Businessplan() {
       {/* MARKT */}
       <section className="bg-lin py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <SectionLabel>03 — Marktanalyse</SectionLabel>
+          <SectionLabel>03 - Marktanalyse</SectionLabel>
           <div className="grid md:grid-cols-2 gap-16 mb-16">
             <div>
               <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 42px)", letterSpacing: "0.03em", lineHeight: 1.15 }}>
                 Groningen als markt.
               </h2>
               <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
-                Er zijn geen directe concurrenten met een vergelijkbaar thermaal boutique concept in Groningen. NOORD opereert in een blauwe oceaan — de enige speler in een groeiende markt.
+                Er zijn geen directe concurrenten met een vergelijkbaar thermaal boutique concept in Groningen. NORDE opereert in een blauwe oceaan - de enige speler in een groeiende markt.
               </p>
             </div>
             <div>
               {[
                 { label: "Inwoners Groningen", value: "~235.000" },
-                { label: "Aandeel 20–40 jaar", value: "~38% — primaire doelgroep" },
+                { label: "Aandeel 20-40 jaar", value: "~38% - primaire doelgroep" },
                 { label: "Wellnesstrend NL", value: "+12% per jaar" },
                 { label: "Directe concurrenten", value: "Geen bekend in Groningen" },
               ].map((s) => (
@@ -207,7 +207,7 @@ export default function Businessplan() {
           </div>
           <div className="grid md:grid-cols-3 gap-[2px]" style={{ background: "#C8BAA8" }}>
             {[
-              { title: "Primaire doelgroep", desc: "Jonge professionals 25–40 jaar. Hoog digitaal bewustzijn, zoekt offline decompressie. Bereid te betalen voor kwaliteit en ervaring." },
+              { title: "Primaire doelgroep", desc: "Jonge professionals 25-40 jaar. Hoog digitaal bewustzijn, zoekt offline decompressie. Bereid te betalen voor kwaliteit en ervaring." },
               { title: "Secundaire doelgroep", desc: "Studenten, koppels voor date-ervaringen, corporate klanten en weekendtoeristen. Groningen als bestemming." },
               { title: "Positionering", desc: "Premium maar toegankelijk. Niet de goedkoopste, maar de meest doordachte en sfeervolle thermale ervaring in de stad." },
             ].map((c) => (
@@ -224,22 +224,22 @@ export default function Businessplan() {
         </div>
       </section>
 
-      {/* FINANCIEEL — TEASER */}
+      {/* FINANCIEEL - TEASER */}
       <section className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
         <div className="max-w-5xl mx-auto">
-          <SectionLabel>04 — Financieel Plan</SectionLabel>
+          <SectionLabel>04 - Financieel Plan</SectionLabel>
           <h2 className="text-nacht mb-4" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 42px)", letterSpacing: "0.03em", lineHeight: 1.15 }}>
             Investering, exploitatie & prognose.
           </h2>
           <p className="font-sans font-light mb-12 leading-relaxed" style={{ fontSize: "15px", color: "#5C5248", maxWidth: "600px" }}>
-            Het financieel plan bevat de gedetailleerde investering (€1,2M–€1,6M all-in), exploitatiebegroting, omzetprognose per jaar en een volledig uitgewerkt conservatief scenario als stress-test. Dit gedeelte is afgeschermd voor investeerders.
+            Het financieel plan bevat de gedetailleerde investering (€1,2M-€1,6M all-in), exploitatiebegroting, omzetprognose per jaar en een volledig uitgewerkt conservatief scenario als stress-test. Dit gedeelte is afgeschermd voor investeerders.
           </p>
 
           <div className="grid md:grid-cols-3 gap-[2px] mb-10" style={{ background: "#C8BAA8" }}>
             {[
-              { label: "All-in investering", value: "€1,2M – €1,6M", sub: "Inclusief pand, installaties en werkkapitaal" },
+              { label: "All-in investering", value: "€1,2M - €1,6M", sub: "Inclusief grond, installaties en werkkapitaal" },
               { label: "Break-even", value: "~€38k/mnd", sub: "Bereikt bij ~850 gasten per maand" },
-              { label: "Terugverdientijd", value: "2 – 3 jaar", sub: "Operationele investering excl. pand" },
+              { label: "Terugverdientijd", value: "2 - 3 jaar", sub: "Operationele investering excl. grond" },
             ].map((c) => (
               <div key={c.label} className="p-8 bg-wit">
                 <div className="font-sans font-light uppercase text-steen mb-3" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>{c.label}</div>
@@ -276,7 +276,7 @@ export default function Businessplan() {
       <section className="bg-nacht py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-5 mb-10">
-            <span className="font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light text-lin/30">05 — Go-to-Market</span>
+            <span className="font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light text-lin/30">05 - Go-to-Market</span>
             <div className="flex-1 bg-lin/10" style={{ height: "0.5px" }} />
           </div>
           <div className="grid md:grid-cols-2 gap-16">
@@ -285,7 +285,7 @@ export default function Businessplan() {
                 Strategie voor lancering.
               </h2>
               <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "rgba(242,237,230,0.45)" }}>
-                6 tot 12 maanden voor opening bouwt NOORD een community op via Instagram, een waitlist en samenwerking met lokale influencers. De soft launch is exclusief voor early adopters.
+                6 tot 12 maanden voor opening bouwt NORDE een community op via Instagram, een waitlist en samenwerking met lokale influencers. De soft launch is exclusief voor early adopters.
               </p>
             </div>
             <div className="space-y-0">
@@ -313,10 +313,10 @@ export default function Businessplan() {
       <footer className="bg-nacht" style={{ borderTop: "0.5px solid rgba(242,237,230,0.06)" }}>
         <div className="max-w-5xl mx-auto px-6 lg:px-14 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="font-serif text-lin/30 font-light" style={{ fontSize: "22px", letterSpacing: "0.2em" }}>
-            NOORD
+            NORDE
           </div>
           <p className="font-sans font-light text-lin/20" style={{ fontSize: "11px" }}>
-            Vertrouwelijk document · Niet openbaar · © 2025 NOORD Social Recovery Club
+            Vertrouwelijk document · Niet openbaar · © 2025 NORDE Wellness Recovery Club
           </p>
         </div>
       </footer>

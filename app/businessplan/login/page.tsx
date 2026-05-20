@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 async function login(formData: FormData) {
   "use server";
   const password = formData.get("password") as string;
-  if (password === "SRC2026FR") {
+  if (password === "WRC2028GR") {
     const cookieStore = await cookies();
     cookieStore.set("norde-fin-auth", "authenticated", {
       httpOnly: true,
@@ -31,8 +31,8 @@ export default async function LoginPage({
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-nacht" style={{ height: "52px", borderBottom: "0.5px solid rgba(242,237,230,0.06)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-14 h-full flex items-center justify-between">
-          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "22px", letterSpacing: "0.05em", lineHeight: 1 }}>
-            NOORD
+          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "16px", letterSpacing: "0.05em", lineHeight: 1 }}>
+            NORDE
           </a>
           <a
             href="/businessplan"
@@ -124,7 +124,7 @@ export default async function LoginPage({
       {/* FOOTER */}
       <div className="text-center py-8">
         <p className="font-sans font-light text-lin/15" style={{ fontSize: "10px", letterSpacing: "0.2em" }}>
-          © 2025 NOORD Social Recovery Club · Vertrouwelijk
+          © 2025 NORDE Wellness Recovery Club · Vertrouwelijk
         </p>
       </div>
     </div>
