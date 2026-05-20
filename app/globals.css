@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Nord";
+  src: url("/fonts/nord-black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nord";
+  src: url("/fonts/nord-light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nord";
+  src: url("/fonts/nord-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nord";
+  src: url("/fonts/nord-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   /* Norde huisstijl — versie 1.0 */
   --color-nacht:      #2C2A25;
@@ -15,6 +47,7 @@
 
   --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
   --font-sans:  var(--font-jost), "Jost", system-ui, sans-serif;
+  --font-nord:  "Nord", system-ui, sans-serif;
 }
 
 html {

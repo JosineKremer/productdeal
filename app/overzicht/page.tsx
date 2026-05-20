@@ -3,20 +3,30 @@ export default function Overzicht() {
     {
       meta: "Intern · Vertrouwelijk",
       title: "Businessplan 2025–2027",
-      desc: "Concept, markt, financieel plan en go-to-market strategie",
+      desc: "Concept, kernwaarden, duurzaamheid, markt en go-to-market strategie",
       href: "/businessplan",
+      lock: false,
+    },
+    {
+      meta: "Intern · Investeerders",
+      title: "Financieel Plan",
+      desc: "Investering, exploitatie, omzetprognose en conservatief scenario — beveiligd",
+      href: "/businessplan/financieel",
+      lock: true,
     },
     {
       meta: "Website · Live",
       title: "De website",
-      desc: "Openbare homepage van Norde Social Recovery Club",
+      desc: "Openbare homepage van NOORD Social Recovery Club",
       href: "/",
+      lock: false,
     },
     {
       meta: "Brand · Huisstijl",
       title: "Huisstijlgids",
       desc: "Kleurpalet, typografie, logo en visuele identiteit",
       href: "/huisstijl.html",
+      lock: false,
     },
   ];
 
@@ -26,13 +36,8 @@ export default function Overzicht() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-nacht" style={{ height: "52px" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-14 h-full flex items-center justify-between">
-          <a href="/" className="flex flex-col">
-            <div className="font-serif text-lin font-light" style={{ fontSize: "22px", letterSpacing: "0.2em", lineHeight: 1 }}>
-              NORDE
-            </div>
-            <div className="font-sans text-lin/30 font-light uppercase mt-0.5" style={{ fontSize: "7px", letterSpacing: "0.28em" }}>
-              Social Recovery Club
-            </div>
+          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "22px", letterSpacing: "0.05em", lineHeight: 1 }}>
+            NOORD
           </a>
           <div className="font-sans text-lin/30 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
             Overzicht
@@ -50,12 +55,12 @@ export default function Overzicht() {
           <div className="font-sans text-lin/30 uppercase font-light mb-8" style={{ fontSize: "9px", letterSpacing: "0.4em" }}>
             Groningen · Opening 2026
           </div>
-          <h1 className="font-serif text-lin font-light" style={{ fontSize: "clamp(52px, 10vw, 110px)", letterSpacing: "0.18em", lineHeight: 1 }}>
-            NORDE
+          <h1 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(52px, 10vw, 110px)", letterSpacing: "0.06em", lineHeight: 1 }}>
+            NOORD
           </h1>
           <div className="w-px bg-lin/20 my-5" style={{ height: "28px" }} />
           <p className="font-sans text-lin/40 uppercase font-light" style={{ fontSize: "10px", letterSpacing: "0.35em" }}>
-            Norde Social Recovery Club
+            Wellness Tuin · Groningen
           </p>
         </div>
       </section>
@@ -79,9 +84,16 @@ export default function Overzicht() {
               >
                 <div>
                   <div
-                    className="font-sans font-light uppercase text-steen mb-2"
+                    className="font-sans font-light uppercase text-steen mb-2 flex items-center gap-2"
                     style={{ fontSize: "9px", letterSpacing: "0.3em" }}
                   >
+                    {link.lock && (
+                      <svg width="9" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="4.5" width="8" height="6" rx="0.5" stroke="#C8BAA8" strokeWidth="0.6"/>
+                        <path d="M2 4.5V3C2 1.89543 3.11929 1 4.5 1C5.88071 1 7 1.89543 7 3V4.5" stroke="#C8BAA8" strokeWidth="0.6"/>
+                        <circle cx="4.5" cy="7.5" r="0.75" fill="#C8BAA8"/>
+                      </svg>
+                    )}
                     {link.meta}
                   </div>
                   <div

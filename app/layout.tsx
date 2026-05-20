@@ -16,7 +16,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Norde Social Recovery Club — Groningen",
+  title: "NOORD Social Recovery Club — Groningen",
   description:
     "Boutique thermaal wellness in Groningen. Sauna, steam dome, cold plunge, jacuzzi, fire circle en massage. Adults only. Altijd reserveren.",
 };
