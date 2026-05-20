@@ -96,18 +96,25 @@ export default function FinancieelPage() {
             Investering.
           </h2>
           <p className="font-sans font-light mb-16 leading-relaxed" style={{ fontSize: "15px", color: "#5C5248", maxWidth: "600px" }}>
-            De totale investering bestaat uit de aankoop van de grond (waardevast actief) en de operationele investering. Alleen de operationele investering moet worden terugverdiend uit de exploitatie.
+            NORDE huurt de grond via erfpacht en investeert alleen in de operationele opbouw - sauna&apos;s, paviljoen, beplanting. Dat verlaagt het startkapitaal aanzienlijk en geeft veerkracht in de eerste jaren. Aankoop van grond blijft mogelijk als alternatief (zie kader).
           </p>
 
-          {/* Pand */}
+          {/* Grond */}
           <div className="mb-12">
-            <p className="font-sans font-light uppercase text-steen mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Aankoop grond</p>
+            <p className="font-sans font-light uppercase text-steen mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Grond - hoofdscenario erfpacht</p>
             <div className="flex justify-between items-center py-4 border-b border-steen/20">
               <div>
-                <span className="font-sans font-light" style={{ fontSize: "15px", color: "#5C5248" }}>Pand (koop) - eigen locatie</span>
+                <span className="font-sans font-light" style={{ fontSize: "15px", color: "#5C5248" }}>Erfpacht met recht van opstal</span>
+                <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>Geen eenmalige koopsom. Jaarlijkse canon ~€24k zit in maandelijkse exploitatiekosten. Opstallen blijven eigendom NORDE.</div>
+              </div>
+              <span className="font-serif font-light text-nacht ml-8 shrink-0" style={{ fontSize: "18px" }}>€0 koopsom</span>
+            </div>
+            <div className="flex justify-between items-center py-4 border-b border-steen/20">
+              <div>
+                <span className="font-sans font-light" style={{ fontSize: "15px", color: "#8C7F6E" }}>Alternatief: aankoop grond</span>
                 <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>Waardevast actief. Vermogensopbouw via hypotheekaflossing. Bij verkoop volledig te recupereren.</div>
               </div>
-              <span className="font-serif font-light text-nacht ml-8 shrink-0" style={{ fontSize: "18px" }}>€550.000 - €750.000</span>
+              <span className="font-serif font-light text-nacht ml-8 shrink-0" style={{ fontSize: "18px", color: "#8C7F6E" }}>€550.000 - €750.000</span>
             </div>
           </div>
 
@@ -179,9 +186,9 @@ export default function FinancieelPage() {
 
           <div className="grid md:grid-cols-3 gap-[1px]" style={{ background: "rgba(242,237,230,0.08)" }}>
             {[
-              { label: "Aankoop grond", amount: "€550.000 - €750.000", sub: "Waardevast actief, buiten exploitatie-rendement" },
+              { label: "Erfpacht grond", amount: "Canon ~€24k/jaar", sub: "Geen koopsom - canon zit in operationele kosten" },
               { label: "Operationele investering", amount: "€580.000 - €775.000", sub: "Verbouwing, installaties, inrichting, opstart" },
-              { label: "Onvoorzien (10%) + totaal", amount: "€1.200.000 - €1.600.000", sub: "All-in investering inclusief 10% buffer", total: true },
+              { label: "Onvoorzien (10%) + totaal", amount: "€640.000 - €855.000", sub: "All-in investering inclusief 10% buffer", total: true },
             ].map((c) => (
               <div key={c.label} className="bg-nacht p-10" style={{ borderTop: c.total ? "2px solid #D4A878" : "none" }}>
                 <div className="font-sans font-light uppercase mb-6" style={{ fontSize: "10px", letterSpacing: "0.3em", color: c.total ? "#D4A878" : "rgba(242,237,230,0.45)" }}>{c.label}</div>
@@ -189,6 +196,13 @@ export default function FinancieelPage() {
                 <div className="font-sans font-light mt-4 leading-relaxed" style={{ fontSize: "12px", color: "rgba(242,237,230,0.5)" }}>{c.sub}</div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 p-8" style={{ background: "rgba(160,112,64,0.08)", borderLeft: "2px solid #A07040" }}>
+            <p className="font-sans font-light uppercase mb-3" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#A07040" }}>Alternatief: aankoop grond</p>
+            <p className="font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+              Bij aankoop in plaats van erfpacht: <span style={{ color: "#2C2A25" }}>+€550.000 - €750.000 startkapitaal</span>, hypotheeklasten vervangen erfpachtcanon. All-in investering wordt dan €1.200.000 - €1.600.000. Past bij locaties die te koop zijn en investeerders die eigendom als collateral willen.
+            </p>
           </div>
         </div>
       </section>
@@ -208,19 +222,19 @@ export default function FinancieelPage() {
             <div>
               <p className="font-sans font-light uppercase text-steen mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Maandelijkse vaste kosten</p>
               {[
-                { post: "Hypotheeklasten grond", bedrag: "€3.000 - €4.200", note: "4,5% rente, 25 jaar looptijd" },
-                { post: "Personeel (5 FTE)", bedrag: "€25.000", note: "Receptie, hosts, thermaal beheer, reiniging - vaste bezetting" },
+                { post: "Erfpachtcanon", bedrag: "€2.000 - €2.500", note: "Op grondwaarde ~€600k @ 4% canonrente, periodiek geïndexeerd" },
+                { post: "Personeel", bedrag: "€20.000 - €30.000", note: "Gefaseerd: 3 FTE jaar 1 (~€20k) / 5 FTE jaar 2 (~€26k) / 6 FTE jaar 3 (~€30k). Receptie, hosts, café, schoonmaak - 1 Whb-getrainde leidinggevende." },
                 { post: "Energie - sauna & steam dome", bedrag: "€900 - €1.400", note: "Hoog stroomverbruik, continue opwarming" },
                 { post: "Energie - water & pompen", bedrag: "€600 - €1.000", note: "Filtratie, verwarming jacuzzi & cold plunge" },
                 { post: "Energie - verwarmd zwembad (30m²)", bedrag: "€700 - €1.000", note: "Warmtepomp (COP 3,5) + circulatiepompen · wintermaanden tot €1.000/mnd" },
                 { post: "Energie - algemeen", bedrag: "€500 - €900", note: "Verlichting, ventilatie, receptie" },
-                { post: "Massageproducten & linnen", bedrag: "€600 - €1.000", note: "Oliën, handdoeken per sessie" },
+                { post: "Massageproducten", bedrag: "€120 - €180", note: "Oliën, cabin-lakens per massagesessie (~5% van gasten neemt massage)" },
                 { post: "Inkoop café", bedrag: "€900 - €1.500", note: "Smoothies, bouillon, thee, lichte snacks (~35% marge)" },
-                { post: "Marketing & social media", bedrag: "€1.000 - €2.000", note: "Google Ads lokaal, Instagram content" },
+                { post: "Marketing - advertenties", bedrag: "€300 - €500", note: "Meta/Google Ads, Stadjerspas - content via founders zelf" },
                 { post: "Verzekeringen", bedrag: "€400 - €600", note: "Bedrijfs-, aansprakelijkheids-, opstalverzekering" },
                 { post: "Administratie & boekhouding", bedrag: "€300 - €600", note: "Extern accountantsbureau" },
-                { post: "Onderhoud thermale installaties", bedrag: "€500 - €800", note: "Waterchemie, filters, periodieke keuring" },
-                { post: "Schoonmaak", bedrag: "€300 - €500", note: "Dagelijks - kleedkamers, ruimtes, sauna" },
+                { post: "Thermaal beheer & water-controle", bedrag: "€1.550 - €2.300", note: "ZZP-techneut 4-6u/wk, lab-monsters legionella + microbiologie, filter-materialen, Whb-onderhoud (eenmalig €3.500 training in jaar 0)" },
+                { post: "Schoonmaak & linnen-verzorging", bedrag: "€550 - €900", note: "Consumables, eco-middelen, wasdetergent badjassen/handdoeken, periodieke dieptereiniging (loon zit in Personeel)" },
                 { post: "Software & reserveringen", bedrag: "€200 - €400", note: "Boekingsplatform, kassa, nieuwsbrief" },
               ].map((r) => (
                 <div key={r.post} className="py-2.5 border-b border-steen/10">
@@ -233,11 +247,11 @@ export default function FinancieelPage() {
               ))}
               <div className="flex justify-between py-4 mt-2" style={{ borderTop: "0.5px solid #C8BAA8" }}>
                 <span className="font-serif font-light text-nacht" style={{ fontSize: "18px" }}>Totale maandkosten</span>
-                <span className="font-serif font-light text-warm" style={{ fontSize: "18px" }}>€35.000 - €41.000</span>
+                <span className="font-serif font-light text-warm" style={{ fontSize: "18px" }}>€29.300 - €44.200</span>
               </div>
               <div className="flex justify-between py-3" style={{ borderTop: "0.5px solid #C8BAA8" }}>
                 <span className="font-sans font-light text-nacht" style={{ fontSize: "14px" }}>Break-even omzet</span>
-                <span className="font-sans font-light text-warm" style={{ fontSize: "14px" }}>~€38.000 / maand</span>
+                <span className="font-sans font-light text-warm" style={{ fontSize: "14px" }}>~€32.000 (J1) / €39.000 (J3) / maand</span>
               </div>
             </div>
 
@@ -313,9 +327,9 @@ export default function FinancieelPage() {
             <p className="font-sans font-light uppercase text-lin/30 mb-8" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Totale omzetprognose per jaar</p>
             <div className="grid md:grid-cols-3 gap-[2px]" style={{ background: "rgba(242,237,230,0.06)" }}>
               {[
-                { jaar: "Jaar 1", sub: "Opbouwfase · 500 gasten/mnd gem.", entree: "€22.500", massage: "€3.555", cafe: "€5.500", events: "€1.500", abo: "€0", totaal: "€33.055", kosten: "€38.000", winst: "-€4.945", toelichting: "Jaar 1 verlieslatend. Werkkapitaalbuffer dekt dit. Break-even bij ~850 gasten/mnd.", winstColor: "#8C7F6E" },
-                { jaar: "Jaar 2", sub: "Groei · 1.200 gasten/mnd gem.", entree: "€54.000", massage: "€8.690", cafe: "€13.200", events: "€3.000", abo: "€4.800", totaal: "€83.690", kosten: "€38.000", winst: "+€45.690", toelichting: "Sterke groei. Abonnementen en events actief. Break-even ruimschoots gepasseerd.", winstColor: "#A07040" },
-                { jaar: "Jaar 3", sub: "Stabiel · 1.600 gasten/mnd gem.", entree: "€72.000", massage: "€12.640", cafe: "€17.600", events: "€4.500", abo: "€12.800", totaal: "€119.540", kosten: "€40.000", winst: "+€79.540", toelichting: "Nettoprofit ~€80k/mnd. Operationele investering grotendeels terugverdiend in jaar 3-4.", winstColor: "#A07040" },
+                { jaar: "Jaar 1", sub: "Opbouwfase · 500 gasten/mnd gem.", entree: "€22.500", massage: "€1.975", cafe: "€5.500", events: "€1.500", abo: "€0", totaal: "€31.475", kosten: "€38.000", winst: "-€6.525", toelichting: "Jaar 1 verlieslatend. Werkkapitaalbuffer dekt dit. Break-even bij ~900 gasten/mnd.", winstColor: "#8C7F6E" },
+                { jaar: "Jaar 2", sub: "Groei · 1.200 gasten/mnd gem.", entree: "€54.000", massage: "€4.740", cafe: "€13.200", events: "€3.000", abo: "€4.800", totaal: "€79.740", kosten: "€38.000", winst: "+€41.740", toelichting: "Sterke groei. Abonnementen en events actief. Break-even ruimschoots gepasseerd.", winstColor: "#A07040" },
+                { jaar: "Jaar 3", sub: "Stabiel · 1.600 gasten/mnd gem.", entree: "€72.000", massage: "€6.320", cafe: "€17.600", events: "€4.500", abo: "€12.800", totaal: "€113.220", kosten: "€40.000", winst: "+€73.220", toelichting: "Nettoprofit ~€73k/mnd. Operationele investering grotendeels terugverdiend in jaar 3-4.", winstColor: "#A07040" },
               ].map((j) => (
                 <div key={j.jaar} className="p-8" style={{ background: "rgba(255,255,255,0.03)" }}>
                   <div className="font-sans font-light uppercase text-lin/20 mb-1" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>{j.sub}</div>
@@ -365,7 +379,7 @@ export default function FinancieelPage() {
             <div className="p-8" style={{ background: "rgba(200,186,168,0.08)" }}>
               <div className="font-sans font-light uppercase text-lin/20 mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Terugverdientijd</div>
               <div className="font-serif text-warm-licht font-light" style={{ fontSize: "clamp(20px, 2.5vw, 28px)" }}>2 - 3 jaar</div>
-              <div className="font-sans font-light text-lin/30 mt-2" style={{ fontSize: "12px" }}>Operationele investering. Pand (waardevast) blijft volledig in eigendom.</div>
+              <div className="font-sans font-light text-lin/30 mt-2" style={{ fontSize: "12px" }}>Operationele investering. Opstallen blijven eigendom NORDE (recht van opstal).</div>
             </div>
           </div>
         </div>
@@ -402,15 +416,22 @@ export default function FinancieelPage() {
             Dezelfde voorzieningen, eenvoudiger uitgevoerd. Standaard units in plaats van maatwerk. Soberder café. De thermale kernervaring blijft volledig intact.
           </p>
 
-          {/* Pand */}
+          {/* Grond */}
           <div className="mb-12">
-            <p className="font-sans font-light uppercase text-steen mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Aankoop grond</p>
+            <p className="font-sans font-light uppercase text-steen mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Grond - hoofdscenario erfpacht</p>
             <div className="flex justify-between items-center py-4 border-b border-steen/20">
               <div>
-                <span className="font-sans font-light" style={{ fontSize: "15px", color: "#5C5248" }}>Pand (koop) - eigen locatie</span>
-                <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>Ongewijzigd t.o.v. hoofdscenario. Waardevast actief, buiten exploitatierendement.</div>
+                <span className="font-sans font-light" style={{ fontSize: "15px", color: "#5C5248" }}>Erfpacht met recht van opstal</span>
+                <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>Geen eenmalige koopsom. Jaarlijkse canon ~€18k zit in maandelijkse exploitatiekosten. Opstallen blijven eigendom NORDE.</div>
               </div>
-              <span className="font-serif font-light text-nacht ml-8 shrink-0" style={{ fontSize: "18px" }}>€550.000 - €750.000</span>
+              <span className="font-serif font-light text-nacht ml-8 shrink-0" style={{ fontSize: "18px" }}>€0 koopsom</span>
+            </div>
+            <div className="flex justify-between items-center py-4 border-b border-steen/20">
+              <div>
+                <span className="font-sans font-light" style={{ fontSize: "15px", color: "#8C7F6E" }}>Alternatief: aankoop grond</span>
+                <div className="font-sans font-light mt-0.5" style={{ fontSize: "11px", color: "#C8BAA8" }}>Waardevast actief, buiten exploitatierendement.</div>
+              </div>
+              <span className="font-serif font-light text-nacht ml-8 shrink-0" style={{ fontSize: "18px", color: "#8C7F6E" }}>€550.000 - €750.000</span>
             </div>
           </div>
 
@@ -482,9 +503,9 @@ export default function FinancieelPage() {
 
           <div className="grid md:grid-cols-3 gap-[1px]" style={{ background: "rgba(242,237,230,0.08)" }}>
             {[
-              { label: "Aankoop grond", amount: "€550.000 - €750.000", sub: "Waardevast actief, buiten exploitatie-rendement" },
+              { label: "Erfpacht grond", amount: "Canon ~€18k/jaar", sub: "Geen koopsom - canon zit in operationele kosten" },
               { label: "Operationele investering", amount: "€265.000 - €420.000", sub: "Verbouwing, installaties, inrichting, opstart" },
-              { label: "Onvoorzien (10%) + totaal", amount: "€840.000 - €1.215.000", sub: "All-in investering inclusief 10% buffer", total: true },
+              { label: "Onvoorzien (10%) + totaal", amount: "€290.000 - €465.000", sub: "All-in investering inclusief 10% buffer", total: true },
             ].map((c) => (
               <div key={c.label} className="bg-nacht p-10" style={{ borderTop: c.total ? "2px solid #D4A878" : "none" }}>
                 <div className="font-sans font-light uppercase mb-6" style={{ fontSize: "10px", letterSpacing: "0.3em", color: c.total ? "#D4A878" : "rgba(242,237,230,0.45)" }}>{c.label}</div>
@@ -492,6 +513,13 @@ export default function FinancieelPage() {
                 <div className="font-sans font-light mt-4 leading-relaxed" style={{ fontSize: "12px", color: "rgba(242,237,230,0.5)" }}>{c.sub}</div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 p-8" style={{ background: "rgba(160,112,64,0.08)", borderLeft: "2px solid #A07040" }}>
+            <p className="font-sans font-light uppercase mb-3" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#A07040" }}>Alternatief: aankoop grond</p>
+            <p className="font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+              Bij aankoop in plaats van erfpacht: <span style={{ color: "#2C2A25" }}>+€550.000 - €750.000 startkapitaal</span>, hypotheeklasten vervangen erfpachtcanon. All-in investering wordt dan €840.000 - €1.215.000.
+            </p>
           </div>
         </div>
       </section>
@@ -511,19 +539,19 @@ export default function FinancieelPage() {
             <div>
               <p className="font-sans font-light uppercase text-steen mb-4" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Maandelijkse vaste kosten</p>
               {[
-                { post: "Hypotheeklasten grond", bedrag: "€3.000 - €4.200", note: "4,5% rente, 25 jaar looptijd" },
-                { post: "Personeel (2-3 FTE start)", bedrag: "€8.000 - €12.000", note: "Receptie + host + reiniging - groeit naar 4 FTE in jaar 2" },
+                { post: "Erfpachtcanon", bedrag: "€1.500 - €2.000", note: "Op grondwaarde ~€500k @ 4% canonrente, periodiek geïndexeerd" },
+                { post: "Personeel", bedrag: "€10.000 - €16.000", note: "Gefaseerd: 2-3 FTE jaar 1 (~€10-12k) / 4 FTE jaar 2 (~€14k) / 5 FTE jaar 3 (~€16k). Founders dragen veel zelf in jaar 1." },
                 { post: "Energie - sauna & steam dome", bedrag: "€700 - €1.000", note: "Hoog stroomverbruik, continue opwarming" },
                 { post: "Energie - water & pompen", bedrag: "€400 - €700", note: "Filtratie, verwarming jacuzzi & cold plunge" },
                 { post: "Energie - verwarmd zwembad (30m²)", bedrag: "€600 - €1.000", note: "Warmtepomp + circulatie · wintermaanden tot €1.000/mnd" },
                 { post: "Energie - algemeen", bedrag: "€300 - €500", note: "Verlichting, ventilatie, receptie" },
-                { post: "Massageproducten & linnen", bedrag: "€200 - €400", note: "Lagere volume bij conservatieve bezetting" },
+                { post: "Massageproducten", bedrag: "€55 - €100", note: "5% van gasten neemt massage - lagere volume" },
                 { post: "Inkoop café", bedrag: "€300 - €600", note: "Koffie, thee, bouillon, kleine snacks (~35% marge)" },
-                { post: "Marketing & social media", bedrag: "€500 - €1.000", note: "Organisch focus, Google Ads beperkt" },
+                { post: "Marketing - advertenties", bedrag: "€150 - €300", note: "Alleen betaalde ads - content via founders zelf" },
                 { post: "Verzekeringen", bedrag: "€400 - €600", note: "Bedrijfs-, aansprakelijkheids-, opstalverzekering" },
                 { post: "Administratie & boekhouding", bedrag: "€300 - €500", note: "Extern accountantsbureau" },
-                { post: "Onderhoud thermale installaties", bedrag: "€400 - €600", note: "Waterchemie, filters, periodieke keuring" },
-                { post: "Schoonmaak", bedrag: "€200 - €400", note: "Deels door eigen personeel" },
+                { post: "Thermaal beheer & water-controle", bedrag: "€1.200 - €1.700", note: "ZZP-techneut 3-4u/wk, lab-monsters legionella, filter-materialen, Whb-onderhoud" },
+                { post: "Schoonmaak & linnen-verzorging", bedrag: "€350 - €600", note: "Consumables, eco-middelen, wasdetergent (loon zit in Personeel)" },
                 { post: "Software & reserveringen", bedrag: "€150 - €300", note: "Standaard boekingsplatform" },
               ].map((r) => (
                 <div key={r.post} className="py-2.5 border-b border-steen/10">
@@ -536,11 +564,11 @@ export default function FinancieelPage() {
               ))}
               <div className="flex justify-between py-4 mt-2" style={{ borderTop: "0.5px solid #C8BAA8" }}>
                 <span className="font-serif font-light text-nacht" style={{ fontSize: "18px" }}>Totale maandkosten</span>
-                <span className="font-serif font-light text-warm" style={{ fontSize: "18px" }}>€15.750 - €22.800</span>
+                <span className="font-serif font-light text-warm" style={{ fontSize: "18px" }}>€16.770 - €25.000</span>
               </div>
               <div className="flex justify-between py-3" style={{ borderTop: "0.5px solid #C8BAA8" }}>
                 <span className="font-sans font-light text-nacht" style={{ fontSize: "14px" }}>Break-even omzet</span>
-                <span className="font-sans font-light text-warm" style={{ fontSize: "14px" }}>~€19.000 / maand</span>
+                <span className="font-sans font-light text-warm" style={{ fontSize: "14px" }}>~€19.000 (J1) / €23.500 (J3) / maand</span>
               </div>
               <div className="flex justify-between py-2">
                 <span className="font-sans font-light" style={{ fontSize: "13px", color: "#8C7F6E" }}>Break-even bezoekers</span>
@@ -586,9 +614,9 @@ export default function FinancieelPage() {
             <p className="font-sans font-light uppercase text-lin/30 mb-8" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Totale omzetprognose per jaar</p>
             <div className="grid md:grid-cols-3 gap-[2px]" style={{ background: "rgba(242,237,230,0.06)" }}>
               {[
-                { jaar: "Jaar 1", sub: "Opbouwfase · 200 gasten/mnd gem.", entree: "€9.000", massage: "€1.580", cafe: "€1.200", events: "€300", abo: "€0", totaal: "€12.080", kosten: "€18.000", winst: "-€5.920", toelichting: "Verlieslatend. Buffer (€60k-€80k) dekt ~11 maanden. Personeel en marketing laag houden.", winstColor: "#8C7F6E" },
-                { jaar: "Jaar 2", sub: "Groei · 550 gasten/mnd gem.", entree: "€24.750", massage: "€4.345", cafe: "€4.400", events: "€1.000", abo: "€3.200", totaal: "€37.695", kosten: "€20.000", winst: "+€17.695", toelichting: "Break-even bereikt rond maand 20. Positief resultaat bouwt reserve op.", winstColor: "#A07040" },
-                { jaar: "Jaar 3", sub: "Stabiel · 850 gasten/mnd gem.", entree: "€38.250", massage: "€6.320", cafe: "€7.000", events: "€1.500", abo: "€6.400", totaal: "€59.470", kosten: "€22.000", winst: "+€37.470", toelichting: "Nettoprofit ~€37k/mnd. Operationele investering terugverdiend in jaar 3.", winstColor: "#A07040" },
+                { jaar: "Jaar 1", sub: "Opbouwfase · 200 gasten/mnd gem.", entree: "€9.000", massage: "€790", cafe: "€1.200", events: "€300", abo: "€0", totaal: "€11.290", kosten: "€18.000", winst: "-€6.710", toelichting: "Verlieslatend. Buffer (€60k-€80k) dekt ~11 maanden. Personeel en marketing laag houden.", winstColor: "#8C7F6E" },
+                { jaar: "Jaar 2", sub: "Groei · 550 gasten/mnd gem.", entree: "€24.750", massage: "€2.170", cafe: "€4.400", events: "€1.000", abo: "€3.200", totaal: "€35.520", kosten: "€20.000", winst: "+€15.520", toelichting: "Break-even bereikt rond maand 22. Positief resultaat bouwt reserve op.", winstColor: "#A07040" },
+                { jaar: "Jaar 3", sub: "Stabiel · 850 gasten/mnd gem.", entree: "€38.250", massage: "€3.355", cafe: "€7.000", events: "€1.500", abo: "€6.400", totaal: "€56.505", kosten: "€22.000", winst: "+€34.505", toelichting: "Nettoprofit ~€34k/mnd. Operationele investering terugverdiend in jaar 3.", winstColor: "#A07040" },
               ].map((j) => (
                 <div key={j.jaar} className="p-8" style={{ background: "rgba(255,255,255,0.03)" }}>
                   <div className="font-sans font-light uppercase text-lin/20 mb-1" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>{j.sub}</div>
@@ -661,13 +689,13 @@ export default function FinancieelPage() {
                   { k: "Gasten jaar 1", v: "~500/mnd" },
                   { k: "Gasten jaar 2", v: "~1.200/mnd" },
                   { k: "Gasten jaar 3", v: "~1.600/mnd" },
-                  { k: "Personeel", v: "5 FTE · €25.000/mnd" },
-                  { k: "Maandkosten", v: "€35.000 - €41.000" },
-                  { k: "Break-even omzet", v: "~€38.000/mnd (~850 gasten)" },
+                  { k: "Personeel", v: "3 → 6 FTE · €20-30k/mnd (gefaseerd)" },
+                  { k: "Maandkosten", v: "€29.300 - €44.200 (incl. canon)" },
+                  { k: "Break-even omzet", v: "~€32k (J1) tot €39k (J3) /mnd" },
                   { k: "Investering (operationeel)", v: "€580.000 - €775.000" },
-                  { k: "All-in investering", v: "€1.200.000 - €1.600.000" },
+                  { k: "All-in investering (erfpacht)", v: "€640.000 - €855.000" },
                   { k: "Terugverdientijd", v: "2 - 3 jaar" },
-                  { k: "Netto resultaat jaar 3", v: "+€79.540/mnd" },
+                  { k: "Netto resultaat jaar 3", v: "+€73.220/mnd" },
                 ],
                 bg: "#1C2E40",
               },
@@ -677,13 +705,13 @@ export default function FinancieelPage() {
                   { k: "Gasten jaar 1", v: "~200/mnd" },
                   { k: "Gasten jaar 2", v: "~550/mnd" },
                   { k: "Gasten jaar 3", v: "~850/mnd" },
-                  { k: "Personeel", v: "2-3 FTE · €8.000-€12.000/mnd" },
-                  { k: "Maandkosten", v: "€15.750 - €22.800" },
-                  { k: "Break-even omzet", v: "~€19.000/mnd (~380 gasten)" },
+                  { k: "Personeel", v: "2 → 5 FTE · €10-16k/mnd (gefaseerd)" },
+                  { k: "Maandkosten", v: "€16.770 - €25.000 (incl. canon)" },
+                  { k: "Break-even omzet", v: "~€19k (J1) tot €23.5k (J3) /mnd" },
                   { k: "Investering (operationeel)", v: "€265.000 - €420.000" },
-                  { k: "All-in investering", v: "€840.000 - €1.215.000" },
+                  { k: "All-in investering (erfpacht)", v: "€290.000 - €465.000" },
                   { k: "Terugverdientijd", v: "2 - 4 jaar" },
-                  { k: "Netto resultaat jaar 3", v: "+€37.470/mnd" },
+                  { k: "Netto resultaat jaar 3", v: "+€34.505/mnd" },
                 ],
                 bg: "#3D2B1A",
               },
@@ -704,7 +732,7 @@ export default function FinancieelPage() {
 
           <div className="mt-8 p-6" style={{ background: "#F5F1EB", border: "0.5px solid #C8BAA8" }}>
             <p className="font-sans font-light leading-relaxed" style={{ fontSize: "13px", color: "#5C5248" }}>
-              <span className="font-medium text-nacht">Conclusie.</span> Zelfs in het conservatieve scenario - met de helft van de bezoekers en veel lagere kosten - is NORDE financieel haalbaar. De lage break-even (~380 gasten/mnd, 15% van de maximumcapaciteit) biedt een stevige veiligheidsmarge. De operationele investering is in beide scenario&apos;s terugverdiend binnen 4 jaar. De grond is in beide gevallen een waardevast actief.
+              <span className="font-medium text-nacht">Conclusie.</span> Zelfs in het conservatieve scenario - met de helft van de bezoekers en veel lagere kosten - is NORDE financieel haalbaar. De lage break-even (~380 gasten/mnd, 15% van de maximumcapaciteit) biedt een stevige veiligheidsmarge. De operationele investering is in beide scenario&apos;s terugverdiend binnen 4 jaar. Door erfpacht ipv aankoop blijft het startkapitaal beperkt en is de cashflow voorspelbaar; opstallen blijven eigendom van NORDE.
             </p>
           </div>
         </div>
@@ -717,7 +745,7 @@ export default function FinancieelPage() {
             NORDE
           </div>
           <p className="font-sans font-light text-lin/20" style={{ fontSize: "11px" }}>
-            Vertrouwelijk document · Uitsluitend voor investeerders · © 2025 NORDE Wellness Recovery Club
+            Vertrouwelijk document · Uitsluitend voor investeerders · © 2026 NORDE Wellness Recovery Club
           </p>
         </div>
       </footer>

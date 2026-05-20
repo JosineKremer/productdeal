@@ -87,7 +87,7 @@ export default function Businessplan() {
               <Stat label="Investering" value="€1.200.000 - €1.600.000 all-in" />
               <Stat label="Break-even" value="Verwacht binnen 24-36 maanden" />
               <Stat label="Opening" value="1-2 jaar na start traject" />
-              <Stat label="Locatie" value="Groningen, eigen grond (koop)" />
+              <Stat label="Locatie" value="Groningen, erfpacht (alt. koop)" />
             </div>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function Businessplan() {
 
           <div className="grid md:grid-cols-3 gap-[2px] mb-10" style={{ background: "#C8BAA8" }}>
             {[
-              { label: "All-in investering", value: "€1,2M - €1,6M", sub: "Inclusief grond, installaties en werkkapitaal" },
+              { label: "All-in investering", value: "€640k - €855k", sub: "Erfpacht-scenario: installaties + werkkapitaal (excl. grond)" },
               { label: "Break-even", value: "~€38k/mnd", sub: "Bereikt bij ~850 gasten per maand" },
               { label: "Terugverdientijd", value: "2 - 3 jaar", sub: "Operationele investering excl. grond" },
             ].map((c) => (
