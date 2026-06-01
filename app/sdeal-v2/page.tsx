@@ -81,36 +81,32 @@ export default function SportdealV2() {
       {/* ── HERO: zomerbanner met afbeelding + tekst ── */}
       <section className="relative overflow-hidden" style={{ minHeight: "580px" }}>
 
-        {/* Achtergrond: warme zomer gradiënt */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, #173441 0%, #1d4a5e 45%, #0e6b8a 100%)" }} />
-
-        {/* Zon-decoratie rechtsboven */}
-        <div className="absolute -top-20 right-80 w-96 h-96 rounded-full opacity-[0.12]"
-          style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 70%)" }} />
-        <div className="absolute top-8 right-96 w-64 h-64 rounded-full opacity-[0.08]"
-          style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 60%)" }} />
-
-        {/* Afbeelding rechts — groot, geen overlay */}
-        <div className="absolute right-0 top-0 h-full w-1/2 hidden lg:block">
+        {/* Outdoor foto als volledige achtergrond */}
+        <div className="absolute inset-0">
           <img
-            src="/cat-schoenen.jpg"
-            alt="Watersport & Outdoor zomercollectie"
-            className="w-full h-full object-cover"
+            src="/categories/sports-outdoor.jpg"
+            alt="Outdoor zomercollectie"
+            className="w-full h-full object-cover object-center"
           />
-          {/* Fade naar links zodat tekst leesbaar blijft */}
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #1d4a5e 0%, transparent 40%)" }} />
-          {/* Kleine deal-badge op de foto */}
-          <div className="absolute top-8 left-8 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wide leading-none">Tot</p>
-              <p className="text-lg font-black leading-none" style={{ color: "#e2603f" }}>−40%</p>
-              <p className="text-[10px] text-gray-500 leading-none">op zomersport</p>
-            </div>
+          {/* Donkere gradiënt over de foto zodat tekst leesbaar is */}
+          <div className="absolute inset-0" style={{ background: "linear-gradient(100deg, rgba(23,52,65,0.95) 0%, rgba(23,52,65,0.80) 45%, rgba(23,52,65,0.25) 100%)" }} />
+        </div>
+
+        {/* Zon-gloed decoratie */}
+        <div className="absolute -top-20 right-32 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
+          style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 70%)" }} />
+
+        {/* Deal-badge rechts — zichtbaar op alle formaten */}
+        <div className="absolute top-8 right-6 md:right-16 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 z-10">
+          <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wide leading-none">Tot</p>
+            <p className="text-xl font-black leading-none" style={{ color: "#e2603f" }}>−40%</p>
+            <p className="text-[10px] text-gray-500 leading-none">op zomersport</p>
           </div>
         </div>
 
@@ -146,11 +142,13 @@ export default function SportdealV2() {
             {/* CTA knoppen */}
             <div className="flex flex-wrap gap-3 mb-10">
               <Link
-                href="#"
+                href="https://www.sportdeal.nl/outdoor"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-7 py-4 rounded-2xl text-white font-black text-sm transition-all hover:scale-105 hover:shadow-xl"
                 style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}
               >
-                Bekijk Watersport & Outdoor →
+                Bekijk Outdoor →
               </Link>
               <Link
                 href="#"
