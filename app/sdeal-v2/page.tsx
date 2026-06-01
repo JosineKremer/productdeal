@@ -152,6 +152,33 @@ export default function SportdealV2() {
         </div>
       </section>
 
+      {/* ── Stats balk ── */}
+      <section className="border-b" style={{ backgroundColor: "#fff", borderColor: "#e8ecef" }}>
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+            {[
+              { icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4", val: "1,4 miljoen+", lbl: "Producten" },
+              { icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z", val: "300+", lbl: "Webshops" },
+              { icon: "M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z", val: "10.000+", lbl: "Merken" },
+              { icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064", val: "7", lbl: "Landen" },
+            ].map(({ icon, val, lbl }) => (
+              <div key={lbl} className="flex items-center gap-4 px-6 py-5">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: "rgba(226,96,63,0.08)" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-xl font-black leading-tight" style={{ color: "#173441" }}>{val}</div>
+                  <div className="text-sm text-gray-400 leading-tight">{lbl}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Deals: horizontale scroll strip ── */}
       <section className="py-14" style={{ backgroundColor: "#fff" }}>
         <div className="max-w-7xl mx-auto px-4">
