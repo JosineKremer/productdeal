@@ -84,8 +84,8 @@ export default function SportdealV2() {
         {/* Outdoor foto als volledige achtergrond */}
         <div className="absolute inset-0">
           <img
-            src="/categories/sports-outdoor.jpg"
-            alt="Outdoor zomercollectie"
+            src="/categories/camping-hangmat.jpg"
+            alt="Kamperen en outdoor"
             className="w-full h-full object-cover object-center"
           />
           {/* Donkere gradiënt over de foto zodat tekst leesbaar is */}
@@ -96,29 +96,9 @@ export default function SportdealV2() {
         <div className="absolute -top-20 right-32 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
           style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 70%)" }} />
 
-        {/* Deal-badge rechts — zichtbaar op alle formaten */}
-        <div className="absolute top-8 right-6 md:right-16 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 z-10">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div>
-            <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wide leading-none">Tot</p>
-            <p className="text-xl font-black leading-none" style={{ color: "#e2603f" }}>−40%</p>
-            <p className="text-[10px] text-gray-500 leading-none">op zomersport</p>
-          </div>
-        </div>
-
         {/* Tekst links */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 h-full flex items-center py-16 lg:py-24">
           <div className="max-w-xl">
-
-            {/* Seizoens-label */}
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold mb-8"
-              style={{ background: "linear-gradient(90deg, rgba(245,174,76,0.2), rgba(226,96,63,0.2))", border: "1px solid rgba(245,174,76,0.4)", color: "#f5ae4c" }}>
-              ☀️ Zomercollectie 2026 — Watersport & Outdoor
-            </div>
 
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.0] text-white mb-6 tracking-tight">
