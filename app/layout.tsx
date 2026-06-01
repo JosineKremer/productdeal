@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import LayoutShell from "./components/LayoutShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,9 +20,7 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased" style={{ backgroundColor: "#f5f7f9" }}>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
