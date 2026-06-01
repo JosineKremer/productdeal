@@ -6,33 +6,33 @@ import Image from "next/image";
 // #f5ae4c  geel
 // #173441  donkerblauw
 
-const HERO_TILES = [
-  { label: "Fitness", count: "42.380", gradient: "linear-gradient(135deg,#e2603f,#f5ae4c)", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
-  { label: "Fietsen", count: "38.120", gradient: "linear-gradient(135deg,#173441,#2a5470)", icon: "M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0zM13 6h-2l-2 7h8l-2-7z" },
-  { label: "Outdoor", count: "29.540", gradient: "linear-gradient(135deg,#1b693d,#38a169)", icon: "M5 3l14 9-14 9V3z" },
-  { label: "Watersport", count: "14.860", gradient: "linear-gradient(135deg,#0277bd,#4fc3f7)", icon: "M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" },
-  { label: "Sportkleding", count: "55.210", gradient: "linear-gradient(135deg,#b71c1c,#e53e3e)", icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" },
-  { label: "Vechtsporten", count: "8.450", gradient: "linear-gradient(135deg,#4a148c,#9c27b0)", icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
+const CATEGORIES = [
+  { label: "Fitness & Gym", href: "#", count: "42.380", image: "/cat-compressie.jpg", gradient: "linear-gradient(135deg,#e2603f,#f5ae4c)" },
+  { label: "Fietsen", href: "#", count: "38.120", image: null, gradient: "linear-gradient(135deg,#173441,#2a5470)" },
+  { label: "Outdoor & Kamperen", href: "#", count: "29.540", image: "/categories/camping-hangmat.jpg", gradient: "linear-gradient(135deg,#1b693d,#38a169)" },
+  { label: "Watersport", href: "#", count: "14.860", image: null, gradient: "linear-gradient(135deg,#0277bd,#4fc3f7)" },
+  { label: "Sportkleding", href: "#", count: "55.210", image: "/cat-shirt.jpg", gradient: "linear-gradient(135deg,#b71c1c,#e53e3e)" },
+  { label: "Vechtsporten", href: "#", count: "8.450", image: null, gradient: "linear-gradient(135deg,#4a148c,#9c27b0)" },
+  { label: "Racketsporten", href: "#", count: "12.730", image: null, gradient: "linear-gradient(135deg,#e65100,#ffb74d)" },
+  { label: "Teamsport", href: "#", count: "19.280", image: "/cat-sporttas.jpg", gradient: "linear-gradient(135deg,#1a237e,#3949ab)" },
 ];
 
 const SPORT_BRANDS = [
-  { name: "Nike", domain: "nike.com" },
-  { name: "Adidas", domain: "adidas.com" },
-  { name: "Puma", domain: "puma.com" },
-  { name: "Under Armour", domain: "underarmour.com" },
-  { name: "Asics", domain: "asics.com" },
-  { name: "New Balance", domain: "newbalance.com" },
-  { name: "Garmin", domain: "garmin.com" },
-  { name: "Decathlon", domain: "decathlon.nl" },
-  { name: "Columbia", domain: "columbia.com" },
-  { name: "The North Face", domain: "thenorthface.com" },
+  { name: "Nike", domain: "nike.com", count: "8.552" },
+  { name: "Adidas", domain: "adidas.com", count: "16.274" },
+  { name: "Puma", domain: "puma.com", count: "7.182" },
+  { name: "Under Armour", domain: "underarmour.com", count: "3.410" },
+  { name: "Asics", domain: "asics.com", count: "4.890" },
+  { name: "New Balance", domain: "newbalance.com", count: "5.230" },
+  { name: "Garmin", domain: "garmin.com", count: "2.140" },
+  { name: "Decathlon", domain: "decathlon.nl", count: "20.716" },
 ];
 
 const DEALS = [
-  { title: "Nike Air Zoom Pegasus 40", brand: "Nike", price: "€ 94,99", was: "€ 129,99", tag: "−27%", img: "/cat-schoenen.jpg" },
-  { title: "Adidas Tiro 23 Trainingsset", brand: "Adidas", price: "€ 54,99", was: "€ 79,95", tag: "−31%", img: "/cat-shirt.jpg" },
-  { title: "Garmin Forerunner 255", brand: "Garmin", price: "€ 249,00", was: null, tag: "Populair", img: "/cat-compressie.jpg" },
-  { title: "Puma Keepershandschoenen", brand: "Puma", price: "€ 22,95", was: "€ 29,99", tag: "−23%", img: "/cat-hoodie.jpg" },
+  { title: "Nike Air Zoom Pegasus 40", brand: "Nike", price: "€ 94,99", was: "€ 129,99", tag: "−27%", badge: "Deal", img: "/cat-schoenen.jpg" },
+  { title: "Adidas Tiro 23 Trainingsset", brand: "Adidas", price: "€ 54,99", was: "€ 79,95", tag: "−31%", badge: "Sale", img: "/cat-shirt.jpg" },
+  { title: "Garmin Forerunner 255", brand: "Garmin", price: "€ 249,00", was: null, tag: "Populair", badge: "Populair", img: "/cat-compressie.jpg" },
+  { title: "Puma Keepershandschoenen", brand: "Puma", price: "€ 22,95", was: "€ 29,99", tag: "−23%", badge: "Deal", img: "/cat-hoodie.jpg" },
 ];
 
 const NAV = ["Fitness", "Fietsen", "Outdoor", "Watersport", "Sportkleding", "Spellen & Hobby", "Merken"];
@@ -179,158 +179,150 @@ export default function SportdealV2() {
         </div>
       </section>
 
-      {/* ── Deals: horizontale scroll strip ── */}
-      <section className="py-14" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#e2603f" }}>Dagelijks bijgewerkt</p>
-              <h2 className="text-3xl font-black" style={{ color: "#173441" }}>Beste deals nu</h2>
-            </div>
-            <Link href="#" className="text-sm font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all" style={{ color: "#e2603f" }}>
-              Alle deals
+      <div className="max-w-7xl mx-auto px-4">
+
+        {/* ── Categorieën ── */}
+        <section className="py-10">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Categorieën</h2>
+            <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
+              style={{ backgroundColor: "rgba(226,96,63,0.08)", color: "#e2603f", border: "1.5px solid rgba(226,96,63,0.3)" }}>
+              Alle categorieën
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4-4 4M3 12h18" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
           </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {CATEGORIES.map((cat) => (
+              <Link key={cat.label} href={cat.href}
+                className="group relative overflow-hidden rounded-2xl hover:shadow-xl transition-all duration-300"
+                style={{ aspectRatio: "4/3" }}>
+                {cat.image ? (
+                  <img src={cat.image} alt={cat.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                ) : (
+                  <div className="absolute inset-0" style={{ background: cat.gradient }} />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <span className="block font-bold text-white text-sm leading-tight drop-shadow">{cat.label}</span>
+                  <span className="text-white/70 text-xs mt-0.5 block">{cat.count} producten</span>
+                </div>
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* ── Uitgelichte deals ── */}
+        <section className="py-6">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Uitgelichte deals</h2>
+            <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
+              style={{ backgroundColor: "rgba(226,96,63,0.08)", color: "#e2603f", border: "1.5px solid rgba(226,96,63,0.3)" }}>
+              Alle deals
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {DEALS.map((deal) => (
-              <Link
-                key={deal.title}
-                href="#"
-                className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
-              >
-                {/* Kortingsbadge */}
-                <div className="absolute top-3 left-3 z-10 text-white text-xs font-black px-2.5 py-1 rounded-full" style={{ backgroundColor: deal.was ? "#e2603f" : "#173441" }}>
-                  {deal.tag}
+              <Link key={deal.title} href="#"
+                className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-200 border border-gray-100 hover:border-orange-100 flex flex-col hover:-translate-y-1">
+                <div className="relative h-48 overflow-hidden bg-gray-50">
+                  <img src={deal.img} alt={deal.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <span className="absolute top-3 left-3 text-white text-xs font-bold px-2.5 py-1 rounded-full"
+                    style={{ backgroundColor: deal.was ? "#e2603f" : "#173441" }}>
+                    {deal.badge}
+                  </span>
                 </div>
-                {/* Afbeelding */}
-                <div className="h-44 overflow-hidden" style={{ background: "linear-gradient(135deg,#fff4ee,#ffe8de)" }}>
-                  <img
-                    src={deal.img}
-                    alt={deal.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4">
-                  <p className="text-xs font-bold mb-1" style={{ color: "#e2603f" }}>{deal.brand}</p>
-                  <h3 className="text-sm font-bold leading-snug mb-3 line-clamp-2 group-hover:underline" style={{ color: "#173441" }}>
+                <div className="p-4 flex flex-col flex-1">
+                  <div className="text-xs font-semibold mb-1" style={{ color: "#e2603f" }}>{deal.brand}</div>
+                  <h3 className="font-semibold text-sm leading-snug mb-3 group-hover:underline line-clamp-2" style={{ color: "#173441" }}>
                     {deal.title}
                   </h3>
-                  <div className="flex items-center justify-between">
+                  <div className="mt-auto flex items-center justify-between">
                     <div>
-                      <span className="text-xl font-black" style={{ color: "#173441" }}>{deal.price}</span>
-                      {deal.was && <span className="text-xs text-gray-400 line-through ml-1.5">{deal.was}</span>}
+                      <span className="text-lg font-extrabold" style={{ color: "#173441" }}>{deal.price}</span>
+                      {deal.was && <span className="text-xs text-gray-400 line-through ml-2">{deal.was}</span>}
                     </div>
-                    <span className="w-8 h-8 rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                      </svg>
+                    <span className="text-xs font-semibold px-3 py-1.5 rounded-full text-white"
+                      style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
+                      Bekijk
                     </span>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Merken: brede scroll strip ── */}
-      <section className="py-14 overflow-hidden" style={{ backgroundColor: "#f8f9fa" }}>
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#e2603f" }}>500+ sportmerken</p>
-              <h2 className="text-3xl font-black" style={{ color: "#173441" }}>Shop per merk</h2>
-            </div>
-            <Link href="#" className="text-sm font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all" style={{ color: "#e2603f" }}>
+        {/* ── Populaire merken ── */}
+        <section className="py-8 mb-4">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Populaire merken</h2>
+            <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
+              style={{ backgroundColor: "rgba(226,96,63,0.08)", color: "#e2603f", border: "1.5px solid rgba(226,96,63,0.3)" }}>
               Alle merken
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4-4 4M3 12h18" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
           </div>
-
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {SPORT_BRANDS.map((brand) => (
-              <Link
-                key={brand.name}
-                href="#"
-                className="group flex-shrink-0 bg-white rounded-2xl px-5 py-4 flex flex-col items-center gap-2 border border-gray-100 hover:shadow-lg hover:border-orange-100 hover:-translate-y-0.5 transition-all duration-200 min-w-[110px]"
-              >
-                <div className="w-12 h-12 flex items-center justify-center">
+              <Link key={brand.name} href="#"
+                className="group bg-white rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-orange-100">
+                <div className="w-20 h-14 flex items-center justify-center mb-3">
                   <img
                     src={`https://www.google.com/s2/favicons?domain=${brand.domain}&sz=64`}
                     alt={brand.name}
-                    className="w-9 h-9 object-contain group-hover:scale-110 transition-transform"
+                    className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-200"
                   />
                 </div>
-                <span className="text-xs font-bold text-center leading-tight" style={{ color: "#173441" }}>{brand.name}</span>
+                <span className="font-semibold text-sm" style={{ color: "#173441" }}>{brand.name}</span>
+                <span className="text-xs text-gray-400 mt-0.5">{brand.count} producten</span>
               </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── USP balk ── */}
-      <section style={{ background: "linear-gradient(90deg,#173441 0%,#1f4a62 100%)" }} className="py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
-            {[
-              { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Altijd de laagste prijs", desc: "Dagelijks vergelijken we 150+ sportwebshops. Jij kiest de beste prijs." },
-              { icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Direct geleverd", desc: "Bekijk levertijden per winkel en kies de snelste optie voor jou." },
-              { icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z", title: "Gecertificeerde shops", desc: "Alleen betrouwbare winkels met hoge klantwaarderingen op Sportdeal." },
-            ].map((usp) => (
-              <div key={usp.title} className="flex gap-4 items-start">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(226,96,63,0.2)" }}>
-                  <svg className="w-6 h-6" fill="none" stroke="#f5ae4c" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={usp.icon} />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold mb-1">{usp.title}</h3>
-                  <p className="text-sm text-white/60 leading-relaxed">{usp.desc}</p>
-                </div>
+        {/* ── Jouw webshop op Sdeal? ── */}
+        <section className="mb-10">
+          <div className="rounded-3xl overflow-hidden relative"
+            style={{ background: "linear-gradient(135deg, #173441 0%, #e2603f 100%)" }}>
+            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#f5ae4c" }} />
+            <div className="absolute -bottom-10 right-32 w-40 h-40 rounded-full opacity-10" style={{ backgroundColor: "#f5ae4c" }} />
+            <div className="relative px-8 md:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-white text-center md:text-left">
+                <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4"
+                  style={{ backgroundColor: "rgba(245,174,76,0.2)", color: "#f5ae4c" }}>
+                  Voor webshops
+                </span>
+                <h2 className="text-2xl md:text-3xl font-extrabold mb-2">
+                  Jouw webshop op Sdeal?
+                </h2>
+                <p className="opacity-75 max-w-md text-sm leading-relaxed">
+                  Bereik dagelijks duizenden sporters. Al 300+ webshops gingen je voor en verhogen hun omzet.
+                </p>
               </div>
-            ))}
+              <div className="flex-shrink-0">
+                <Link href="#"
+                  className="bg-white font-bold px-8 py-3.5 rounded-full hover:shadow-xl transition-all hover:scale-105 text-sm"
+                  style={{ color: "#e2603f" }}>
+                  Bekijk pricing →
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── CTA voor webshops ── */}
-      <section className="py-16" style={{ backgroundColor: "#fff" }}>
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <div className="w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center" style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ color: "#173441" }}>
-            Jouw webshop op Sportdeal?
-          </h2>
-          <p className="text-gray-500 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-            Bereik dagelijks duizenden sporters. Al 150+ sportwebshops adverteren op Sportdeal en verhogen hun omzet.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="#"
-              className="px-8 py-4 rounded-2xl text-white font-bold text-sm transition-all hover:scale-105 hover:shadow-lg"
-              style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}
-            >
-              Bekijk partnership →
-            </Link>
-            <Link
-              href="#"
-              className="px-8 py-4 rounded-2xl font-bold text-sm border-2 transition-all hover:bg-gray-50"
-              style={{ borderColor: "#e2e8f0", color: "#173441" }}
-            >
-              Meer informatie
-            </Link>
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: "#0d2530" }} className="text-white py-12">
