@@ -236,10 +236,6 @@ export default function SportdealV2() {
                 className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-200 border border-gray-100 hover:border-orange-100 flex flex-col hover:-translate-y-1">
                 <div className="relative h-48 overflow-hidden bg-gray-50">
                   <img src={deal.img} alt={deal.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <span className="absolute top-3 left-3 text-white text-xs font-bold px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: deal.was ? "#e2603f" : "#173441" }}>
-                    {deal.badge}
-                  </span>
                 </div>
                 <div className="p-4 flex flex-col flex-1">
                   <div className="text-xs font-semibold mb-1" style={{ color: "#e2603f" }}>{deal.brand}</div>
