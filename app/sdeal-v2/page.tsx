@@ -69,25 +69,45 @@ export default function SportdealV2() {
             ))}
           </nav>
 
-          {/* Zoekbalk rechts */}
-          <div className="flex items-center gap-2 ml-auto">
-            <div className="relative hidden md:block">
-              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+          {/* Zomer seizoens-CTA — vervangt zoekbalk */}
+          <Link
+            href="#"
+            className="ml-auto hidden md:flex items-center gap-3 px-4 py-2.5 rounded-2xl group hover:scale-[1.03] transition-all duration-200 relative overflow-hidden flex-shrink-0"
+            style={{ background: "linear-gradient(110deg, #f5ae4c 0%, #e2603f 100%)" }}
+          >
+            {/* Zon-stralen decoratie */}
+            <div className="absolute inset-0 pointer-events-none">
+              <svg viewBox="0 0 200 56" className="absolute -right-2 -top-2 w-28 h-14 opacity-10" fill="white">
+                <circle cx="170" cy="10" r="40" />
+                <line x1="170" y1="0" x2="170" y2="-15" stroke="white" strokeWidth="4" />
+                <line x1="185" y1="3" x2="195" y2="-5" stroke="white" strokeWidth="3" />
+                <line x1="195" y1="15" x2="210" y2="12" stroke="white" strokeWidth="3" />
               </svg>
-              <input
-                type="search"
-                placeholder="Zoek sportproducten..."
-                className="border border-gray-200 rounded-full pl-9 pr-4 py-2 text-sm w-56 focus:outline-none focus:border-orange-400 bg-gray-50 transition-colors"
-              />
             </div>
-            <button
-              className="px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90 flex-shrink-0"
-              style={{ backgroundColor: "#e2603f" }}
+
+            {/* Icoon */}
+            <div className="w-9 h-9 rounded-xl bg-white/25 flex items-center justify-center flex-shrink-0">
+              {/* Golf-icoon voor watersport */}
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2}
+                  d="M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M3 19c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M12 3v3M8.5 4.5l1.5 2M15.5 4.5l-1.5 2" />
+              </svg>
+            </div>
+
+            {/* Tekst */}
+            <div>
+              <p className="text-[10px] font-bold text-white/75 uppercase tracking-widest leading-none mb-0.5">☀️ Trending deze zomer</p>
+              <p className="text-sm font-black text-white leading-tight">Watersport & Outdoor</p>
+            </div>
+
+            {/* Pijl */}
+            <svg
+              className="w-4 h-4 text-white/80 group-hover:translate-x-1 transition-transform ml-1"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24"
             >
-              Zoeken
-            </button>
-          </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4-4 4M3 12h18" />
+            </svg>
+          </Link>
         </div>
       </header>
 
