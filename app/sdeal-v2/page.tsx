@@ -69,156 +69,108 @@ export default function SportdealV2() {
             ))}
           </nav>
 
-          {/* Zomer seizoens-CTA — vervangt zoekbalk */}
-          <Link
-            href="#"
-            className="ml-auto hidden md:flex items-center gap-3 px-4 py-2.5 rounded-2xl group hover:scale-[1.03] transition-all duration-200 relative overflow-hidden flex-shrink-0"
-            style={{ background: "linear-gradient(110deg, #f5ae4c 0%, #e2603f 100%)" }}
-          >
-            {/* Zon-stralen decoratie */}
-            <div className="absolute inset-0 pointer-events-none">
-              <svg viewBox="0 0 200 56" className="absolute -right-2 -top-2 w-28 h-14 opacity-10" fill="white">
-                <circle cx="170" cy="10" r="40" />
-                <line x1="170" y1="0" x2="170" y2="-15" stroke="white" strokeWidth="4" />
-                <line x1="185" y1="3" x2="195" y2="-5" stroke="white" strokeWidth="3" />
-                <line x1="195" y1="15" x2="210" y2="12" stroke="white" strokeWidth="3" />
-              </svg>
-            </div>
-
-            {/* Icoon */}
-            <div className="w-9 h-9 rounded-xl bg-white/25 flex items-center justify-center flex-shrink-0">
-              {/* Golf-icoon voor watersport */}
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2}
-                  d="M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M3 19c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M12 3v3M8.5 4.5l1.5 2M15.5 4.5l-1.5 2" />
-              </svg>
-            </div>
-
-            {/* Tekst */}
-            <div>
-              <p className="text-[10px] font-bold text-white/75 uppercase tracking-widest leading-none mb-0.5">☀️ Trending deze zomer</p>
-              <p className="text-sm font-black text-white leading-tight">Watersport & Outdoor</p>
-            </div>
-
-            {/* Pijl */}
-            <svg
-              className="w-4 h-4 text-white/80 group-hover:translate-x-1 transition-transform ml-1"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4-4 4M3 12h18" />
+          {/* Zoekicoon rechts */}
+          <button className="ml-auto p-2.5 rounded-xl hover:bg-gray-50 transition-colors" style={{ color: "#173441" }}>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
             </svg>
-          </Link>
+          </button>
         </div>
       </header>
 
-      {/* ── HERO: split screen ── */}
-      <section className="min-h-[88vh] grid grid-cols-1 lg:grid-cols-2">
+      {/* ── HERO: zomerbanner met afbeelding + tekst ── */}
+      <section className="relative overflow-hidden" style={{ minHeight: "580px" }}>
 
-        {/* Links: donker paneel met propositie */}
-        <div
-          className="relative flex flex-col justify-center px-8 md:px-16 py-20 overflow-hidden"
-          style={{ backgroundColor: "#173441" }}
-        >
-          {/* Decoratieve cirkels */}
-          <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full opacity-10" style={{ backgroundColor: "#e2603f" }} />
-          <div className="absolute top-16 -right-12 w-48 h-48 rounded-full opacity-[0.07]" style={{ backgroundColor: "#f5ae4c" }} />
+        {/* Achtergrond: warme zomer gradiënt */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, #173441 0%, #1d4a5e 45%, #0e6b8a 100%)" }} />
 
-          <div className="relative z-10 max-w-lg">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm mb-8" style={{ backgroundColor: "rgba(226,96,63,0.15)", border: "1px solid rgba(226,96,63,0.3)" }}>
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "#f5ae4c" }} />
-              <span className="text-white/80 text-xs">250.000+ sportproducten vergeleken</span>
+        {/* Zon-decoratie rechtsboven */}
+        <div className="absolute -top-20 right-80 w-96 h-96 rounded-full opacity-[0.12]"
+          style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 70%)" }} />
+        <div className="absolute top-8 right-96 w-64 h-64 rounded-full opacity-[0.08]"
+          style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 60%)" }} />
+
+        {/* Afbeelding rechts — groot, geen overlay */}
+        <div className="absolute right-0 top-0 h-full w-1/2 hidden lg:block">
+          <img
+            src="/cat-schoenen.jpg"
+            alt="Watersport & Outdoor zomercollectie"
+            className="w-full h-full object-cover"
+          />
+          {/* Fade naar links zodat tekst leesbaar blijft */}
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #1d4a5e 0%, transparent 40%)" }} />
+          {/* Kleine deal-badge op de foto */}
+          <div className="absolute top-8 left-8 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wide leading-none">Tot</p>
+              <p className="text-lg font-black leading-none" style={{ color: "#e2603f" }}>−40%</p>
+              <p className="text-[10px] text-gray-500 leading-none">op zomersport</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tekst links */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 h-full flex items-center py-16 lg:py-24">
+          <div className="max-w-xl">
+
+            {/* Seizoens-label */}
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold mb-8"
+              style={{ background: "linear-gradient(90deg, rgba(245,174,76,0.2), rgba(226,96,63,0.2))", border: "1px solid rgba(245,174,76,0.4)", color: "#f5ae4c" }}>
+              ☀️ Zomercollectie 2026 — Watersport & Outdoor
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl font-black leading-[1.05] text-white mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.0] text-white mb-6 tracking-tight">
               De beste<br />
-              <span
-                className="inline-block"
-                style={{
-                  background: "linear-gradient(90deg, #f5ae4c, #e2603f)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{
+                background: "linear-gradient(90deg, #f5ae4c, #e2603f)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
                 sportdeal
               </span><br />
               altijd gevonden.
             </h1>
 
-            <p className="text-white/60 text-base mb-10 leading-relaxed max-w-sm">
-              Vergelijk prijzen van <strong className="text-white/90">150+ sportwebshops</strong> in één oogopslag. Nooit meer te veel betalen.
+            <p className="text-white/65 text-lg mb-10 leading-relaxed">
+              Vergelijk <strong className="text-white/90">150+ sportwebshops</strong> en vind<br className="hidden md:block" />
+              de laagste prijs op jouw zomersport.
             </p>
 
-            {/* Zoekbalk */}
-            <div className="flex gap-2 mb-6">
-              <div className="relative flex-1">
-                <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
-                </svg>
-                <input
-                  type="search"
-                  placeholder="Zoek schoenen, fietsen, rackets…"
-                  className="w-full pl-12 pr-4 py-4 rounded-2xl text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
-                />
-              </div>
-              <button
-                className="px-6 py-4 rounded-2xl text-white font-bold text-sm transition-all hover:scale-105 flex-shrink-0"
+            {/* CTA knoppen */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              <Link
+                href="#"
+                className="px-7 py-4 rounded-2xl text-white font-black text-sm transition-all hover:scale-105 hover:shadow-xl"
                 style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}
               >
-                Zoek
-              </button>
+                Bekijk Watersport & Outdoor →
+              </Link>
+              <Link
+                href="#"
+                className="px-7 py-4 rounded-2xl font-bold text-sm transition-all hover:bg-white/10"
+                style={{ border: "1.5px solid rgba(255,255,255,0.25)", color: "rgba(255,255,255,0.85)" }}
+              >
+                Alle categorieën
+              </Link>
             </div>
 
-            {/* Populaire tags */}
-            <div className="flex flex-wrap gap-2">
-              {["Hardloopschoenen", "Racefiets", "Yogamat", "Voetbal", "Sporthorloge"].map((tag) => (
-                <Link
-                  key={tag}
-                  href="#"
-                  className="px-3 py-1.5 rounded-full text-xs border transition-all hover:bg-white/10"
-                  style={{ borderColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)" }}
-                >
-                  {tag}
-                </Link>
+            {/* Stats */}
+            <div className="flex gap-8 pt-8 border-t" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+              {[["150+", "Webshops"], ["500+", "Merken"], ["250K+", "Producten"]].map(([val, lbl]) => (
+                <div key={lbl}>
+                  <div className="text-2xl font-black text-white">{val}</div>
+                  <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{lbl}</div>
+                </div>
               ))}
             </div>
           </div>
-
-          {/* Stats onderin */}
-          <div className="relative z-10 mt-16 grid grid-cols-3 gap-4 border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-            {[["150+", "Webshops"], ["500+", "Merken"], ["250K+", "Producten"]].map(([val, lbl]) => (
-              <div key={lbl}>
-                <div className="text-2xl font-black text-white">{val}</div>
-                <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>{lbl}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Rechts: categorie-mozaïek */}
-        <div className="hidden lg:grid grid-cols-3 grid-rows-2 gap-3 p-6" style={{ backgroundColor: "#f0f4f8" }}>
-          {HERO_TILES.map((tile, i) => (
-            <Link
-              key={tile.label}
-              href="#"
-              className={`group relative rounded-2xl overflow-hidden flex flex-col justify-end p-5 hover:scale-[1.02] transition-transform duration-200 ${i === 0 ? "col-span-2 row-span-1" : ""} ${i === 3 ? "row-span-2" : ""}`}
-              style={{ background: tile.gradient, minHeight: i === 0 || i === 3 ? "220px" : "160px" }}
-            >
-              {/* Decoratief circle */}
-              <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/10" />
-              <div className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={tile.icon} />
-                </svg>
-              </div>
-              <div>
-                <span className="block font-black text-white text-lg leading-tight drop-shadow">{tile.label}</span>
-                <span className="text-white/70 text-xs">{tile.count} producten</span>
-              </div>
-            </Link>
-          ))}
         </div>
       </section>
 
