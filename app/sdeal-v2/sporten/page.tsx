@@ -17,11 +17,17 @@ const NAV_CATS = [
 
 const SUBCATS = [
   "Racketsporten", "Balsporten", "Fietsen", "Darts", "Biljart",
-  "Fitness", "Wintersport", "Atletiek", "Hardlopen", "Watersport",
-  "Vechtsporten", "Zwemmen", "Golf", "Klimmen", "Paardrijden",
+  "Motorsport", "Dansen", "Fitness", "Wintersport", "Atletiek",
+  "Gymnastiek", "Paardrijden", "Skaten", "Zwemmen",
+  "Vecht- & Verdedigingssport", "Hardlopen", "Watersport",
+  "Hengelsport", "Triathlon", "Golf", "Klimmen",
 ];
 
-const BRANDS = ["Adidas", "Nike", "Puma", "Asics", "New Balance", "Garmin", "Decathlon", "Columbia"];
+const BRANDS = [
+  "Adidas", "Nike", "Puma", "Asics", "New Balance", "Garmin",
+  "Decathlon", "Columbia", "Under Armour", "The North Face",
+  "Mizuno", "Brooks", "Salomon", "Head", "Wilson", "Babolat",
+];
 
 const PRODUCTS = [
   { id: 1, title: "Nike Air Zoom Pegasus 40 Hardloopschoenen", brand: "Nike", price: 94.99, was: 129.99, img: "/cat-schoenen.jpg", shops: 12 },
@@ -43,6 +49,7 @@ const SORT_OPTIONS = ["Relevantie", "Laagste prijs", "Hoogste prijs", "Nieuwste"
 export default function SportenPage() {
   const [query, setQuery] = useState("");
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [brandSearch, setBrandSearch] = useState("");
   const [priceMax, setPriceMax] = useState(400);
   const [sortBy, setSortBy] = useState("Relevantie");
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -173,25 +180,51 @@ export default function SportenPage() {
                 </svg>
               </button>
               {openFilter === "merk" && (
-                <div className="border-t border-gray-50 px-4 pb-3 pt-2 space-y-1">
-                  {BRANDS.map((brand) => (
-                    <label key={brand} className="flex items-center gap-3 py-1.5 cursor-pointer group">
-                      <div
-                        onClick={() => toggleBrand(brand)}
-                        className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 border transition-all cursor-pointer"
-                        style={{
-                          backgroundColor: selectedBrands.includes(brand) ? "#e2603f" : "white",
-                          borderColor: selectedBrands.includes(brand) ? "#e2603f" : "#d1d5db",
-                        }}>
-                        {selectedBrands.includes(brand) && (
-                          <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                        )}
-                      </div>
-                      <span className="text-sm text-gray-600 group-hover:text-gray-900">{brand}</span>
-                    </label>
-                  ))}
+                <div className="border-t border-gray-50 px-4 pb-3 pt-2">
+                  {/* Zoekbalk merken */}
+                  <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1.5 mb-3 focus-within:border-orange-300 transition-colors">
+                    <svg className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+                    </svg>
+                    <input
+                      type="text"
+                      value={brandSearch}
+                      onChange={(e) => setBrandSearch(e.target.value)}
+                      placeholder="Zoek merk..."
+                      className="bg-transparent text-xs w-full focus:outline-none text-gray-700 placeholder-gray-400"
+                    />
+                    {brandSearch && (
+                      <button onClick={() => setBrandSearch("")} className="text-gray-400 hover:text-gray-600">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                  {/* Merklijst */}
+                  <div className="space-y-1 max-h-52 overflow-y-auto">
+                    {BRANDS.filter((b) => b.toLowerCase().includes(brandSearch.toLowerCase())).map((brand) => (
+                      <label key={brand} className="flex items-center gap-3 py-1.5 cursor-pointer group">
+                        <div
+                          onClick={() => toggleBrand(brand)}
+                          className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 border transition-all cursor-pointer"
+                          style={{
+                            backgroundColor: selectedBrands.includes(brand) ? "#e2603f" : "white",
+                            borderColor: selectedBrands.includes(brand) ? "#e2603f" : "#d1d5db",
+                          }}>
+                          {selectedBrands.includes(brand) && (
+                            <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                        <span className="text-sm text-gray-600 group-hover:text-gray-900">{brand}</span>
+                      </label>
+                    ))}
+                    {BRANDS.filter((b) => b.toLowerCase().includes(brandSearch.toLowerCase())).length === 0 && (
+                      <p className="text-xs text-gray-400 py-2 text-center">Geen merken gevonden</p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
