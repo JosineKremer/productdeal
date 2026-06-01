@@ -295,7 +295,7 @@ export default function SportdealV2() {
         {/* ── Jouw webshop op Sdeal? ── */}
         <section className="mb-10">
           <div className="rounded-3xl overflow-hidden relative"
-            style={{ background: "linear-gradient(135deg, #173441 0%, #e2603f 100%)" }}>
+            style={{ background: "linear-gradient(135deg, #173441 0%, #1f4a62 60%, #2a6080 100%)" }}>
             <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#f5ae4c" }} />
             <div className="absolute -bottom-10 right-32 w-40 h-40 rounded-full opacity-10" style={{ backgroundColor: "#f5ae4c" }} />
             <div className="relative px-8 md:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8">
