@@ -8,12 +8,12 @@ import Image from "next/image";
 
 const CATEGORIES = [
   { label: "Fitness & Gym", href: "#", count: "42.380", image: "/cat-compressie.jpg", gradient: "linear-gradient(135deg,#e2603f,#f5ae4c)" },
-  { label: "Fietsen", href: "#", count: "38.120", image: null, gradient: "linear-gradient(135deg,#173441,#2a5470)" },
+  { label: "Fietsen", href: "#", count: "38.120", image: "/categories/fietsen.jpg", gradient: "linear-gradient(135deg,#173441,#2a5470)" },
   { label: "Outdoor & Kamperen", href: "#", count: "29.540", image: "/categories/camping-hangmat.jpg", gradient: "linear-gradient(135deg,#1b693d,#38a169)" },
-  { label: "Watersport", href: "#", count: "14.860", image: null, gradient: "linear-gradient(135deg,#0277bd,#4fc3f7)" },
+  { label: "Watersport", href: "#", count: "14.860", image: "/categories/watersport.jpg", gradient: "linear-gradient(135deg,#0277bd,#4fc3f7)" },
   { label: "Sportkleding", href: "#", count: "55.210", image: "/cat-shirt.jpg", gradient: "linear-gradient(135deg,#b71c1c,#e53e3e)" },
-  { label: "Vechtsporten", href: "#", count: "8.450", image: null, gradient: "linear-gradient(135deg,#4a148c,#9c27b0)" },
-  { label: "Racketsporten", href: "#", count: "12.730", image: null, gradient: "linear-gradient(135deg,#e65100,#ffb74d)" },
+  { label: "Vechtsporten", href: "#", count: "8.450", image: "/categories/vechtsporten.jpg", gradient: "linear-gradient(135deg,#4a148c,#9c27b0)" },
+  { label: "Racketsporten", href: "#", count: "12.730", image: "/categories/racketsporten.jpg", gradient: "linear-gradient(135deg,#e65100,#ffb74d)" },
   { label: "Teamsport", href: "#", count: "19.280", image: "/cat-sporttas.jpg", gradient: "linear-gradient(135deg,#1a237e,#3949ab)" },
 ];
 
