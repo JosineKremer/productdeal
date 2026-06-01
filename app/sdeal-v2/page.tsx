@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Sportdeal brand colors
-// #8c1222  oranje
-// #210000  geel
+// #e2603f  oranje
+// #f5ae4c  geel
 // #173441  donkerblauw
 
 const CATEGORIES = [
-  { label: "Fitness & Gym", href: "#", count: "42.380", image: "/cat-compressie.jpg", gradient: "linear-gradient(135deg,#8c1222,#210000)" },
+  { label: "Fitness & Gym", href: "#", count: "42.380", image: "/cat-compressie.jpg", gradient: "linear-gradient(135deg,#e2603f,#f5ae4c)" },
   { label: "Fietsen", href: "#", count: "38.120", image: "/categories/fietsen.jpg", gradient: "linear-gradient(135deg,#173441,#2a5470)" },
   { label: "Outdoor & Kamperen", href: "#", count: "29.540", image: "/categories/camping-hangmat.jpg", gradient: "linear-gradient(135deg,#1b693d,#38a169)" },
   { label: "Watersport", href: "#", count: "14.860", image: "/categories/watersport.jpg", gradient: "linear-gradient(135deg,#0277bd,#4fc3f7)" },
@@ -93,7 +93,7 @@ export default function SportdealV2() {
                     {LANGUAGES.map((lang) => (
                       <button key={lang.code} onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(140,18,34,0.05)" : undefined }}>
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}>
                         <span className="text-xl">{lang.flag}</span>
                         <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
                         <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
@@ -120,11 +120,11 @@ export default function SportdealV2() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Zoek naar producten, merken of categorieën..."
                 className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
-                style={{ borderColor: query ? "#8c1222" : "#e2e8f0" }}
+                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }}
               />
               <button
                 className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white hover:opacity-90 transition-opacity flex items-center"
-                style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}
+                style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
@@ -142,17 +142,17 @@ export default function SportdealV2() {
           </button>
           {/* Winkelwagen */}
           <button className="relative flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
-            style={{ borderColor: cartCount > 0 ? "#8c1222" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(140,18,34,0.05)" : "white" }}>
+            style={{ borderColor: cartCount > 0 ? "#e2603f" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(226,96,63,0.05)" : "white" }}>
             <div className="relative">
-              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#8c1222" : "#173441"} viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#e2603f" : "#173441"} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full text-white text-[9px] font-black flex items-center justify-center"
-                  style={{ backgroundColor: "#8c1222" }}>{cartCount}</span>
+                  style={{ backgroundColor: "#e2603f" }}>{cartCount}</span>
               )}
             </div>
-            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#8c1222" : "#173441" }}>
+            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#e2603f" : "#173441" }}>
               Winkelwagen
             </span>
           </button>
@@ -190,7 +190,7 @@ export default function SportdealV2() {
 
         {/* Zon-gloed decoratie */}
         <div className="absolute -top-20 right-32 w-96 h-96 rounded-full opacity-[0.15] pointer-events-none"
-          style={{ background: "radial-gradient(circle, #210000 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, #f5ae4c 0%, transparent 70%)" }} />
 
         {/* Tekst links */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 h-full flex items-center py-16 lg:py-24">
@@ -200,7 +200,7 @@ export default function SportdealV2() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.0] text-white mb-6 tracking-tight">
               De beste<br />
               <span style={{
-                background: "linear-gradient(90deg, #210000, #8c1222)",
+                background: "linear-gradient(90deg, #f5ae4c, #e2603f)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -222,7 +222,7 @@ export default function SportdealV2() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-7 py-4 rounded-2xl text-white font-black text-sm transition-all hover:scale-105 hover:shadow-xl"
-                style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}
+                style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}
               >
                 Bekijk Outdoor →
               </Link>
@@ -260,8 +260,8 @@ export default function SportdealV2() {
             ].map(({ icon, val, lbl }) => (
               <div key={lbl} className="flex items-center gap-4 px-6 py-5">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: "rgba(140,18,34,0.08)" }}>
-                  <svg className="w-5 h-5" fill="none" stroke="#8c1222" viewBox="0 0 24 24" strokeWidth={1.75}>
+                  style={{ backgroundColor: "rgba(226,96,63,0.08)" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24" strokeWidth={1.75}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
                   </svg>
                 </div>
@@ -282,7 +282,7 @@ export default function SportdealV2() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Categorieën</h2>
             <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
-              style={{ backgroundColor: "rgba(140,18,34,0.08)", color: "#8c1222", border: "1.5px solid rgba(140,18,34,0.3)" }}>
+              style={{ backgroundColor: "rgba(226,96,63,0.08)", color: "#e2603f", border: "1.5px solid rgba(226,96,63,0.3)" }}>
               Alle categorieën
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -319,7 +319,7 @@ export default function SportdealV2() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Uitgelichte deals</h2>
             <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
-              style={{ backgroundColor: "rgba(140,18,34,0.08)", color: "#8c1222", border: "1.5px solid rgba(140,18,34,0.3)" }}>
+              style={{ backgroundColor: "rgba(226,96,63,0.08)", color: "#e2603f", border: "1.5px solid rgba(226,96,63,0.3)" }}>
               Alle deals
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -334,7 +334,7 @@ export default function SportdealV2() {
                   <img src={deal.img} alt={deal.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-4 flex flex-col flex-1">
-                  <div className="text-xs font-semibold mb-1" style={{ color: "#8c1222" }}>{deal.brand}</div>
+                  <div className="text-xs font-semibold mb-1" style={{ color: "#e2603f" }}>{deal.brand}</div>
                   <h3 className="font-semibold text-sm leading-snug mb-3 group-hover:underline line-clamp-2" style={{ color: "#173441" }}>
                     {deal.title}
                   </h3>
@@ -344,7 +344,7 @@ export default function SportdealV2() {
                       {deal.was && <span className="text-xs text-gray-400 line-through ml-2">{deal.was}</span>}
                     </div>
                     <span className="text-xs font-semibold px-3 py-1.5 rounded-full text-white"
-                      style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
+                      style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
                       Bekijk
                     </span>
                   </div>
@@ -359,7 +359,7 @@ export default function SportdealV2() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Populaire merken</h2>
             <Link href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
-              style={{ backgroundColor: "rgba(140,18,34,0.08)", color: "#8c1222", border: "1.5px solid rgba(140,18,34,0.3)" }}>
+              style={{ backgroundColor: "rgba(226,96,63,0.08)", color: "#e2603f", border: "1.5px solid rgba(226,96,63,0.3)" }}>
               Alle merken
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -388,12 +388,12 @@ export default function SportdealV2() {
         <section className="mb-10">
           <div className="rounded-3xl overflow-hidden relative"
             style={{ background: "linear-gradient(135deg, #0d2530 0%, #173441 100%)" }}>
-            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#210000" }} />
-            <div className="absolute -bottom-10 right-32 w-40 h-40 rounded-full opacity-10" style={{ backgroundColor: "#210000" }} />
+            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#f5ae4c" }} />
+            <div className="absolute -bottom-10 right-32 w-40 h-40 rounded-full opacity-10" style={{ backgroundColor: "#f5ae4c" }} />
             <div className="relative px-8 md:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-white text-center md:text-left">
                 <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4"
-                  style={{ backgroundColor: "rgba(245,174,76,0.2)", color: "#210000" }}>
+                  style={{ backgroundColor: "rgba(245,174,76,0.2)", color: "#f5ae4c" }}>
                   Voor webshops
                 </span>
                 <h2 className="text-2xl md:text-3xl font-extrabold mb-2">
@@ -406,7 +406,7 @@ export default function SportdealV2() {
               <div className="flex-shrink-0">
                 <Link href="#"
                   className="bg-white font-bold px-8 py-3.5 rounded-full hover:shadow-xl transition-all hover:scale-105 text-sm"
-                  style={{ color: "#8c1222" }}>
+                  style={{ color: "#e2603f" }}>
                   Bekijk pricing →
                 </Link>
               </div>
@@ -433,7 +433,7 @@ export default function SportdealV2() {
                 { title: "Landen", links: ["Nederland", "België", "Duitsland"] },
               ].map((col) => (
                 <div key={col.title}>
-                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#210000" }}>{col.title}</h4>
+                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#f5ae4c" }}>{col.title}</h4>
                   <ul className="space-y-2.5">
                     {col.links.map((l) => (
                       <li key={l}><Link href="#" className="text-sm text-white/50 hover:text-white transition-colors">{l}</Link></li>

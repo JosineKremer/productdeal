@@ -103,7 +103,7 @@ export default function OverOnsPage() {
                     {LANGUAGES.map(lang => (
                       <button key={lang.code} onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(140,18,34,0.05)" : undefined }}>
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}>
                         <span className="text-xl">{lang.flag}</span>
                         <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
                         <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
@@ -124,9 +124,9 @@ export default function OverOnsPage() {
               <input type="search" value={query} onChange={e => setQuery(e.target.value)}
                 placeholder="Zoek naar producten, merken of categorieën..."
                 className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
-                style={{ borderColor: query ? "#8c1222" : "#e2e8f0" }} />
+                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }} />
               <button className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white flex items-center hover:opacity-90"
-                style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
+                style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
                 </svg>
@@ -169,8 +169,8 @@ export default function OverOnsPage() {
             <button key={tab} onClick={() => setActiveTab(tab)}
               className="px-5 py-4 text-sm font-semibold whitespace-nowrap border-b-2 transition-all flex-shrink-0"
               style={{
-                borderBottomColor: activeTab === tab ? "#8c1222" : "transparent",
-                color: activeTab === tab ? "#8c1222" : "#6b7280",
+                borderBottomColor: activeTab === tab ? "#e2603f" : "transparent",
+                color: activeTab === tab ? "#e2603f" : "#6b7280",
               }}>
               {tab}
             </button>
@@ -193,7 +193,7 @@ export default function OverOnsPage() {
                 { value: "7", label: "Landen" },
               ].map(s => (
                 <div key={s.label} className="bg-white rounded-2xl border border-gray-100 p-6 text-center">
-                  <div className="text-3xl font-black mb-1" style={{ color: "#8c1222" }}>{s.value}</div>
+                  <div className="text-3xl font-black mb-1" style={{ color: "#e2603f" }}>{s.value}</div>
                   <div className="text-sm text-gray-400">{s.label}</div>
                 </div>
               ))}
@@ -217,8 +217,8 @@ export default function OverOnsPage() {
                   { icon: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z", title: "Lokale klantenservice", desc: "Nederlandstalig team klaarstaat om je te helpen met al je vragen." },
                 ].map(v => (
                   <div key={v.title} className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4">
-                    <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(140,18,34,0.1)" }}>
-                      <svg className="w-5 h-5" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(226,96,63,0.1)" }}>
+                      <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d={v.icon} />
                       </svg>
                     </div>
@@ -289,7 +289,7 @@ export default function OverOnsPage() {
                   </div>
                   <h3 className="text-lg font-black mb-2" style={{ color: "#173441" }}>Bericht verzonden!</h3>
                   <p className="text-sm text-gray-400">We nemen zo snel mogelijk contact met je op.</p>
-                  <button onClick={() => setSent(false)} className="mt-6 text-sm font-semibold" style={{ color: "#8c1222" }}>Nieuw bericht sturen</button>
+                  <button onClick={() => setSent(false)} className="mt-6 text-sm font-semibold" style={{ color: "#e2603f" }}>Nieuw bericht sturen</button>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -327,7 +327,7 @@ export default function OverOnsPage() {
                   </div>
                   <button onClick={() => setSent(true)}
                     className="w-full py-3.5 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                    style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
+                    style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
                     Bericht versturen
                   </button>
                 </div>
@@ -342,8 +342,8 @@ export default function OverOnsPage() {
                 { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Adres", value: "Osloweg 110", sub: "9723 BX Groningen" },
               ].map(c => (
                 <div key={c.title} className="bg-white rounded-2xl border border-gray-100 p-5 flex gap-4">
-                  <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(140,18,34,0.1)" }}>
-                    <svg className="w-5 h-5" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(226,96,63,0.1)" }}>
+                    <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d={c.icon} />
                     </svg>
                   </div>
@@ -380,8 +380,8 @@ export default function OverOnsPage() {
             {FAQ_CATS.map(cat => (
               <div key={cat.cat} className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
                 <div className="px-6 py-4 border-b border-gray-50 flex items-center gap-3" style={{ backgroundColor: "#fafafa" }}>
-                  <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(140,18,34,0.1)" }}>
-                    <svg className="w-4 h-4" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(226,96,63,0.1)" }}>
+                    <svg className="w-4 h-4" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={cat.icon} />
                     </svg>
                   </div>
@@ -396,7 +396,7 @@ export default function OverOnsPage() {
                           className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors">
                           <span className="text-sm font-semibold pr-4" style={{ color: "#173441" }}>{item.q}</span>
                           <svg className={`w-4 h-4 flex-shrink-0 transition-transform ${openFaq === key ? "rotate-180" : ""}`}
-                            fill="none" stroke="#8c1222" viewBox="0 0 24 24">
+                            fill="none" stroke="#e2603f" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
                         </button>
@@ -415,7 +415,7 @@ export default function OverOnsPage() {
               <p className="text-sm text-gray-500 mb-4">Staat je vraag er niet bij?</p>
               <button onClick={() => setActiveTab("Contact")}
                 className="px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
+                style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
                 Neem contact op
               </button>
             </div>
@@ -435,7 +435,7 @@ export default function OverOnsPage() {
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-base font-black" style={{ color: "#173441" }}>{v.title}</h3>
                     <span className="text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 ml-2"
-                      style={{ backgroundColor: v.type === "Stage" ? "rgba(245,174,76,0.15)" : "rgba(140,18,34,0.1)", color: v.type === "Stage" ? "#b07d0a" : "#8c1222" }}>
+                      style={{ backgroundColor: v.type === "Stage" ? "rgba(245,174,76,0.15)" : "rgba(226,96,63,0.1)", color: v.type === "Stage" ? "#b07d0a" : "#e2603f" }}>
                       {v.type}
                     </span>
                   </div>
@@ -447,7 +447,7 @@ export default function OverOnsPage() {
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed flex-1 mb-5">{v.desc}</p>
                   <button className="w-full py-2.5 rounded-xl border-2 text-sm font-bold transition-all hover:bg-orange-50"
-                    style={{ color: "#8c1222", borderColor: "rgba(140,18,34,0.3)" }}>
+                    style={{ color: "#e2603f", borderColor: "rgba(226,96,63,0.3)" }}>
                     Bekijk vacature
                   </button>
                 </div>
@@ -457,7 +457,7 @@ export default function OverOnsPage() {
               <h3 className="text-lg font-black mb-2" style={{ color: "#173441" }}>Geen passende vacature gevonden?</h3>
               <p className="text-sm text-gray-400 mb-5">Stuur een open sollicitatie en wie weet zien we je snel bij ons team!</p>
               <button className="px-6 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
+                style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
                 Open sollicitatie sturen
               </button>
             </div>
@@ -481,7 +481,7 @@ export default function OverOnsPage() {
                 { title: "Landen", links: ["Nederland", "België", "Duitsland"] },
               ].map(col => (
                 <div key={col.title}>
-                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#210000" }}>{col.title}</h4>
+                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#f5ae4c" }}>{col.title}</h4>
                   <ul className="space-y-2">
                     {col.links.map(l => <li key={l}><Link href="#" className="text-sm text-white/50 hover:text-white transition-colors">{l}</Link></li>)}
                   </ul>
