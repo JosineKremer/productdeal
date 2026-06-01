@@ -14,7 +14,7 @@ const CATEGORIES = [
   { label: "Sportkleding", href: "#", count: "55.210", image: "/cat-shirt.jpg", gradient: "linear-gradient(135deg,#b71c1c,#e53e3e)" },
   { label: "Vechtsporten", href: "#", count: "8.450", image: "/categories/vechtsporten.jpg", gradient: "linear-gradient(135deg,#4a148c,#9c27b0)" },
   { label: "Racketsporten", href: "#", count: "12.730", image: "/categories/racketsporten.jpg", gradient: "linear-gradient(135deg,#e65100,#ffb74d)" },
-  { label: "Teamsport", href: "#", count: "19.280", image: "/cat-sporttas.jpg", gradient: "linear-gradient(135deg,#1a237e,#3949ab)" },
+  { label: "Teamsport", href: "#", count: "19.280", image: "/categories/teamsport.jpg", gradient: "linear-gradient(135deg,#1a237e,#3949ab)" },
 ];
 
 const SPORT_BRANDS = [
