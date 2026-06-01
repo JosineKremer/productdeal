@@ -13,39 +13,89 @@ const LANGUAGES = [
 const NAV_CATS = [
   {
     label: "Fitness & Gym", href: "#",
-    subs: ["Fitnessapparatuur", "Gewichten & Dumbbells", "Yogamatten", "Crossfit", "Spinning", "Bokszakken", "Supplementen", "Sportschoenen fitness"],
+    subs: [
+      "Fitnessapparatuur", "Loopbanden", "Hometrainers", "Crosstrainers", "Roeimachines",
+      "Gewichten & Dumbbells", "Kettlebells", "Barbells & Halterstangen", "Gewichtsbanken",
+      "Rekstokken & Dips", "Yogamatten", "Yoga & Pilates", "Crossfit", "Spinning",
+      "Bokszakken", "Springtouwen", "Foam Rollers", "Weerstandsbanden",
+      "Supplementen & Sportvoeding", "Sportschoenen fitness",
+    ],
   },
   {
     label: "Fietsen", href: "#",
-    subs: ["Racefietsen", "Mountainbikes", "E-bikes", "Stads- & toerfietsen", "Kinderfietsen", "Fietsaccessoires", "Fietskleding", "Fietscomputers & GPS"],
+    subs: [
+      "Racefietsen", "Mountainbikes", "E-bikes", "Stads- & toerfietsen",
+      "Gravel & Cyclocross", "Kinderfietsen", "BMX", "Fietsaccessoires",
+      "Fietszadels", "Fietshelmen", "Fietssloten", "Fietsverlichting",
+      "Fietskleding", "Fietscomputers & GPS", "Fietstassen", "Fietsonderhoud",
+    ],
   },
   {
     label: "Outdoor & Kamperen", href: "#",
-    subs: ["Tenten", "Slaapzakken", "Rugzakken", "Kampeerkeukens", "Hangmatten", "Verlichting", "Klimmen & abseilen", "Wandelschoenen"],
+    subs: [
+      "Tenten", "Slaapzakken", "Slaapmatten & Pads", "Rugzakken", "Dagrugzakken",
+      "Kampeerkeukens", "Kampeerservies", "Hangmatten", "Verlichting & Lantaarns",
+      "Klimmen & abseilen", "Wandelschoenen", "Wandelstokken", "Trekkingkleding",
+      "Zonnebescherming", "Waterfilters", "Bivak & Survival", "Kampeermeubelen",
+    ],
   },
   {
     label: "Watersport", href: "#",
-    subs: ["Zwemmen", "Surfen", "Kajakken & kanoën", "Duiken", "Kitesurfen", "Stand-up paddling", "Roeien", "Zwemkleding"],
+    subs: [
+      "Zwemmen", "Zwembrillen", "Zwemkleding", "Surfen", "Surfboards", "Wetsuits",
+      "Bodyboards", "Kajakken & kanoën", "Peddels", "Reddingsvesten",
+      "Duiken", "Snorkelen", "Kitesurfen", "Stand-up paddling", "SUP-boards",
+      "Roeien", "Zeilsport", "Waterski & Wakeboard",
+    ],
   },
   {
     label: "Sportkleding", href: "#",
-    subs: ["Hardloopkleding", "Trainingsbroeken", "Sportshirts", "Sporttassen", "Compressiekleding", "Jassen & vesten", "Sokken & ondergoed", "Sportschoenen"],
+    subs: [
+      "Hardloopkleding", "Hardloopbroeken", "Hardloopshirts",
+      "Trainingsbroeken", "Sportshirts", "Sporttassen", "Gymtassen",
+      "Compressiekleding", "Jassen & vesten", "Windjackets", "Regenkleding",
+      "Sokken & ondergoed", "Sportbeha's", "Hardloopschoenen", "Sportschoenen",
+      "Petten & Bandana's",
+    ],
   },
   {
     label: "Vechtsporten", href: "#",
-    subs: ["Boksen", "MMA & grappling", "Judo & jiu-jitsu", "Karate", "Taekwondo", "Kickboksen", "Bescherming", "Bokshandschoenen"],
+    subs: [
+      "Boksen", "Bokszakken", "Bokshandschoenen", "MMA & grappling",
+      "BJJ & Jiu-jitsu", "Judo", "Karate", "Taekwondo",
+      "Kickboksen", "Muay Thai", "Worstelen", "Krav Maga",
+      "Beschermingsuitrusting", "Scheenbeschermers", "Mondstukken",
+      "Vechtsportkleding", "Tatami's & Matten",
+    ],
   },
   {
     label: "Racketsporten", href: "#",
-    subs: ["Tennis", "Padel", "Badminton", "Squash", "Tennisrackets", "Padelrackets", "Ballen", "Racketschoenen"],
+    subs: [
+      "Tennis", "Padel", "Badminton", "Squash", "Tafeltenis",
+      "Tennisrackets", "Padelrackets", "Badmintonrackets", "Squashrackets",
+      "Tafeltennisbatjes", "Tennisballen", "Padelbal", "Shuttles",
+      "Racketgripbanden", "Racketsnaren", "Racketschoenen",
+      "Tennistassen", "Baanapparatuur",
+    ],
   },
   {
     label: "Teamsport", href: "#",
-    subs: ["Voetbal", "Basketball", "Volleybal", "Hockey", "Handbal", "Rugby", "Baseball & softball", "Teamkleding"],
+    subs: [
+      "Voetbal", "Voetbalschoenen", "Voetbalballen", "Keepershandschoenen",
+      "Basketball", "Basketballen", "Volleybal", "Volleyballen",
+      "Hockey", "Hockeysticks", "Handbal", "Handballen",
+      "Rugby", "Rugbyballen", "Baseball & softball", "Korfbal",
+      "Teamkleding", "Scheidsrechtersmateriaal",
+    ],
   },
   {
     label: "Merken", href: "#",
-    subs: ["Nike", "Adidas", "Puma", "Asics", "New Balance", "Garmin", "Decathlon", "Under Armour"],
+    subs: [
+      "Nike", "Adidas", "Puma", "Asics", "New Balance",
+      "Garmin", "Decathlon", "Under Armour", "The North Face",
+      "Salomon", "Brooks", "Wilson", "Head", "Babolat",
+      "Yonex", "Speedo", "Mammut", "Patagonia",
+    ],
   },
 ];
 
@@ -179,8 +229,8 @@ export default function SportdealHeader({ cartCount = 0, cartTotal, favoritesCou
               {/* Dropdown */}
               {activeNav === item.label && (
                 <div className="absolute top-full left-0 bg-white rounded-b-2xl shadow-2xl z-50 overflow-hidden"
-                  style={{ minWidth: "200px", border: "1px solid #f0f0f0", borderTop: "none" }}>
-                  <div className="p-2">
+                  style={{ minWidth: "360px", border: "1px solid #f0f0f0", borderTop: "none" }}>
+                  <div className="p-2 grid grid-cols-2">
                     {item.subs.map(sub => (
                       <Link key={sub} href="#"
                         className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-gray-600 hover:bg-orange-50 hover:text-orange-500 transition-colors group">
