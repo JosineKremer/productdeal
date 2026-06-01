@@ -46,8 +46,18 @@ const PRODUCTS = [
 
 const SORT_OPTIONS = ["Relevantie", "Laagste prijs", "Hoogste prijs", "Nieuwste", "Meeste winkels"];
 
+const LANGUAGES = [
+  { code: "NL", label: "Nederlands", flag: "🇳🇱" },
+  { code: "EN", label: "English", flag: "🇬🇧" },
+  { code: "DE", label: "Deutsch", flag: "🇩🇪" },
+  { code: "FR", label: "Français", flag: "🇫🇷" },
+];
+
 export default function SportenPage() {
   const [query, setQuery] = useState("");
+  const [cartCount, setCartCount] = useState(0);
+  const [langOpen, setLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [brandSearch, setBrandSearch] = useState("");
   const [priceMax, setPriceMax] = useState(400);
@@ -81,11 +91,37 @@ export default function SportenPage() {
       <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="hidden md:block text-white text-xs py-1.5 px-4" style={{ backgroundColor: "#173441" }}>
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <span className="opacity-70">Vergelijk de beste sportdeals van 300+ webshops</span>
-            <div className="flex gap-5 opacity-80">
+            <div className="flex items-center gap-5 opacity-80">
+              <span>Minimaal 14 dagen herroepingstermijn</span>
+              <span>Lokale klantenservice</span>
+            </div>
+            <div className="flex items-center gap-5 opacity-80">
               <Link href="#" className="hover:opacity-100 transition-opacity">Over ons</Link>
               <Link href="#" className="hover:opacity-100 transition-opacity">Contact</Link>
               <Link href="#" className="hover:opacity-100 transition-opacity">Webshop aansluiten</Link>
+              <div className="relative">
+                <button onClick={() => setLangOpen((o) => !o)}
+                  className="flex items-center gap-1.5 border border-white/30 rounded-full px-2.5 py-0.5 hover:border-white/60 transition-colors text-white text-xs font-semibold">
+                  <span>{selectedLang.flag}</span>
+                  <span>{selectedLang.code}</span>
+                  <svg className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {langOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-44 bg-white rounded-2xl shadow-xl overflow-hidden z-50" style={{ border: "1px solid #f0f0f0" }}>
+                    {LANGUAGES.map((lang) => (
+                      <button key={lang.code} onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
+                        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}>
+                        <span className="text-xl">{lang.flag}</span>
+                        <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
+                        <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -111,6 +147,30 @@ export default function SportenPage() {
               </button>
             </div>
           </div>
+          {/* Favorieten */}
+          <button className="flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
+            style={{ borderColor: "#e2e8f0", backgroundColor: "white" }}>
+            <svg className="w-5 h-5" fill="none" stroke="#173441" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span className="text-xs font-bold hidden sm:block" style={{ color: "#173441" }}>Favorieten</span>
+          </button>
+          {/* Winkelwagen */}
+          <button className="relative flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
+            style={{ borderColor: cartCount > 0 ? "#e2603f" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(226,96,63,0.05)" : "white" }}>
+            <div className="relative">
+              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#e2603f" : "#173441"} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full text-white text-[9px] font-black flex items-center justify-center"
+                  style={{ backgroundColor: "#e2603f" }}>{cartCount}</span>
+              )}
+            </div>
+            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#e2603f" : "#173441" }}>
+              Winkelwagen
+            </span>
+          </button>
         </div>
         <nav className="hidden md:block" style={{ backgroundColor: "#173441" }}>
           <div className="max-w-7xl mx-auto px-4 flex">

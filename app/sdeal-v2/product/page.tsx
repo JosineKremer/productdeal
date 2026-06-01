@@ -82,6 +82,15 @@ export default function ProductPage() {
   const [activeChartPoint, setActiveChartPoint] = useState<number | null>(null);
   const [cartCount, setCartCount] = useState(0);
   const [lightbox, setLightbox] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState({ code: "NL", label: "Nederlands", flag: "🇳🇱" });
+
+  const LANGUAGES = [
+    { code: "NL", label: "Nederlands", flag: "🇳🇱" },
+    { code: "EN", label: "English", flag: "🇬🇧" },
+    { code: "DE", label: "Deutsch", flag: "🇩🇪" },
+    { code: "FR", label: "Français", flag: "🇫🇷" },
+  ];
 
   // SVG price history chart
   const chartW = 560;
@@ -106,10 +115,39 @@ export default function ProductPage() {
               <span>Minimaal 14 dagen herroepingstermijn</span>
               <span>Lokale klantenservice</span>
             </div>
-            <div className="flex gap-5 opacity-80">
+            <div className="flex items-center gap-5 opacity-80">
               <Link href="#" className="hover:opacity-100 transition-opacity">Over ons</Link>
               <Link href="#" className="hover:opacity-100 transition-opacity">Contact</Link>
               <Link href="#" className="hover:opacity-100 transition-opacity">Webshop aansluiten</Link>
+              {/* Taalselector */}
+              <div className="relative">
+                <button
+                  onClick={() => setLangOpen((o) => !o)}
+                  className="flex items-center gap-1.5 border border-white/30 rounded-full px-2.5 py-0.5 hover:border-white/60 transition-colors text-white text-xs font-semibold"
+                >
+                  <span>{selectedLang.flag}</span>
+                  <span>{selectedLang.code}</span>
+                  <svg className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {langOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-44 bg-white rounded-2xl shadow-xl overflow-hidden z-50" style={{ border: "1px solid #f0f0f0" }}>
+                    {LANGUAGES.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
+                        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}
+                      >
+                        <span className="text-xl">{lang.flag}</span>
+                        <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
+                        <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
