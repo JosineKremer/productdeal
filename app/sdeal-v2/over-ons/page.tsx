@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SportdealHeader from "../components/SportdealHeader";
 
 const NAV_CATS = [
   { label: "Fitness & Gym", href: "#" }, { label: "Fietsen", href: "#" },
@@ -9,13 +10,6 @@ const NAV_CATS = [
   { label: "Sportkleding", href: "#" }, { label: "Vechtsporten", href: "#" },
   { label: "Racketsporten", href: "#" }, { label: "Teamsport", href: "#" },
   { label: "Merken", href: "#" },
-];
-
-const LANGUAGES = [
-  { code: "NL", label: "Nederlands", flag: "🇳🇱" },
-  { code: "EN", label: "English", flag: "🇬🇧" },
-  { code: "DE", label: "Deutsch", flag: "🇩🇪" },
-  { code: "FR", label: "Français", flag: "🇫🇷" },
 ];
 
 const TABS = ["Over ons", "Contact", "Veelgestelde vragen", "Vacatures"];
@@ -67,89 +61,14 @@ const VACATURES = [
 ];
 
 export default function OverOnsPage() {
-  const [query, setQuery] = useState("");
   const [activeTab, setActiveTab] = useState("Over ons");
   const [openFaq, setOpenFaq] = useState<string | null>(null);
-  const [langOpen, setLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState(LANGUAGES[0]);
   const [contactForm, setContactForm] = useState({ naam: "", email: "", onderwerp: "", bericht: "" });
   const [sent, setSent] = useState(false);
 
   return (
     <div className="min-h-screen" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: "#f5f7f9" }}>
-
-      {/* ── Header ── */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <div className="hidden md:block text-white text-xs py-1.5 px-4" style={{ backgroundColor: "#173441" }}>
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-5 opacity-80">
-              <span>Minimaal 14 dagen herroepingstermijn</span>
-              <span>Lokale klantenservice</span>
-            </div>
-            <div className="flex items-center gap-5 opacity-80">
-              <Link href="#" className="hover:opacity-100">Over ons</Link>
-              <Link href="#" className="hover:opacity-100">Contact</Link>
-              <Link href="#" className="hover:opacity-100">Webshop aansluiten</Link>
-              <div className="relative">
-                <button onClick={() => setLangOpen(o => !o)}
-                  className="flex items-center gap-1.5 border border-white/30 rounded-full px-2.5 py-0.5 text-white text-xs font-semibold hover:border-white/60 transition-colors">
-                  <span>{selectedLang.flag}</span><span>{selectedLang.code}</span>
-                  <svg className={`w-3 h-3 transition-transform ${langOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {langOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-44 bg-white rounded-2xl shadow-xl overflow-hidden z-50" style={{ border: "1px solid #f0f0f0" }}>
-                    {LANGUAGES.map(lang => (
-                      <button key={lang.code} onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
-                        className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}>
-                        <span className="text-xl">{lang.flag}</span>
-                        <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
-                        <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
-          <Link href="/sdeal-v2" className="flex-shrink-0">
-            <Image src="/sportdeal-logo.svg" alt="Sportdeal" width={160} height={42} className="h-9 w-auto" priority />
-          </Link>
-          <div className="flex-1 max-w-2xl mx-auto">
-            <div className="relative">
-              <input type="search" value={query} onChange={e => setQuery(e.target.value)}
-                placeholder="Zoek naar producten, merken of categorieën..."
-                className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
-                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }} />
-              <button className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white flex items-center hover:opacity-90"
-                style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <button className="flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all" style={{ borderColor: "#e2e8f0", backgroundColor: "white" }}>
-            <svg className="w-5 h-5" fill="none" stroke="#173441" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-            <span className="text-xs font-bold hidden sm:block" style={{ color: "#173441" }}>Favorieten</span>
-          </button>
-          <button className="flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all" style={{ borderColor: "#e2e8f0", backgroundColor: "white" }}>
-            <svg className="w-5 h-5" fill="none" stroke="#173441" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-            <span className="text-xs font-bold hidden sm:block" style={{ color: "#173441" }}>Winkelwagen</span>
-          </button>
-        </div>
-        <nav className="hidden md:block" style={{ backgroundColor: "#173441" }}>
-          <div className="max-w-7xl mx-auto px-4 flex">
-            {NAV_CATS.map(item => (
-              <Link key={item.label} href={item.href} className="text-white text-sm font-medium px-4 py-3 hover:bg-white/10 transition-colors whitespace-nowrap">{item.label}</Link>
-            ))}
-          </div>
-        </nav>
-      </header>
+      <SportdealHeader />
 
       {/* ── Hero ── */}
       <div className="relative overflow-hidden" style={{ background: "linear-gradient(135deg,#173441,#0d2530)", minHeight: "220px" }}>

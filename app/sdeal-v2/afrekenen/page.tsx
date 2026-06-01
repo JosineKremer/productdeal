@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SportdealHeader from "../components/SportdealHeader";
 
 const STEPS = [
   { id: 1, label: "Adresgegevens" },
@@ -61,21 +62,7 @@ export default function AfrekenenPage() {
 
   return (
     <div className="min-h-screen" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: "#f5f7f9" }}>
-
-      {/* ── Minimale header ── */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link href="/sdeal-v2">
-            <Image src="/sportdeal-logo.svg" alt="Sportdeal" width={140} height={37} className="h-8 w-auto" priority />
-          </Link>
-          <div className="flex items-center gap-2 text-xs text-gray-400">
-            <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-            Beveiligde verbinding
-          </div>
-        </div>
-      </header>
+      <SportdealHeader />
 
       {/* ── Stappenbalk ── */}
       <div className="bg-white border-b border-gray-100">
