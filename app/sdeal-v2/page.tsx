@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -35,60 +37,81 @@ const DEALS = [
   { title: "Puma Keepershandschoenen", brand: "Puma", price: "€ 22,95", was: "€ 29,99", tag: "−23%", badge: "Deal", img: "/cat-hoodie.jpg" },
 ];
 
-const NAV = ["Fitness", "Fietsen", "Outdoor", "Watersport", "Sportkleding", "Spellen & Hobby", "Merken"];
+const NAV_CATS = [
+  { label: "Fitness & Gym", href: "#" },
+  { label: "Fietsen", href: "#" },
+  { label: "Outdoor & Kamperen", href: "#" },
+  { label: "Watersport", href: "#" },
+  { label: "Sportkleding", href: "#" },
+  { label: "Vechtsporten", href: "#" },
+  { label: "Racketsporten", href: "#" },
+  { label: "Teamsport", href: "#" },
+  { label: "Merken", href: "#" },
+];
 
 export default function SportdealV2() {
+  const [query, setQuery] = useState("");
+
   return (
     <div className="min-h-screen" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
 
       {/* ── Sticky header ── */}
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-6">
-          {/* Echt SVG logo */}
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
+
+        {/* Top bar */}
+        <div className="hidden md:block text-white text-xs py-1.5 px-4" style={{ backgroundColor: "#173441" }}>
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <span className="opacity-70">Vergelijk de beste sportdeals van 300+ webshops</span>
+            <div className="flex gap-5 opacity-80">
+              <Link href="#" className="hover:opacity-100 transition-opacity">Over ons</Link>
+              <Link href="#" className="hover:opacity-100 transition-opacity">Contact</Link>
+              <Link href="#" className="hover:opacity-100 transition-opacity">Webshop aansluiten</Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Main header: logo + zoekbalk */}
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
           <Link href="/sdeal-v2" className="flex-shrink-0">
-            <Image
-              src="/sportdeal-logo.svg"
-              alt="Sportdeal"
-              width={160}
-              height={42}
-              className="h-9 w-auto"
-              priority
-            />
+            <Image src="/sportdeal-logo.svg" alt="Sportdeal" width={160} height={42} className="h-9 w-auto" priority />
           </Link>
 
-          {/* Horizontale nav */}
-          <nav className="hidden lg:flex items-center gap-1 flex-shrink-0">
-            {NAV.map((item) => (
-              <Link
-                key={item}
-                href="#"
-                className="px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors whitespace-nowrap"
-              >
-                {item}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Zoekbalk */}
-          <div className="flex-1 max-w-md ml-auto">
-            <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl overflow-hidden focus-within:border-orange-300 focus-within:ring-2 focus-within:ring-orange-100 transition-all">
-              <svg className="w-4 h-4 ml-3 flex-shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
-              </svg>
+          <div className="flex-1 max-w-2xl mx-auto">
+            <div className="relative">
               <input
                 type="search"
-                placeholder="Zoek producten, merken..."
-                className="flex-1 bg-transparent py-2 px-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Zoek naar producten, merken of categorieën..."
+                className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
+                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }}
               />
               <button
-                className="m-1 px-4 py-1.5 rounded-lg text-white text-sm font-semibold flex-shrink-0 transition-opacity hover:opacity-90"
+                className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white hover:opacity-90 transition-opacity flex items-center"
                 style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}
               >
-                Zoeken
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+                </svg>
               </button>
             </div>
           </div>
         </div>
+
+        {/* Categorieënbalk */}
+        <nav className="hidden md:block" style={{ backgroundColor: "#173441" }}>
+          <div className="max-w-7xl mx-auto px-4 flex">
+            {NAV_CATS.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-white text-sm font-medium px-4 py-3 hover:bg-white/10 transition-colors whitespace-nowrap"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
       </header>
 
       {/* ── HERO: zomerbanner met afbeelding + tekst ── */}
