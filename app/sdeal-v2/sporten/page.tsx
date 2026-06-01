@@ -55,6 +55,15 @@ export default function SportenPage() {
   const [view, setView] = useState<"grid" | "list">("grid");
   const [openFilter, setOpenFilter] = useState<string | null>("categorie");
   const [activeTab, setActiveTab] = useState("Producten");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const TAB_IDS: Record<string, string> = {
+    "Over deze categorie": "over-categorie",
+    "Producttypes": "producttypes",
+    "Merken": "merken",
+    "Koopgids": "koopgids",
+    "Veelgestelde vragen": "veelgestelde-vragen",
+  };
 
   const toggleBrand = (b: string) =>
     setSelectedBrands((prev) => prev.includes(b) ? prev.filter((x) => x !== b) : [...prev, b]);
@@ -281,7 +290,13 @@ export default function SportenPage() {
                 {["Producten", "Over deze categorie", "Producttypes", "Merken", "Koopgids", "Veelgestelde vragen"].map((tab) => (
                   <button
                     key={tab}
-                    onClick={() => setActiveTab(tab)}
+                    onClick={() => {
+                      setActiveTab(tab);
+                      const id = TAB_IDS[tab];
+                      if (id) {
+                        setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+                      }
+                    }}
                     className="px-5 py-3.5 text-sm font-semibold whitespace-nowrap transition-all border-b-2 flex-shrink-0"
                     style={{
                       borderBottomColor: activeTab === tab ? "#e2603f" : "transparent",
@@ -415,6 +430,195 @@ export default function SportenPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ── Content secties ── */}
+      <div className="max-w-7xl mx-auto px-4 pb-12 space-y-8">
+
+        {/* Over deze categorie */}
+        <section id="over-categorie" className="scroll-mt-24 bg-white rounded-2xl border border-gray-100 p-8">
+          <h2 className="text-2xl font-black mb-1" style={{ color: "#173441" }}>Over sporten</h2>
+          <p className="text-sm mb-6" style={{ color: "#e2603f" }}>36.814 producten van 300+ webshops</p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                Sportdeal vergelijkt het complete aanbod van sportartikelen in Nederland en België. Of je nu op zoek bent naar hardloopschoenen, een nieuwe fiets, zwemspullen of trainingsmateriaal — wij brengen de beste deals van meer dan 300 webshops bij elkaar zodat jij altijd de laagste prijs vindt.
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Van professionele sporter tot weekendkrijger: ons assortiment omvat producten voor meer dan 50 verschillende sporten. Gebruik onze filters om snel te vinden wat je zoekt, vergelijk prijzen en lees reviews van andere sporters.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: "Producten", value: "36.814" },
+                { label: "Webshops", value: "300+" },
+                { label: "Merken", value: "10.000+" },
+                { label: "Sporten", value: "50+" },
+              ].map((stat) => (
+                <div key={stat.label} className="rounded-xl p-4 text-center" style={{ backgroundColor: "rgba(226,96,63,0.06)" }}>
+                  <div className="text-2xl font-black mb-0.5" style={{ color: "#e2603f" }}>{stat.value}</div>
+                  <div className="text-xs text-gray-500">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Producttypes */}
+        <section id="producttypes" className="scroll-mt-24">
+          <h2 className="text-2xl font-black mb-1 px-1" style={{ color: "#173441" }}>Producttypes</h2>
+          <p className="text-sm text-gray-400 mb-5 px-1">Blader per type sportartikel</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { name: "Hardloopschoenen", count: "4.821", img: "/cat-schoenen.jpg" },
+              { name: "Sportkleding", count: "9.340", img: "/cat-shirt.jpg" },
+              { name: "Fietsaccessoires", count: "3.120", img: "/cat-compressie.jpg" },
+              { name: "Sporthorloges & GPS", count: "1.240", img: "/cat-compressie.jpg" },
+              { name: "Sporttassen", count: "870", img: "/cat-sporttas.jpg" },
+              { name: "Sportbroeken", count: "2.560", img: "/cat-broek.jpg" },
+              { name: "Regenkleding", count: "680", img: "/cat-regenjas.jpg" },
+              { name: "Trainingsmateriaal", count: "5.183", img: "/cat-hoodie.jpg" },
+            ].map((type) => (
+              <Link key={type.name} href="#"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+                <div className="h-28 overflow-hidden bg-gray-50">
+                  <img src={type.img} alt={type.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <div className="p-3">
+                  <h3 className="text-sm font-bold leading-snug" style={{ color: "#173441" }}>{type.name}</h3>
+                  <p className="text-xs text-gray-400 mt-0.5">{type.count} producten</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Merken */}
+        <section id="merken" className="scroll-mt-24 bg-white rounded-2xl border border-gray-100 p-8">
+          <h2 className="text-2xl font-black mb-1" style={{ color: "#173441" }}>Merken</h2>
+          <p className="text-sm text-gray-400 mb-6">Ontdek alle sportmerken op Sportdeal</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {[
+              { name: "Nike", domain: "nike.com", products: "3.241" },
+              { name: "Adidas", domain: "adidas.com", products: "2.876" },
+              { name: "Puma", domain: "puma.com", products: "1.432" },
+              { name: "Asics", domain: "asics.com", products: "987" },
+              { name: "New Balance", domain: "newbalance.com", products: "876" },
+              { name: "Garmin", domain: "garmin.com", products: "654" },
+              { name: "Under Armour", domain: "underarmour.com", products: "543" },
+              { name: "The North Face", domain: "thenorthface.com", products: "498" },
+              { name: "Salomon", domain: "salomon.com", products: "412" },
+              { name: "Brooks", domain: "brooksrunning.com", products: "389" },
+              { name: "Wilson", domain: "wilson.com", products: "321" },
+              { name: "Head", domain: "head.com", products: "287" },
+            ].map((brand) => (
+              <Link key={brand.name} href="#"
+                className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-orange-200 hover:shadow-sm transition-all group">
+                <img
+                  src={`https://www.google.com/s2/favicons?sz=32&domain=${brand.domain}`}
+                  alt={brand.name}
+                  className="w-8 h-8 rounded-lg flex-shrink-0"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                />
+                <div className="min-w-0">
+                  <div className="text-sm font-bold truncate group-hover:text-orange-500 transition-colors" style={{ color: "#173441" }}>{brand.name}</div>
+                  <div className="text-xs text-gray-400">{brand.products} producten</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Koopgids */}
+        <section id="koopgids" className="scroll-mt-24 bg-white rounded-2xl border border-gray-100 p-8">
+          <h2 className="text-2xl font-black mb-1" style={{ color: "#173441" }}>Koopgids sporten</h2>
+          <p className="text-sm text-gray-400 mb-8">Alles wat je moet weten voordat je koopt</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                title: "Waar let je op bij sportschoenen?",
+                body: "Kies schoenen op basis van je sporttype en voettype. Hardloopschoenen hebben demping nodig, zaalschoenen een goede grip. Laat je voet opmeten bij een sportspeciaalzaak voor de beste pasvorm.",
+              },
+              {
+                icon: "M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z",
+                title: "Merken vergelijken",
+                body: "Nike en Adidas zijn marktleiders, maar merken als Asics en Brooks scoren hoger voor hardlopers. Vergelijk altijd op specificaties en prijs — een huismerk kan qua prestaties gelijkwaardig zijn aan een A-merk.",
+              },
+              {
+                icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+                title: "Prijzen vergelijken loont",
+                body: "Sportartikelen kunnen tot 40% goedkoper zijn bij de ene webshop ten opzichte van de andere. Gebruik Sportdeal om in één oogopslag de goedkoopste aanbieder te vinden, inclusief verzendkosten.",
+              },
+              {
+                icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+                title: "Retourneren & garantie",
+                body: "Controleer altijd het retourbeleid voordat je koopt. De meeste grote sportwebshops bieden 30 dagen retourrecht. Sportkleding en schoenen die goed passen zijn essentieel — koop daarom bij winkels met een soepel retourbeleid.",
+              },
+            ].map((tip) => (
+              <div key={tip.title} className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(226,96,63,0.1)" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d={tip.icon} />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm mb-1.5" style={{ color: "#173441" }}>{tip.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{tip.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Veelgestelde vragen */}
+        <section id="veelgestelde-vragen" className="scroll-mt-24 bg-white rounded-2xl border border-gray-100 p-8">
+          <h2 className="text-2xl font-black mb-1" style={{ color: "#173441" }}>Veelgestelde vragen</h2>
+          <p className="text-sm text-gray-400 mb-6">Antwoorden op de meest gestelde vragen</p>
+          <div className="space-y-2">
+            {[
+              {
+                q: "Hoe werkt prijsvergelijken op Sportdeal?",
+                a: "Sportdeal verzamelt dagelijks de actuele prijzen van meer dan 300 webshops. Per product zie je direct welke winkel de laagste prijs heeft, inclusief verzendkosten. Klik op 'Vergelijk' om alle aanbieders naast elkaar te zien.",
+              },
+              {
+                q: "Zijn de prijzen op Sportdeal altijd actueel?",
+                a: "Ja, we updaten onze prijzen meerdere keren per dag. Toch kunnen prijzen net gewijzigd zijn. We raden aan altijd de prijs op de website van de webshop te controleren voordat je afrekent.",
+              },
+              {
+                q: "Kan ik producten rechtstreeks op Sportdeal kopen?",
+                a: "Nee, Sportdeal is een vergelijkingssite. Wij leiden je door naar de webshop van je keuze, waar je de aankoop veilig kunt afronden.",
+              },
+              {
+                q: "Hoe weet ik of een webshop betrouwbaar is?",
+                a: "Op elke productpagina tonen we de beoordeling van de webshop op basis van klantreviews. We werken alleen samen met geverifieerde webshops die voldoen aan onze kwaliteitseisen.",
+              },
+              {
+                q: "Zijn er nog meer sporten en categorieën?",
+                a: "Ja! Naast Sporten vergelijkt Sportdeal ook producten voor Outdoor & Kamperen, Fietsen, Watersport, Racketsporten, Teamsport en meer. Bekijk alle categorieën via het menu bovenaan de pagina.",
+              },
+            ].map((faq, i) => (
+              <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors">
+                  <span className="text-sm font-semibold pr-4" style={{ color: "#173441" }}>{faq.q}</span>
+                  <svg
+                    className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
+                    fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5 pt-0">
+                    <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
 
       {/* ── Footer ── */}
