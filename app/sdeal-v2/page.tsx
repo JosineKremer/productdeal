@@ -57,7 +57,7 @@ export default function SportdealV2() {
           </Link>
 
           {/* Horizontale nav */}
-          <nav className="hidden lg:flex items-center gap-1 flex-1">
+          <nav className="hidden lg:flex items-center gap-1 flex-shrink-0">
             {NAV.map((item) => (
               <Link
                 key={item}
@@ -69,12 +69,25 @@ export default function SportdealV2() {
             ))}
           </nav>
 
-          {/* Zoekicoon rechts */}
-          <button className="ml-auto p-2.5 rounded-xl hover:bg-gray-50 transition-colors" style={{ color: "#173441" }}>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
-            </svg>
-          </button>
+          {/* Zoekbalk */}
+          <div className="flex-1 max-w-md ml-auto">
+            <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl overflow-hidden focus-within:border-orange-300 focus-within:ring-2 focus-within:ring-orange-100 transition-all">
+              <svg className="w-4 h-4 ml-3 flex-shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Zoek producten, merken..."
+                className="flex-1 bg-transparent py-2 px-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none"
+              />
+              <button
+                className="m-1 px-4 py-1.5 rounded-lg text-white text-sm font-semibold flex-shrink-0 transition-opacity hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}
+              >
+                Zoeken
+              </button>
+            </div>
+          </div>
         </div>
       </header>
 
