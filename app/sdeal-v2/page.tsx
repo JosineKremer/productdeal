@@ -115,8 +115,8 @@ export default function SportdealV2() {
             </h1>
 
             <p className="text-white/65 text-lg mb-10 leading-relaxed">
-              Vergelijk <strong className="text-white/90">150+ sportwebshops</strong> en vind<br className="hidden md:block" />
-              de laagste prijs op jouw zomersport.
+              Vergelijk <strong className="text-white/90">300+ webshops</strong> en vind altijd<br className="hidden md:block" />
+              de laagste prijs op sport, outdoor & meer.
             </p>
 
             {/* CTA knoppen */}
