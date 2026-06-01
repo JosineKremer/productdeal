@@ -113,7 +113,7 @@ export default function SportenPage() {
                     {LANGUAGES.map((lang) => (
                       <button key={lang.code} onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}>
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(140,18,34,0.05)" : undefined }}>
                         <span className="text-xl">{lang.flag}</span>
                         <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
                         <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
@@ -137,10 +137,10 @@ export default function SportenPage() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Zoek naar producten, merken of categorieën..."
                 className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
-                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }}
+                style={{ borderColor: query ? "#8c1222" : "#e2e8f0" }}
               />
               <button className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white hover:opacity-90 transition-opacity flex items-center"
-                style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
                 </svg>
@@ -157,17 +157,17 @@ export default function SportenPage() {
           </button>
           {/* Winkelwagen */}
           <button className="relative flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
-            style={{ borderColor: cartCount > 0 ? "#e2603f" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(226,96,63,0.05)" : "white" }}>
+            style={{ borderColor: cartCount > 0 ? "#8c1222" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(140,18,34,0.05)" : "white" }}>
             <div className="relative">
-              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#e2603f" : "#173441"} viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#8c1222" : "#173441"} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full text-white text-[9px] font-black flex items-center justify-center"
-                  style={{ backgroundColor: "#e2603f" }}>{cartCount}</span>
+                  style={{ backgroundColor: "#8c1222" }}>{cartCount}</span>
               )}
             </div>
-            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#e2603f" : "#173441" }}>
+            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#8c1222" : "#173441" }}>
               Winkelwagen
             </span>
           </button>
@@ -243,7 +243,7 @@ export default function SportenPage() {
                 Merk
                 {selectedBrands.length > 0 && (
                   <span className="ml-auto mr-2 text-xs px-2 py-0.5 rounded-full text-white font-bold"
-                    style={{ backgroundColor: "#e2603f" }}>{selectedBrands.length}</span>
+                    style={{ backgroundColor: "#8c1222" }}>{selectedBrands.length}</span>
                 )}
                 <svg className={`w-4 h-4 transition-transform ${openFilter === "merk" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -279,8 +279,8 @@ export default function SportenPage() {
                           onClick={() => toggleBrand(brand)}
                           className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 border transition-all cursor-pointer"
                           style={{
-                            backgroundColor: selectedBrands.includes(brand) ? "#e2603f" : "white",
-                            borderColor: selectedBrands.includes(brand) ? "#e2603f" : "#d1d5db",
+                            backgroundColor: selectedBrands.includes(brand) ? "#8c1222" : "white",
+                            borderColor: selectedBrands.includes(brand) ? "#8c1222" : "#d1d5db",
                           }}>
                           {selectedBrands.includes(brand) && (
                             <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -314,7 +314,7 @@ export default function SportenPage() {
                 <div className="border-t border-gray-50 px-4 pb-4 pt-3">
                   <div className="flex justify-between text-xs text-gray-400 mb-2">
                     <span>€ 0</span>
-                    <span className="font-bold" style={{ color: "#e2603f" }}>€ {priceMax}</span>
+                    <span className="font-bold" style={{ color: "#8c1222" }}>€ {priceMax}</span>
                   </div>
                   <input
                     type="range" min={0} max={400} value={priceMax}
@@ -335,7 +335,7 @@ export default function SportenPage() {
               <button
                 onClick={() => { setSelectedBrands([]); setPriceMax(400); }}
                 className="w-full text-sm font-semibold py-2.5 rounded-xl border transition-all hover:bg-red-50"
-                style={{ color: "#e2603f", borderColor: "rgba(226,96,63,0.3)" }}>
+                style={{ color: "#8c1222", borderColor: "rgba(140,18,34,0.3)" }}>
                 Filters wissen
               </button>
             )}
@@ -359,9 +359,9 @@ export default function SportenPage() {
                     }}
                     className="px-5 py-3.5 text-sm font-semibold whitespace-nowrap transition-all border-b-2 flex-shrink-0"
                     style={{
-                      borderBottomColor: activeTab === tab ? "#e2603f" : "transparent",
-                      color: activeTab === tab ? "#e2603f" : "#6b7280",
-                      backgroundColor: activeTab === tab ? "rgba(226,96,63,0.04)" : "transparent",
+                      borderBottomColor: activeTab === tab ? "#8c1222" : "transparent",
+                      color: activeTab === tab ? "#8c1222" : "#6b7280",
+                      backgroundColor: activeTab === tab ? "rgba(140,18,34,0.04)" : "transparent",
                     }}
                   >
                     {tab}
@@ -380,14 +380,14 @@ export default function SportenPage() {
               <div className="hidden sm:flex items-center gap-1 p-1 bg-gray-50 rounded-lg">
                 <button onClick={() => setView("grid")}
                   className="p-1.5 rounded-md transition-all"
-                  style={{ backgroundColor: view === "grid" ? "white" : "transparent", color: view === "grid" ? "#e2603f" : "#9ca3af", boxShadow: view === "grid" ? "0 1px 3px rgba(0,0,0,0.1)" : "none" }}>
+                  style={{ backgroundColor: view === "grid" ? "white" : "transparent", color: view === "grid" ? "#8c1222" : "#9ca3af", boxShadow: view === "grid" ? "0 1px 3px rgba(0,0,0,0.1)" : "none" }}>
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z" />
                   </svg>
                 </button>
                 <button onClick={() => setView("list")}
                   className="p-1.5 rounded-md transition-all"
-                  style={{ backgroundColor: view === "list" ? "white" : "transparent", color: view === "list" ? "#e2603f" : "#9ca3af", boxShadow: view === "list" ? "0 1px 3px rgba(0,0,0,0.1)" : "none" }}>
+                  style={{ backgroundColor: view === "list" ? "white" : "transparent", color: view === "list" ? "#8c1222" : "#9ca3af", boxShadow: view === "list" ? "0 1px 3px rgba(0,0,0,0.1)" : "none" }}>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
@@ -415,13 +415,13 @@ export default function SportenPage() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                       {product.was && (
                         <div className="absolute top-2.5 left-2.5 text-white text-[10px] font-black px-2 py-0.5 rounded-full"
-                          style={{ backgroundColor: "#e2603f" }}>
+                          style={{ backgroundColor: "#8c1222" }}>
                           −{Math.round((1 - product.price / product.was) * 100)}%
                         </div>
                       )}
                     </div>
                     <div className="p-3 flex flex-col flex-1">
-                      <p className="text-[11px] font-bold mb-1" style={{ color: "#e2603f" }}>{product.brand}</p>
+                      <p className="text-[11px] font-bold mb-1" style={{ color: "#8c1222" }}>{product.brand}</p>
                       <h3 className="text-xs font-semibold leading-snug mb-2 line-clamp-2 group-hover:underline flex-1" style={{ color: "#173441" }}>
                         {product.title}
                       </h3>
@@ -433,7 +433,7 @@ export default function SportenPage() {
                         <div className="flex items-center justify-between">
                           <span className="text-[10px] text-gray-400">{product.shops} winkels</span>
                           <span className="text-[10px] font-bold px-2.5 py-1 rounded-full text-white"
-                            style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
+                            style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
                             Vergelijk
                           </span>
                         </div>
@@ -451,7 +451,7 @@ export default function SportenPage() {
                       <img src={product.img} alt={product.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold mb-0.5" style={{ color: "#e2603f" }}>{product.brand}</p>
+                      <p className="text-xs font-bold mb-0.5" style={{ color: "#8c1222" }}>{product.brand}</p>
                       <h3 className="text-sm font-semibold leading-snug group-hover:underline line-clamp-1" style={{ color: "#173441" }}>{product.title}</h3>
                       <p className="text-xs text-gray-400 mt-1">{product.shops} winkels</p>
                     </div>
@@ -459,7 +459,7 @@ export default function SportenPage() {
                       <div className="text-lg font-black" style={{ color: "#173441" }}>€ {product.price.toFixed(2).replace(".", ",")}</div>
                       {product.was && <div className="text-xs text-gray-400 line-through">€ {product.was.toFixed(2).replace(".", ",")}</div>}
                       <span className="inline-block mt-2 text-xs font-bold px-3 py-1 rounded-full text-white"
-                        style={{ background: "linear-gradient(135deg,#e2603f,#f5ae4c)" }}>
+                        style={{ background: "linear-gradient(135deg,#8c1222,#210000)" }}>
                         Vergelijk →
                       </span>
                     </div>
@@ -474,7 +474,7 @@ export default function SportenPage() {
                 <button key={i}
                   className="w-9 h-9 rounded-xl text-sm font-semibold transition-all"
                   style={{
-                    backgroundColor: p === 1 ? "#e2603f" : "white",
+                    backgroundColor: p === 1 ? "#8c1222" : "white",
                     color: p === 1 ? "white" : "#173441",
                     border: p === 1 ? "none" : "1.5px solid #e2e8f0",
                   }}>
@@ -498,7 +498,7 @@ export default function SportenPage() {
         {/* Over deze categorie */}
         <section id="over-categorie" className="scroll-mt-24 bg-white rounded-2xl border border-gray-100 p-8">
           <h2 className="text-2xl font-black mb-1" style={{ color: "#173441" }}>Over sporten</h2>
-          <p className="text-sm mb-6" style={{ color: "#e2603f" }}>36.814 producten van 300+ webshops</p>
+          <p className="text-sm mb-6" style={{ color: "#8c1222" }}>36.814 producten van 300+ webshops</p>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -515,8 +515,8 @@ export default function SportenPage() {
                 { label: "Merken", value: "10.000+" },
                 { label: "Sporten", value: "50+" },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-xl p-4 text-center" style={{ backgroundColor: "rgba(226,96,63,0.06)" }}>
-                  <div className="text-2xl font-black mb-0.5" style={{ color: "#e2603f" }}>{stat.value}</div>
+                <div key={stat.label} className="rounded-xl p-4 text-center" style={{ backgroundColor: "rgba(140,18,34,0.06)" }}>
+                  <div className="text-2xl font-black mb-0.5" style={{ color: "#8c1222" }}>{stat.value}</div>
                   <div className="text-xs text-gray-500">{stat.label}</div>
                 </div>
               ))}
@@ -617,8 +617,8 @@ export default function SportenPage() {
               },
             ].map((tip) => (
               <div key={tip.title} className="flex gap-4">
-                <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(226,96,63,0.1)" }}>
-                  <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center" style={{ backgroundColor: "rgba(140,18,34,0.1)" }}>
+                  <svg className="w-5 h-5" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d={tip.icon} />
                   </svg>
                 </div>
@@ -665,7 +665,7 @@ export default function SportenPage() {
                   <span className="text-sm font-semibold pr-4" style={{ color: "#173441" }}>{faq.q}</span>
                   <svg
                     className={`w-4 h-4 flex-shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
-                    fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -696,7 +696,7 @@ export default function SportenPage() {
                 { title: "Landen", links: ["Nederland", "België", "Duitsland"] },
               ].map((col) => (
                 <div key={col.title}>
-                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#f5ae4c" }}>{col.title}</h4>
+                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#210000" }}>{col.title}</h4>
                   <ul className="space-y-2">
                     {col.links.map((l) => (
                       <li key={l}><Link href="#" className="text-sm text-white/50 hover:text-white transition-colors">{l}</Link></li>

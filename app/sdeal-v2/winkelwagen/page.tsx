@@ -94,7 +94,7 @@ export default function WinkelwagenPage() {
                     {LANGUAGES.map((lang) => (
                       <button key={lang.code} onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}>
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(140,18,34,0.05)" : undefined }}>
                         <span className="text-xl">{lang.flag}</span>
                         <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
                         <span className="text-xs text-gray-400 font-bold">{lang.code}</span>
@@ -115,9 +115,9 @@ export default function WinkelwagenPage() {
               <input type="search" value={query} onChange={(e) => setQuery(e.target.value)}
                 placeholder="Zoek naar producten, merken of categorieën..."
                 className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
-                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }} />
+                style={{ borderColor: query ? "#8c1222" : "#e2e8f0" }} />
               <button className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white hover:opacity-90 transition-opacity flex items-center"
-                style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
                 </svg>
@@ -134,17 +134,17 @@ export default function WinkelwagenPage() {
           </button>
           {/* Winkelwagen — actief */}
           <button className="relative flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
-            style={{ borderColor: "#e2603f", backgroundColor: "rgba(226,96,63,0.05)" }}>
+            style={{ borderColor: "#8c1222", backgroundColor: "rgba(140,18,34,0.05)" }}>
             <div className="relative">
-              <svg className="w-5 h-5" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full text-white text-[9px] font-black flex items-center justify-center"
-                  style={{ backgroundColor: "#e2603f" }}>{totalItems}</span>
+                  style={{ backgroundColor: "#8c1222" }}>{totalItems}</span>
               )}
             </div>
-            <span className="text-xs font-bold hidden sm:block" style={{ color: "#e2603f" }}>
+            <span className="text-xs font-bold hidden sm:block" style={{ color: "#8c1222" }}>
               € {total.toFixed(2).replace(".", ",")}
             </span>
           </button>
@@ -174,7 +174,7 @@ export default function WinkelwagenPage() {
           </div>
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-black" style={{ color: "#173441" }}>Winkelwagen</h1>
-            <span className="text-sm px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: "rgba(226,96,63,0.1)", color: "#e2603f" }}>
+            <span className="text-sm px-3 py-1 rounded-full font-semibold" style={{ backgroundColor: "rgba(140,18,34,0.1)", color: "#8c1222" }}>
               {totalItems} {totalItems === 1 ? "artikel" : "artikelen"}
             </span>
           </div>
@@ -183,15 +183,15 @@ export default function WinkelwagenPage() {
         {cartItems.length === 0 ? (
           /* Lege winkelwagen */
           <div className="bg-white rounded-2xl border border-gray-100 p-16 text-center">
-            <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: "rgba(226,96,63,0.08)" }}>
-              <svg className="w-10 h-10" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: "rgba(140,18,34,0.08)" }}>
+              <svg className="w-10 h-10" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
             <h2 className="text-xl font-black mb-2" style={{ color: "#173441" }}>Je winkelwagen is leeg</h2>
             <p className="text-gray-400 text-sm mb-6">Voeg producten toe om verder te gaan</p>
             <Link href="/sdeal-v2" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold text-sm"
-              style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+              style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
               Ga verder met winkelen
             </Link>
           </div>
@@ -254,7 +254,7 @@ export default function WinkelwagenPage() {
                               <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="min-w-0">
-                              <p className="text-xs font-bold mb-0.5" style={{ color: "#e2603f" }}>{item.brand}</p>
+                              <p className="text-xs font-bold mb-0.5" style={{ color: "#8c1222" }}>{item.brand}</p>
                               <h3 className="text-sm font-bold leading-snug line-clamp-2 mb-1" style={{ color: "#173441" }}>{item.title}</h3>
                               <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-gray-400">
                                 <span>Maat: <span className="font-semibold text-gray-600">{item.size}</span></span>
@@ -309,7 +309,7 @@ export default function WinkelwagenPage() {
                 <button
                   onClick={() => setCartItems([])}
                   className="flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-xl border-2 hover:bg-red-50 transition-colors ml-auto"
-                  style={{ color: "#e2603f", borderColor: "rgba(226,96,63,0.3)" }}>
+                  style={{ color: "#8c1222", borderColor: "rgba(140,18,34,0.3)" }}>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
@@ -356,7 +356,7 @@ export default function WinkelwagenPage() {
 
                 <div className="px-6 pb-6 space-y-3">
                   <button className="w-full py-4 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-                    style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                    style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
@@ -378,7 +378,7 @@ export default function WinkelwagenPage() {
                   onClick={() => setCouponOpen((o) => !o)}
                   className="w-full flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors">
                   <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                     </svg>
                     <span className="text-sm font-semibold" style={{ color: "#173441" }}>Kortingscode toepassen</span>
@@ -401,7 +401,7 @@ export default function WinkelwagenPage() {
                       <button
                         onClick={() => { if (couponCode) setCouponApplied(true); }}
                         className="px-4 py-2.5 rounded-xl text-white text-sm font-bold hover:opacity-90 transition-opacity"
-                        style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                        style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                         Toepassen
                       </button>
                     </div>
@@ -425,7 +425,7 @@ export default function WinkelwagenPage() {
                   { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", text: "Minimaal 14 dagen retour" },
                 ].map((b) => (
                   <div key={b.text} className="flex items-center gap-2.5">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={b.icon} />
                     </svg>
                     <span className="text-xs text-gray-500">{b.text}</span>
@@ -452,7 +452,7 @@ export default function WinkelwagenPage() {
                 { title: "Landen", links: ["Nederland", "België", "Duitsland"] },
               ].map((col) => (
                 <div key={col.title}>
-                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#f5ae4c" }}>{col.title}</h4>
+                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#210000" }}>{col.title}</h4>
                   <ul className="space-y-2">
                     {col.links.map((l) => (
                       <li key={l}><Link href="#" className="text-sm text-white/50 hover:text-white transition-colors">{l}</Link></li>

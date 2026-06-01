@@ -64,7 +64,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-0.5">
       {[1, 2, 3, 4, 5].map((s) => (
-        <svg key={s} className="w-3.5 h-3.5" viewBox="0 0 24 24" fill={s <= Math.round(rating) ? "#f5ae4c" : "#e5e7eb"}>
+        <svg key={s} className="w-3.5 h-3.5" viewBox="0 0 24 24" fill={s <= Math.round(rating) ? "#210000" : "#e5e7eb"}>
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       ))}
@@ -138,7 +138,7 @@ export default function ProductPage() {
                         key={lang.code}
                         onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
                         className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors"
-                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(226,96,63,0.05)" : undefined }}
+                        style={{ backgroundColor: selectedLang.code === lang.code ? "rgba(140,18,34,0.05)" : undefined }}
                       >
                         <span className="text-xl">{lang.flag}</span>
                         <span className="flex-1 text-sm font-semibold text-left" style={{ color: "#173441" }}>{lang.label}</span>
@@ -163,10 +163,10 @@ export default function ProductPage() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Zoek naar producten, merken of categorieën..."
                 className="w-full border-2 rounded-full py-2.5 pl-5 pr-14 text-sm focus:outline-none transition-colors"
-                style={{ borderColor: query ? "#e2603f" : "#e2e8f0" }}
+                style={{ borderColor: query ? "#8c1222" : "#e2e8f0" }}
               />
               <button className="absolute right-1 top-1 bottom-1 px-4 rounded-full text-white hover:opacity-90 transition-opacity flex items-center"
-                style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
                 </svg>
@@ -183,19 +183,19 @@ export default function ProductPage() {
           </button>
           {/* Winkelwagen */}
           <button className="relative flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
-            style={{ borderColor: cartCount > 0 ? "#e2603f" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(226,96,63,0.05)" : "white" }}>
+            style={{ borderColor: cartCount > 0 ? "#8c1222" : "#e2e8f0", backgroundColor: cartCount > 0 ? "rgba(140,18,34,0.05)" : "white" }}>
             <div className="relative">
-              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#e2603f" : "#173441"} viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke={cartCount > 0 ? "#8c1222" : "#173441"} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full text-white text-[9px] font-black flex items-center justify-center"
-                  style={{ backgroundColor: "#e2603f" }}>
+                  style={{ backgroundColor: "#8c1222" }}>
                   {cartCount}
                 </span>
               )}
             </div>
-            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#e2603f" : "#173441" }}>
+            <span className="text-xs font-bold hidden sm:block" style={{ color: cartCount > 0 ? "#8c1222" : "#173441" }}>
               {cartCount > 0 ? `€ ${(cartCount * 39.29).toFixed(2).replace(".", ",")}` : "Winkelwagen"}
             </span>
           </button>
@@ -274,7 +274,7 @@ export default function ProductPage() {
               </button>
               {/* Discount badge */}
               <div className="absolute top-3 left-3 text-white text-xs font-black px-2.5 py-1 rounded-full"
-                style={{ backgroundColor: "#e2603f" }}>
+                style={{ backgroundColor: "#8c1222" }}>
                 −{discount}%
               </div>
             </div>
@@ -285,7 +285,7 @@ export default function ProductPage() {
                   key={i}
                   onClick={() => setActiveImage(i)}
                   className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all"
-                  style={{ borderColor: activeImage === i ? "#e2603f" : "#e2e8f0" }}>
+                  style={{ borderColor: activeImage === i ? "#8c1222" : "#e2e8f0" }}>
                   <img src={img} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
@@ -304,7 +304,7 @@ export default function ProductPage() {
                     alt="Umbro"
                     className="w-6 h-6 rounded"
                   />
-                  <span className="text-sm font-bold" style={{ color: "#e2603f" }}>Umbro</span>
+                  <span className="text-sm font-bold" style={{ color: "#8c1222" }}>Umbro</span>
                 </div>
                 <button className="w-9 h-9 rounded-xl border border-gray-100 flex items-center justify-center hover:border-red-200 hover:text-red-400 transition-colors text-gray-300">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,9 +321,9 @@ export default function ProductPage() {
               </div>
               {/* Price */}
               <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-3xl font-black" style={{ color: "#e2603f" }}>€ {PRICE.toFixed(2).replace(".", ",")}</span>
+                <span className="text-3xl font-black" style={{ color: "#8c1222" }}>€ {PRICE.toFixed(2).replace(".", ",")}</span>
                 <span className="text-base text-gray-400 line-through">€ {PRICE_WAS.toFixed(2).replace(".", ",")}</span>
-                <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: "#e2603f" }}>−{discount}%</span>
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: "#8c1222" }}>−{discount}%</span>
               </div>
               <div className="flex items-center gap-1.5 mb-4">
                 <div className="w-2 h-2 rounded-full bg-green-500"></div>
@@ -373,7 +373,7 @@ export default function ProductPage() {
                     {row.rating && (
                       <div className="flex items-center gap-0.5 ml-0.5">
                         {[1,2,3,4,5].map((s) => (
-                          <svg key={s} className="w-3.5 h-3.5" viewBox="0 0 24 24" fill={s <= row.rating ? "#f5ae4c" : "#e5e7eb"}>
+                          <svg key={s} className="w-3.5 h-3.5" viewBox="0 0 24 24" fill={s <= row.rating ? "#210000" : "#e5e7eb"}>
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                           </svg>
                         ))}
@@ -397,8 +397,8 @@ export default function ProductPage() {
                       className="w-8 h-8 rounded-full border-2 transition-all"
                       style={{
                         backgroundColor: color.hex,
-                        borderColor: selectedColor === color.name ? "#e2603f" : "transparent",
-                        boxShadow: selectedColor === color.name ? "0 0 0 2px white, 0 0 0 4px #e2603f" : "0 0 0 1px #e2e8f0",
+                        borderColor: selectedColor === color.name ? "#8c1222" : "transparent",
+                        boxShadow: selectedColor === color.name ? "0 0 0 2px white, 0 0 0 4px #8c1222" : "0 0 0 1px #e2e8f0",
                       }}
                     />
                   ))}
@@ -417,9 +417,9 @@ export default function ProductPage() {
                       onClick={() => setSelectedSize(size)}
                       className="px-3 py-1.5 rounded-lg text-sm font-semibold border-2 transition-all"
                       style={{
-                        borderColor: selectedSize === size ? "#e2603f" : "#e2e8f0",
-                        color: selectedSize === size ? "#e2603f" : "#6b7280",
-                        backgroundColor: selectedSize === size ? "rgba(226,96,63,0.06)" : "white",
+                        borderColor: selectedSize === size ? "#8c1222" : "#e2e8f0",
+                        color: selectedSize === size ? "#8c1222" : "#6b7280",
+                        backgroundColor: selectedSize === size ? "rgba(140,18,34,0.06)" : "white",
                       }}>
                       {size}
                     </button>
@@ -443,7 +443,7 @@ export default function ProductPage() {
                 <button
                   onClick={() => setCartCount((n) => n + quantity)}
                   className="flex-1 py-3 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all"
-                  style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                  style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
@@ -480,7 +480,7 @@ export default function ProductPage() {
                   { icon: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z", text: "Lokale klantenservice" },
                 ].map((badge) => (
                   <div key={badge.text} className="flex items-center gap-2">
-                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={badge.icon} />
                     </svg>
                     <span className="text-xs text-gray-500">{badge.text}</span>
@@ -518,7 +518,7 @@ export default function ProductPage() {
             {
               icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
               label: "AI Product Insight",
-              color: "#e2603f",
+              color: "#8c1222",
               text: "Dit sweatshirt is geschikt voor casual dracht in koel weer. De stof van Frans badstof en elastische ribboorden bieden comfort, maar het is niet bedoeld voor intensieve sportbeoefening.",
             },
             {
@@ -530,7 +530,7 @@ export default function ProductPage() {
             {
               icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
               label: "Koopadvies",
-              color: "#f5ae4c",
+              color: "#210000",
               text: "Een goede keuze voor een comfortabele, alledaagse trui met sportieve uitstraling. Voor intensieve sport raden we een technisch sportshirt aan.",
             },
           ].map((card) => (
@@ -548,7 +548,7 @@ export default function ProductPage() {
                 <ul className="space-y-1.5">
                   {card.items.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-gray-500">
-                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                       {item}
@@ -590,14 +590,14 @@ export default function ProductPage() {
                 {activeChartPoint !== null ? (
                   <>
                     <div className="text-xs text-gray-400">{MONTHS[activeChartPoint]}</div>
-                    <div className="text-sm font-black" style={{ color: "#e2603f" }}>
+                    <div className="text-sm font-black" style={{ color: "#8c1222" }}>
                       € {PRICE_HISTORY[activeChartPoint].toFixed(2).replace(".", ",")}
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="text-xs text-gray-400">Laagste ooit</div>
-                    <div className="text-sm font-black" style={{ color: "#e2603f" }}>€ 39,29</div>
+                    <div className="text-sm font-black" style={{ color: "#8c1222" }}>€ 39,29</div>
                   </>
                 )}
               </div>
@@ -636,24 +636,24 @@ export default function ProductPage() {
                     ))}
                     <defs>
                       <linearGradient id="chartGrad2" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#e2603f" stopOpacity="0.15" />
-                        <stop offset="100%" stopColor="#e2603f" stopOpacity="0" />
+                        <stop offset="0%" stopColor="#8c1222" stopOpacity="0.15" />
+                        <stop offset="100%" stopColor="#8c1222" stopOpacity="0" />
                       </linearGradient>
                     </defs>
                     <path d={areaPath} fill="url(#chartGrad2)" />
-                    <path d={linePath} fill="none" stroke="#e2603f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d={linePath} fill="none" stroke="#8c1222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                     {/* Actief punt */}
                     {activeChartPoint !== null && (
                       <>
                         <line
                           x1={toX(activeChartPoint)} y1={0}
                           x2={toX(activeChartPoint)} y2={chartH}
-                          stroke="#e2603f" strokeWidth="1" strokeDasharray="4,3" strokeOpacity="0.5"
+                          stroke="#8c1222" strokeWidth="1" strokeDasharray="4,3" strokeOpacity="0.5"
                         />
                         <circle
                           cx={toX(activeChartPoint)}
                           cy={toY(PRICE_HISTORY[activeChartPoint])}
-                          r="5" fill="white" stroke="#e2603f" strokeWidth="2.5"
+                          r="5" fill="white" stroke="#8c1222" strokeWidth="2.5"
                         />
                       </>
                     )}
@@ -662,7 +662,7 @@ export default function ProductPage() {
                       <circle
                         cx={toX(PRICE_HISTORY.length - 1)}
                         cy={toY(PRICE_HISTORY[PRICE_HISTORY.length - 1])}
-                        r="5" fill="#e2603f"
+                        r="5" fill="#8c1222"
                       />
                     )}
                   </svg>
@@ -704,7 +704,7 @@ export default function ProductPage() {
               <p className="text-sm text-gray-400">Brits sportmerk · Opgericht 1924</p>
             </div>
             <Link href="#" className="ml-auto text-sm font-semibold px-4 py-2 rounded-xl border transition-colors hover:bg-gray-50"
-              style={{ color: "#e2603f", borderColor: "rgba(226,96,63,0.3)" }}>
+              style={{ color: "#8c1222", borderColor: "rgba(140,18,34,0.3)" }}>
               Alle Umbro producten →
             </Link>
           </div>
@@ -720,7 +720,7 @@ export default function ProductPage() {
                   className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-gray-50 transition-colors">
                   <span className="text-sm font-semibold pr-4" style={{ color: "#173441" }}>{faq.q}</span>
                   <svg className={`w-4 h-4 flex-shrink-0 transition-transform ${openFaq === i ? "rotate-180" : ""}`}
-                    fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                    fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
@@ -746,13 +746,13 @@ export default function ProductPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   {product.was && (
                     <div className="absolute top-2 left-2 text-white text-[10px] font-black px-2 py-0.5 rounded-full"
-                      style={{ backgroundColor: "#e2603f" }}>
+                      style={{ backgroundColor: "#8c1222" }}>
                       −{Math.round((1 - product.price / product.was) * 100)}%
                     </div>
                   )}
                 </div>
                 <div className="p-3 flex flex-col flex-1">
-                  <p className="text-[11px] font-bold mb-1" style={{ color: "#e2603f" }}>{product.brand}</p>
+                  <p className="text-[11px] font-bold mb-1" style={{ color: "#8c1222" }}>{product.brand}</p>
                   <h3 className="text-xs font-semibold leading-snug line-clamp-2 flex-1 group-hover:underline" style={{ color: "#173441" }}>
                     {product.title}
                   </h3>
@@ -760,7 +760,7 @@ export default function ProductPage() {
                     <span className="text-sm font-black" style={{ color: "#173441" }}>€ {product.price.toFixed(2).replace(".", ",")}</span>
                     {product.was && <span className="text-xs text-gray-400 line-through">€ {product.was.toFixed(2).replace(".", ",")}</span>}
                   </div>
-                  <span className="text-[10px] font-semibold mt-1" style={{ color: "#e2603f" }}>Bekijk product →</span>
+                  <span className="text-[10px] font-semibold mt-1" style={{ color: "#8c1222" }}>Bekijk product →</span>
                 </div>
               </Link>
             ))}
@@ -828,7 +828,7 @@ export default function ProductPage() {
                 key={i}
                 onClick={() => setActiveImage(i)}
                 className="w-12 h-12 rounded-lg overflow-hidden border-2 transition-all"
-                style={{ borderColor: activeImage === i ? "#e2603f" : "rgba(255,255,255,0.3)" }}
+                style={{ borderColor: activeImage === i ? "#8c1222" : "rgba(255,255,255,0.3)" }}
               >
                 <img src={img} alt="" className="w-full h-full object-cover" />
               </button>
@@ -852,7 +852,7 @@ export default function ProductPage() {
                 { title: "Landen", links: ["Nederland", "België", "Duitsland"] },
               ].map((col) => (
                 <div key={col.title}>
-                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#f5ae4c" }}>{col.title}</h4>
+                  <h4 className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#210000" }}>{col.title}</h4>
                   <ul className="space-y-2">
                     {col.links.map((l) => (
                       <li key={l}><Link href="#" className="text-sm text-white/50 hover:text-white transition-colors">{l}</Link></li>

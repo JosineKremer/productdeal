@@ -91,14 +91,14 @@ export default function AfrekenenPage() {
                   disabled={s.id > step}
                   className="flex-1 flex items-center justify-center gap-2 py-3.5 text-sm font-semibold relative transition-colors"
                   style={{
-                    color: isActive ? "#e2603f" : isDone ? "#173441" : "#9ca3af",
-                    borderBottom: isActive ? "2px solid #e2603f" : "2px solid transparent",
+                    color: isActive ? "#8c1222" : isDone ? "#173441" : "#9ca3af",
+                    borderBottom: isActive ? "2px solid #8c1222" : "2px solid transparent",
                     cursor: isDone ? "pointer" : "default",
                   }}
                 >
                   <div className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0"
                     style={{
-                      backgroundColor: isActive ? "#e2603f" : isDone ? "#173441" : "#e5e7eb",
+                      backgroundColor: isActive ? "#8c1222" : isDone ? "#173441" : "#e5e7eb",
                       color: isActive || isDone ? "white" : "#9ca3af",
                     }}>
                     {isDone ? (
@@ -215,7 +215,7 @@ export default function AfrekenenPage() {
                     <label className="flex items-center gap-3 cursor-pointer">
                       <div onClick={() => setSameAddress((v) => !v)}
                         className="w-5 h-5 rounded border-2 flex items-center justify-center transition-all flex-shrink-0"
-                        style={{ backgroundColor: sameAddress ? "#e2603f" : "white", borderColor: sameAddress ? "#e2603f" : "#d1d5db" }}>
+                        style={{ backgroundColor: sameAddress ? "#8c1222" : "white", borderColor: sameAddress ? "#8c1222" : "#d1d5db" }}>
                         {sameAddress && (
                           <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -277,7 +277,7 @@ export default function AfrekenenPage() {
                     </Link>
                     <button onClick={() => setStep(2)}
                       className="px-8 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                      style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                      style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                       Volgende
                     </button>
                   </div>
@@ -300,11 +300,11 @@ export default function AfrekenenPage() {
                       {SHIPPING_METHODS.map((method) => (
                         <label key={method.id}
                           className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all"
-                          style={{ borderColor: shippingMethod === method.id ? "#e2603f" : "#e2e8f0", backgroundColor: shippingMethod === method.id ? "rgba(226,96,63,0.04)" : "white" }}>
+                          style={{ borderColor: shippingMethod === method.id ? "#8c1222" : "#e2e8f0", backgroundColor: shippingMethod === method.id ? "rgba(140,18,34,0.04)" : "white" }}>
                           <div className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all"
-                            style={{ borderColor: shippingMethod === method.id ? "#e2603f" : "#d1d5db" }}>
+                            style={{ borderColor: shippingMethod === method.id ? "#8c1222" : "#d1d5db" }}>
                             {shippingMethod === method.id && (
-                              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#e2603f" }} />
+                              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8c1222" }} />
                             )}
                           </div>
                           <input type="radio" name="shipping" value={method.id} checked={shippingMethod === method.id}
@@ -330,7 +330,7 @@ export default function AfrekenenPage() {
                     </button>
                     <button onClick={() => setStep(3)}
                       className="px-8 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                      style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                      style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                       Volgende
                     </button>
                   </div>
@@ -354,10 +354,10 @@ export default function AfrekenenPage() {
                         <label key={method.id}
                           onClick={() => setPaymentMethod(method.id)}
                           className="flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all"
-                          style={{ borderColor: paymentMethod === method.id ? "#e2603f" : "#e2e8f0", backgroundColor: paymentMethod === method.id ? "rgba(226,96,63,0.04)" : "white" }}>
+                          style={{ borderColor: paymentMethod === method.id ? "#8c1222" : "#e2e8f0", backgroundColor: paymentMethod === method.id ? "rgba(140,18,34,0.04)" : "white" }}>
                           <div className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all"
-                            style={{ borderColor: paymentMethod === method.id ? "#e2603f" : "#d1d5db" }}>
-                            {paymentMethod === method.id && <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#e2603f" }} />}
+                            style={{ borderColor: paymentMethod === method.id ? "#8c1222" : "#d1d5db" }}>
+                            {paymentMethod === method.id && <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#8c1222" }} />}
                           </div>
                           <div className="w-12 h-8 rounded-lg border border-gray-100 bg-white flex items-center justify-center flex-shrink-0 overflow-hidden p-1">
                             <img
@@ -393,7 +393,7 @@ export default function AfrekenenPage() {
                             className="flex-1 border-2 rounded-xl px-3 py-2.5 text-sm focus:outline-none transition-colors"
                             style={{ borderColor: "#e2e8f0" }} />
                           <button className="px-4 py-2.5 rounded-xl text-white text-sm font-bold hover:opacity-90 transition-opacity"
-                            style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                            style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                             Toepassen
                           </button>
                         </div>
@@ -410,7 +410,7 @@ export default function AfrekenenPage() {
                     </button>
                     <button onClick={() => setStep(4)}
                       className="px-8 py-3 rounded-xl text-white font-bold text-sm hover:opacity-90 transition-opacity"
-                      style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                      style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                       Volgende
                     </button>
                   </div>
@@ -442,7 +442,7 @@ export default function AfrekenenPage() {
                               <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
                             </div>
                             <div>
-                              <p className="text-xs font-bold" style={{ color: "#e2603f" }}>{item.brand}</p>
+                              <p className="text-xs font-bold" style={{ color: "#8c1222" }}>{item.brand}</p>
                               <p className="text-xs font-semibold leading-snug" style={{ color: "#173441" }}>{item.title}</p>
                               <p className="text-[10px] text-gray-400">Maat: {item.size} · Kleur: {item.color}</p>
                               <p className="text-[10px] text-gray-400">Verkocht door: <span className="font-semibold">{item.seller}</span></p>
@@ -488,14 +488,14 @@ export default function AfrekenenPage() {
                   {/* Disclaimer */}
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Door op <strong className="text-gray-600">nu kopen</strong> te klikken, ga je akkoord met onze{" "}
-                    <Link href="#" className="underline" style={{ color: "#e2603f" }}>algemene voorwaarden</Link>.
+                    <Link href="#" className="underline" style={{ color: "#8c1222" }}>algemene voorwaarden</Link>.
                   </p>
 
                   {/* Nieuwsbrief */}
                   <label className="flex items-center gap-3 cursor-pointer">
                     <div onClick={() => setNewsletter((v) => !v)}
                       className="w-5 h-5 rounded border-2 flex items-center justify-center transition-all flex-shrink-0"
-                      style={{ backgroundColor: newsletter ? "#e2603f" : "white", borderColor: newsletter ? "#e2603f" : "#d1d5db" }}>
+                      style={{ backgroundColor: newsletter ? "#8c1222" : "white", borderColor: newsletter ? "#8c1222" : "#d1d5db" }}>
                       {newsletter && (
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -513,7 +513,7 @@ export default function AfrekenenPage() {
                       Terug
                     </button>
                     <button className="px-10 py-3.5 rounded-xl text-white font-black text-sm flex items-center gap-2 hover:opacity-90 transition-opacity"
-                      style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                      style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                       </svg>
@@ -540,7 +540,7 @@ export default function AfrekenenPage() {
               {step === 4 && (
                 <div className="px-5 pb-4">
                   <button className="w-full py-3.5 rounded-xl text-white font-black text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
-                    style={{ background: "linear-gradient(135deg, #e2603f, #f5ae4c)" }}>
+                    style={{ background: "linear-gradient(135deg, #8c1222, #210000)" }}>
                     Nu kopen
                   </button>
                 </div>
@@ -628,7 +628,7 @@ export default function AfrekenenPage() {
                 { icon: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z", text: "Lokale klantenservice" },
               ].map((b) => (
                 <div key={b.text} className="flex items-center gap-2.5">
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#e2603f" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="#8c1222" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={b.icon} />
                   </svg>
                   <span className="text-xs text-gray-500">{b.text}</span>
