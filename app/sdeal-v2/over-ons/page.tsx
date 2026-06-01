@@ -158,7 +158,7 @@ export default function OverOnsPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 py-14 text-center">
           <h1 className="text-4xl font-black text-white mb-3">Sportdeal</h1>
-          <p className="text-white/60 text-lg max-w-xl mx-auto">Jouw nummer één sportplatform voor sport, outdoor en meer — van 300+ webshops op één plek.</p>
+          <p className="text-white/60 text-lg max-w-xl mx-auto">Jouw nummer één sportplatform voor sport, outdoor en meer - van 300+ webshops op één plek.</p>
         </div>
       </div>
 
@@ -206,13 +206,13 @@ export default function OverOnsPage() {
                 <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
                   <p>Sportdeal is een snel groeiend online platform met grootse ambities. Wij zijn een verkoopplatform waar partners zich aansluiten met hun producten. Je gaat dus een overeenkomst aan met één van onze verkopende partners.</p>
                   <p>Wij willen jouw nummer één sportplatform worden. Sportdeal wil je voorzien van een ruime en unieke collectie sportproducten: elektronica, fietsen, sportkleding en eigenlijk alles wat je maar kunt bedenken. In ons assortiment vind je zowel bekende als nieuwe opkomende merken.</p>
-                  <p>Onze producten zijn scherp geprijsd en worden thuis bezorgd. Bestellen op Sportdeal is bovendien veilig — reken je bestelling af in een beveiligde SSL-omgeving en betaal gemakkelijk met verschillende betaalmethodes.</p>
+                  <p>Onze producten zijn scherp geprijsd en worden thuis bezorgd. Bestellen op Sportdeal is bovendien veilig - reken je bestelling af in een beveiligde SSL-omgeving en betaal gemakkelijk met verschillende betaalmethodes.</p>
                 </div>
               </div>
               <div className="space-y-4">
                 {[
                   { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Veilig winkelen", desc: "Alle betalingen verlopen via een beveiligde SSL-verbinding." },
-                  { icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 10V7", title: "Snelle levering", desc: "Kies uit standaard of express levering — voor 22:00 besteld, snel in huis." },
+                  { icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 10V7", title: "Snelle levering", desc: "Kies uit standaard of express levering - voor 22:00 besteld, snel in huis." },
                   { icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15", title: "Minimaal 14 dagen retour", desc: "Niet tevreden? Retourneer eenvoudig binnen de herroepingstermijn." },
                   { icon: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z", title: "Lokale klantenservice", desc: "Nederlandstalig team klaarstaat om je te helpen met al je vragen." },
                 ].map(v => (
@@ -255,14 +255,6 @@ export default function OverOnsPage() {
                   <div className="pt-3 border-t border-gray-50">
                     <p className="font-bold text-xs text-gray-500 mb-1">Stichting Cliëntgelden SDeal</p>
                     <p className="text-xs text-gray-400">KVK-nummer: 78305802</p>
-                  </div>
-                </div>
-                <div className="rounded-xl overflow-hidden bg-gray-100 h-48 flex items-center justify-center">
-                  <div className="text-center text-gray-400">
-                    <svg className="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <p className="text-sm">Osloweg 110, Groningen</p>
                   </div>
                 </div>
               </div>

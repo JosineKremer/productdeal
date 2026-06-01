@@ -502,7 +502,7 @@ export default function SportenPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Sportdeal vergelijkt het complete aanbod van sportartikelen in Nederland en België. Of je nu op zoek bent naar hardloopschoenen, een nieuwe fiets, zwemspullen of trainingsmateriaal — wij brengen de beste deals van meer dan 300 webshops bij elkaar zodat jij altijd de laagste prijs vindt.
+                Sportdeal vergelijkt het complete aanbod van sportartikelen in Nederland en België. Of je nu op zoek bent naar hardloopschoenen, een nieuwe fiets, zwemspullen of trainingsmateriaal - wij brengen de beste deals van meer dan 300 webshops bij elkaar zodat jij altijd de laagste prijs vindt.
               </p>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Van professionele sporter tot weekendkrijger: ons assortiment omvat producten voor meer dan 50 verschillende sporten. Gebruik onze filters om snel te vinden wat je zoekt, vergelijk prijzen en lees reviews van andere sporters.
@@ -603,7 +603,7 @@ export default function SportenPage() {
               {
                 icon: "M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z",
                 title: "Merken vergelijken",
-                body: "Nike en Adidas zijn marktleiders, maar merken als Asics en Brooks scoren hoger voor hardlopers. Vergelijk altijd op specificaties en prijs — een huismerk kan qua prestaties gelijkwaardig zijn aan een A-merk.",
+                body: "Nike en Adidas zijn marktleiders, maar merken als Asics en Brooks scoren hoger voor hardlopers. Vergelijk altijd op specificaties en prijs - een huismerk kan qua prestaties gelijkwaardig zijn aan een A-merk.",
               },
               {
                 icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -613,7 +613,7 @@ export default function SportenPage() {
               {
                 icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
                 title: "Retourneren & garantie",
-                body: "Controleer altijd het retourbeleid voordat je koopt. De meeste grote sportwebshops bieden 30 dagen retourrecht. Sportkleding en schoenen die goed passen zijn essentieel — koop daarom bij winkels met een soepel retourbeleid.",
+                body: "Controleer altijd het retourbeleid voordat je koopt. De meeste grote sportwebshops bieden 30 dagen retourrecht. Sportkleding en schoenen die goed passen zijn essentieel - koop daarom bij winkels met een soepel retourbeleid.",
               },
             ].map((tip) => (
               <div key={tip.title} className="flex gap-4">

@@ -132,7 +132,7 @@ export default function WinkelwagenPage() {
             </svg>
             <span className="text-xs font-bold hidden sm:block" style={{ color: "#173441" }}>Favorieten</span>
           </button>
-          {/* Winkelwagen — actief */}
+          {/* Winkelwagen - actief */}
           <button className="relative flex-shrink-0 flex items-center gap-2 pl-3 pr-4 h-10 rounded-full border-2 hover:shadow-md transition-all"
             style={{ borderColor: "#e2603f", backgroundColor: "rgba(226,96,63,0.05)" }}>
             <div className="relative">
@@ -410,7 +410,7 @@ export default function WinkelwagenPage() {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
-                        Code toegepast — 10% korting
+                        Code toegepast - 10% korting
                       </div>
                     )}
                   </div>

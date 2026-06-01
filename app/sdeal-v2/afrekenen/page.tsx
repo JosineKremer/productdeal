@@ -225,7 +225,7 @@ export default function AfrekenenPage() {
                       <span className="text-sm text-gray-600">Factuur- en verzendadres zijn hetzelfde</span>
                     </label>
 
-                    {/* Factuuradres velden — alleen zichtbaar als niet aangevinkt */}
+                    {/* Factuuradres velden - alleen zichtbaar als niet aangevinkt */}
                     {!sameAddress && (
                       <div className="space-y-4 pl-8 border-l-2 border-orange-100">
                         <p className="text-xs font-black uppercase tracking-wide" style={{ color: "#173441" }}>Factuuradres</p>
@@ -467,7 +467,7 @@ export default function AfrekenenPage() {
                       <span>€ {servicekosten.toFixed(2).replace(".", ",")}</span>
                     </div>
                     <div className="flex justify-between text-sm text-gray-500">
-                      <span>Aflevering — {shippingMethod === "express" ? "Express - Verzending" : "Standaard - Verzending"}</span>
+                      <span>Aflevering - {shippingMethod === "express" ? "Express - Verzending" : "Standaard - Verzending"}</span>
                       <span>{(totalShipping + extraShipping) === 0 ? "Gratis" : `€ ${(totalShipping + extraShipping).toFixed(2).replace(".", ",")}`}</span>
                     </div>
                     <div className="flex justify-between font-black text-base pt-2 border-t border-gray-100" style={{ color: "#173441" }}>
@@ -591,7 +591,7 @@ export default function AfrekenenPage() {
                   </button>
                 </div>
                 <div className="px-5 pb-3 text-xs text-gray-500">
-                  <p>{SHIPPING_METHODS.find(m => m.id === shippingMethod)?.label} —{" "}
+                  <p>{SHIPPING_METHODS.find(m => m.id === shippingMethod)?.label} -{" "}
                     {shippingMethod === "standard" ? "€ 0,00" : "€ 6,95"}
                   </p>
                 </div>
