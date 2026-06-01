@@ -54,6 +54,7 @@ export default function SportenPage() {
   const [sortBy, setSortBy] = useState("Relevantie");
   const [view, setView] = useState<"grid" | "list">("grid");
   const [openFilter, setOpenFilter] = useState<string | null>("categorie");
+  const [activeTab, setActiveTab] = useState("Producten");
 
   const toggleBrand = (b: string) =>
     setSelectedBrands((prev) => prev.includes(b) ? prev.filter((x) => x !== b) : [...prev, b]);
@@ -273,6 +274,26 @@ export default function SportenPage() {
 
           {/* ── Productgrid ── */}
           <div className="flex-1 min-w-0">
+
+            {/* Tabbladen */}
+            <div className="bg-white rounded-2xl border border-gray-100 mb-4 overflow-hidden">
+              <div className="flex overflow-x-auto">
+                {["Producten", "Over deze categorie", "Producttypes", "Merken", "Koopgids", "Veelgestelde vragen"].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className="px-5 py-3.5 text-sm font-semibold whitespace-nowrap transition-all border-b-2 flex-shrink-0"
+                    style={{
+                      borderBottomColor: activeTab === tab ? "#e2603f" : "transparent",
+                      color: activeTab === tab ? "#e2603f" : "#6b7280",
+                      backgroundColor: activeTab === tab ? "rgba(226,96,63,0.04)" : "transparent",
+                    }}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {/* Sorteer/view balk */}
             <div className="bg-white rounded-2xl border border-gray-100 px-4 py-3 flex items-center gap-3 mb-4">
