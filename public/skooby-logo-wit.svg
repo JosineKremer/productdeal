@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 96" width="300" height="96">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&amp;display=swap');</style>
+  <defs>
+    <linearGradient id="pawG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffc25c"/>
+      <stop offset="1" stop-color="#f5872b"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(6,14) scale(0.72)" fill="url(#pawG)">
+    <ellipse cx="25" cy="45" rx="7.5" ry="9.5" transform="rotate(-22 25 45)"/>
+    <ellipse cx="40" cy="33" rx="8" ry="10.5" transform="rotate(-8 40 33)"/>
+    <ellipse cx="58" cy="33" rx="8" ry="10.5" transform="rotate(8 58 33)"/>
+    <ellipse cx="73" cy="45" rx="7.5" ry="9.5" transform="rotate(22 73 45)"/>
+    <path d="M49 51 C63 51 74 60 73 71 C72 81 62 86 53 82 C50 80.5 48 80.5 45 82 C36 86 26 81 25 71 C24 60 35 51 49 51 Z"/>
+  </g>
+
+  <text x="80" y="66" font-family="'Baloo 2', sans-serif" font-weight="800" font-size="54" fill="#ffffff" letter-spacing="0.5">Sk<tspan fill="#f5982b">oo</tspan>by</text>
+</svg>

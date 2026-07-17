@@ -1,27 +1,37 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
-import LayoutShell from "./components/LayoutShell";
 
-const inter = Inter({
-  variable: "--font-inter",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  display: "swap",
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+});
+
+const jost = Jost({
+  variable: "--font-jost",
+  subsets: ["latin"],
+  weight: ["200", "300", "400"],
 });
 
 export const metadata: Metadata = {
-  title: "Productdeal – More insight, better deals",
-  description: "Vergelijk producten van meer dan 1.000 webshops. Altijd de beste prijs.",
+  title: "NORDE Wellness Recovery Club - Groningen",
+  description:
+    "Boutique thermaal wellness in Groningen. Sauna, steam dome, cold plunge, jacuzzi, fire circle en massage. Adults only. Altijd reserveren.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="nl" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased" style={{ backgroundColor: "#f5f7f9" }}>
-        <LayoutShell>{children}</LayoutShell>
-      </body>
+    <html
+      lang="nl"
+      className={`${cormorant.variable} ${jost.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

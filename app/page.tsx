@@ -1,267 +1,1002 @@
-import Link from "next/link";
-import BrandLogo from "./components/BrandLogo";
-
-const CATEGORIES = [
-  { label: "Sports & Outdoor", href: "/categories/sports-outdoor", count: "55.053", image: "/categories/sports-outdoor.jpg", gradient: "linear-gradient(135deg, #1b693d 0%, #00ca41 100%)" },
-  { label: "Wonen & Slapen", href: "/categories/wonen-slapen", count: "16.241", image: "/categories/wonen-slapen.jpg", gradient: "linear-gradient(135deg, #1565c0 0%, #42a5f5 100%)" },
-  { label: "Mode", href: "/categories/mode", count: "34.114", image: "/categories/mode.jpg", gradient: "linear-gradient(135deg, #880e4f 0%, #e91e63 100%)" },
-  { label: "Baby & Kind", href: "/categories/baby-kind", count: "1.656", image: "/categories/baby-kind.jpg", gradient: "linear-gradient(135deg, #e65100 0%, #ffb74d 100%)" },
-  { label: "Dier, Tuin & Klussen", href: "/categories/dier-tuin-klussen", count: "28.324", image: "/categories/dier-tuin-klussen.jpg", gradient: "linear-gradient(135deg, #4a148c 0%, #9c27b0 100%)" },
-  { label: "Mooi & Gezond", href: "/categories/mooi-gezond", count: "8.240", image: "/categories/mooi-gezond.jpg", gradient: "linear-gradient(135deg, #b71c1c 0%, #ef5350 100%)" },
-  { label: "Speelgoed & Hobby", href: "/categories/speelgoed-hobby", count: "10.771", image: "/categories/speelgoed-hobby.jpg", gradient: "linear-gradient(135deg, #2e7d32 0%, #66bb6a 100%)" },
-  { label: "Computer & Elektronica", href: "/categories/computer-elektronica", count: "11.542", image: "/categories/computer-elektronica.jpg", gradient: "linear-gradient(135deg, #0d47a1 0%, #1976d2 100%)" },
-];
-
-const TOP_BRANDS = [
-  { name: "Adidas", count: "16.274", href: "/brands/adidas", logo: "/logos/adidas.svg" },
-  { name: "Nike", count: "8.552", href: "/brands/nike", logo: "/logos/nike.svg" },
-  { name: "Puma", count: "7.182", href: "/brands/puma", logo: "/logos/puma.svg" },
-  { name: "Bosch", count: "6.024", href: "/brands/bosch", logo: "/logos/bosch.svg" },
-  { name: "Makita", count: "8.095", href: "/brands/makita", logo: "/logos/makita.svg" },
-  { name: "Disney", count: "17.846", href: "/brands/disney", logo: "/logos/disney.svg" },
-  { name: "Regatta", count: "20.716", href: "/brands/regatta", logo: "/logos/regatta.svg" },
-  { name: "DeWalt", count: "2.471", href: "/brands/dewalt", logo: "/logos/dewalt.svg" },
-];
-
-const FEATURED_DEALS = [
-  { id: "1", title: "Adidas Combat 2-in-1 Sporttas", brand: "Adidas", price: "€ 79,95", originalPrice: "€ 99,95", options: "2 opties · Grijs · L, S", href: "/products/adidas-combat-sporttas", badge: "Deal", badgeColor: "#e53e3e" },
-  { id: "2", title: "Nike Air Max 270 React", brand: "Nike", price: "€ 89,99", originalPrice: "€ 129,99", options: "5 opties · Zwart, Wit", href: "/products/nike-air-max-270", badge: "Populair", badgeColor: "#00ca41" },
-  { id: "3", title: "Bosch PSB 1800 Accuschroefboormachine", brand: "Bosch", price: "€ 64,99", originalPrice: null, options: "1 optie", href: "/products/bosch-psb-1800", badge: null, badgeColor: null },
-  { id: "4", title: "Real Madrid Terrace Icons Shirt", brand: "Adidas", price: "€ 39,99", originalPrice: "€ 54,99", options: "5 opties · White · S–XXL", href: "/products/real-madrid-terrace", badge: "Sale", badgeColor: "#e53e3e" },
-];
-
-const STATS = [
-  { value: "1,4 miljoen+", label: "Producten", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10" /> },
-  { value: "300+", label: "Webshops", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /> },
-  { value: "10.000+", label: "Merken", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /> },
-  { value: "7", label: "Landen", icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" /> },
-];
-
-function ArrowLink({ href, children }: { href: string; children: React.ReactNode }) {
+function SectionLabel({
+  children,
+  light = false,
+}: {
+  children: React.ReactNode;
+  light?: boolean;
+}) {
   return (
-    <Link
-      href={href}
-      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-md hover:gap-3"
-      style={{ backgroundColor: "#f0fdf4", color: "#1b693d", border: "1.5px solid #00ca41" }}
-    >
-      {children}
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </Link>
+    <div className="flex items-center gap-5 mb-12">
+      <span
+        className={`font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light ${
+          light ? "text-lin/40" : "text-steen"
+        }`}
+      >
+        {children}
+      </span>
+      <div
+        className={light ? "flex-1 bg-lin/20" : "flex-1 bg-steen/40"}
+        style={{ height: "0.5px" }}
+      />
+    </div>
   );
 }
 
-export default function HomePage() {
-  return (
-    <div>
-      {/* Hero */}
-      <section
-        className="relative overflow-hidden py-20 px-4"
-        style={{ background: "linear-gradient(135deg, #173441 0%, #2c4a6e 55%, #1b693d 100%)" }}
-      >
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-[0.07]" style={{ backgroundColor: "#00ca41" }} />
-        <div className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full opacity-[0.07]" style={{ backgroundColor: "#00ca41" }} />
-        <div className="absolute top-10 left-1/4 w-40 h-40 rounded-full opacity-[0.05]" style={{ backgroundColor: "white" }} />
+const facilities = [
+  {
+    name: "Buitenzwembad",
+    sub: "30-32°C · zoutwater · buiten",
+    temp: "28°",
+    koud: false,
+    desc: "Verwarmd buitenzwembad met zoutwaterinstallatie. Geen chloor - elektrolyse reinigt het water. Zachter voor de huid, duurzamer voor de natuur.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M4 22c2-2 4-2 6 0s4 2 6 0 4-2 6 0 4 2 6 0" />
+        <path d="M4 26c2-2 4-2 6 0s4 2 6 0 4-2 6 0 4 2 6 0" />
+        <rect x="8" y="10" width="16" height="10" rx="2" />
+        <path d="M12 10V8a4 4 0 0 1 8 0v2" />
+      </svg>
+    ),
+  },
+  {
+    name: "Magnesium jacuzzi",
+    sub: "38°C · 8-10 personen · buiten",
+    temp: "38°",
+    koud: false,
+    desc: "Magnesiumchloride in het water bevordert spierherstel en ontspanning. Buiten, warm, intiem. Geen kunstmatige toevoegingen.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M4 20a12 12 0 0 1 24 0v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4z" />
+        <path d="M10 20q1-2 3-2t3 2" />
+        <path d="M17 20q1-2 3-2t3 2" />
+        <path d="M16 14v-4" />
+        <path d="M16 6l-2 4h4l-2-4z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Cold Plunge",
+    sub: "8°C · gefilterd grondwater",
+    temp: "8°",
+    koud: true,
+    desc: "Puur gefilterd grondwater. Gesloten circuit, geen toevoegingen. Het rauwste element van de tuin.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <rect x="6" y="12" width="20" height="14" rx="3" />
+        <path d="M10 12V9a6 6 0 0 1 12 0v3" />
+        <path d="M11 19q2 2 4 0t4 0" />
+      </svg>
+    ),
+  },
+  {
+    name: "SAUNA",
+    sub: "90°C · FSC grenenhout",
+    temp: "90°",
+    koud: false,
+    desc: "Traditionele Scandinavische droge sauna van FSC-gecertificeerd grenenhout. Warmteterugwinning. Traditioneel opgiet.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M6 28V14a10 10 0 0 1 20 0v14" />
+        <path d="M2 28h28" />
+        <path d="M12 28V20h8v8" />
+        <path d="M10 14q2-3 6-3t6 3" />
+      </svg>
+    ),
+  },
+  {
+    name: "Steam Dome",
+    sub: "45-50°C · eucalyptus & kruiden",
+    temp: "45°",
+    koud: false,
+    desc: "Witte organische koepelstructuur. Eucalyptus en kruiden in de stoom. Geen chemicaliën, alleen aromatherapie.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M6 20a10 10 0 0 1 20 0" />
+        <path d="M2 20h28" />
+        <path d="M10 14q1-3 0-6" />
+        <path d="M16 12q1-3 0-6" />
+        <path d="M22 14q1-3 0-6" />
+      </svg>
+    ),
+  },
+  {
+    name: "Fire Circle",
+    sub: "Koperen vuurschaal · open tuin",
+    temp: null,
+    koud: false,
+    desc: "Koperen vuurschaal in de open tuin. Seizoensgebonden. Maandbaden. Gesprekken die ergens over gaan.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M16 26c-4 0-8-3-8-8 0-3 2-5 4-7-1 4 2 6 4 4 0 3 2 5 4 5s4-2 4-5c2 2 4 4 4 7 0 5-4 8-8 8v-2" />
+        <ellipse cx="16" cy="26" rx="8" ry="2" />
+      </svg>
+    ),
+  },
+  {
+    name: "CAFE-PAVILJOEN",
+    sub: "Half open · groendak · haard",
+    temp: null,
+    koud: false,
+    desc: "Half open paviljoen met groendak en ronde vrijstaande haard. Lokale producten max 50km. Geen wegwerpplastic.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M8 10h12v12a6 6 0 0 1-12 0V10z" />
+        <path d="M20 13h2a3 3 0 0 1 0 6h-2" />
+        <path d="M6 28h20" />
+        <path d="M11 10V7" />
+        <path d="M15 10V7" />
+      </svg>
+    ),
+  },
+  {
+    name: "Wellness Tuin",
+    sub: "Het Groningse landschap",
+    temp: null,
+    koud: false,
+    desc: "Uitsluitend inheemse planten. Geen bestrijdingsmiddelen. Insectenhotels. Faunavriendelijke verlichting.",
+    icon: (
+      <svg viewBox="0 0 32 32" width="28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+        <path d="M16 28V16" />
+        <path d="M16 22c-4-2-8-1-10 3" />
+        <path d="M16 18c4-3 8-2 10 1" />
+        <path d="M16 14c-2-4-1-8 3-10" />
+        <path d="M4 28h24" />
+      </svg>
+    ),
+  },
+];
 
-        <div className="max-w-3xl mx-auto text-center text-white relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#00ca41] animate-pulse" />
-            <span className="opacity-90">Meer dan <strong>1,4 miljoen producten</strong> vergeleken</span>
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-full bg-lin">
+
+      {/* ── NAV ─────────────────────────────────────────────────── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-nacht" style={{ height: "52px" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-14 h-full flex items-center justify-between">
+
+          <a href="/" className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "16px", letterSpacing: "0.05em", lineHeight: 1 }}>
+            NORDE
+          </a>
+
+          <div className="hidden md:flex items-center gap-8">
+            {["Concept", "Faciliteiten", "Duurzaamheid", "Events"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="font-sans text-lin/50 hover:text-lin uppercase transition-colors duration-200 font-light"
+                style={{ fontSize: "10px", letterSpacing: "0.3em" }}
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
-          {/* 3 — hero subkop fix: max-w zodat tekst niet lelijk afbreekt */}
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight tracking-tight">
-            Vind de <span style={{ color: "#00ca41" }}>beste deal</span><br />
-            altijd en overal
-          </h1>
-          <p className="text-base md:text-lg opacity-75 mb-8 max-w-sm mx-auto leading-relaxed">
-            Vergelijk prijzen van <strong className="opacity-100">300+ webshops</strong> en bespaar direct tijd en geld.
+          <div className="flex items-center gap-5">
+            <a
+              href="/overzicht"
+              className="font-sans text-lin/40 hover:text-lin/70 uppercase transition-colors duration-200 font-light"
+              style={{ fontSize: "9px", letterSpacing: "0.3em" }}
+            >
+              ← Overzicht
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── HERO ────────────────────────────────────────────────── */}
+      <section id="hero" className="relative" style={{ minHeight: "100svh" }}>
+
+        {/* Split background - full bleed incl. behind nav */}
+        <div className="absolute inset-0 grid grid-cols-2">
+          <div className="bg-ijssel" />
+          <div className="bg-eiken" />
+        </div>
+
+        {/* Temperature labels - absolutely positioned */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          {/* 8° - left of center split, upper half */}
+          <div className="absolute" style={{ top: "37%", right: "54%", paddingRight: "clamp(16px, 3vw, 48px)" }}>
+            <span className="font-serif text-lin/35 font-light" style={{ fontSize: "clamp(13px, 1.3vw, 17px)", letterSpacing: "0.25em" }}>8°</span>
+          </div>
+          {/* 90° - right of center split, lower half */}
+          <div className="absolute" style={{ top: "69%", left: "54%", paddingLeft: "clamp(16px, 3vw, 48px)" }}>
+            <span className="font-serif text-lin/35 font-light" style={{ fontSize: "clamp(13px, 1.3vw, 17px)", letterSpacing: "0.25em" }}>90°</span>
+          </div>
+        </div>
+
+        {/* Main content column */}
+        <div
+          className="relative z-10 flex flex-col items-center justify-between"
+          style={{ minHeight: "100svh", paddingTop: "calc(52px + 7vh)", paddingBottom: "7vh", paddingLeft: "24px", paddingRight: "24px" }}
+        >
+          {/* Top: WELLNESS RECOVERY CLUB */}
+          <p className="text-lin/35 text-center whitespace-nowrap" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(9px, 1.1vw, 13px)", letterSpacing: "0.5em" }}>
+            WELLNESS RECOVERY CLUB
           </p>
 
-          <div className="relative max-w-2xl mx-auto shadow-2xl rounded-2xl overflow-hidden">
-            <div className="flex bg-white">
-              <div className="flex items-center pl-5 text-gray-400 flex-shrink-0">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-                </svg>
-              </div>
-              <input
-                type="search"
-                placeholder="Zoek producten, merken of categorieën..."
-                className="flex-1 bg-white py-4 px-4 text-gray-800 text-base placeholder-gray-400 focus:outline-none"
-              />
-              <button
-                style={{ backgroundColor: "#00ca41" }}
-                className="m-1.5 px-6 rounded-xl text-white font-semibold text-sm hover:opacity-90 transition-opacity flex-shrink-0"
-              >
-                Zoeken
-              </button>
+          {/* NORDE wordmark */}
+          <div className="text-lin text-center" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(54px, 13.5vw, 180px)", letterSpacing: "0.04em", lineHeight: 1 }}>
+            NORDE
+          </div>
+
+          {/* Bottom group: line + GRONINGEN 2028 */}
+          <div className="flex flex-col items-center gap-5">
+            <div style={{ width: "48px", height: "0.5px", background: "rgba(242,237,230,0.25)" }} />
+            <p className="text-lin/40 text-center" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(9px, 1.1vw, 14px)", letterSpacing: "0.4em" }}>
+              GRONINGEN &nbsp;·&nbsp; 2028
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OVERZICHT FOTO ──────────────────────────────────────── */}
+      <div className="relative w-full overflow-hidden" style={{ height: "80vh" }}>
+        <img
+          src="/sfeer/overzicht.png"
+          alt="Luchtfoto Norde - wellness tuin, pools en fire circle in Noord-Nederlands landschap"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="absolute bottom-10 left-10 right-10 md:right-auto">
+          <p className="text-lin leading-tight" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(1.6rem, 4vw, 2.8rem)", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+            De eerste wellness recovery club
+          </p>
+          <p className="text-lin/60" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(0.95rem, 1.8vw, 1.3rem)", letterSpacing: "0.15em", textTransform: "uppercase", marginTop: "8px" }}>
+            van Groningen.
+          </p>
+        </div>
+      </div>
+
+      {/* ── CONCEPT ─────────────────────────────────────────────── */}
+      <section id="concept" className="bg-lin py-24 px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <SectionLabel>Het concept</SectionLabel>
+            <h2
+              className="text-nacht"
+              style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(36px, 4vw, 52px)", letterSpacing: "0.03em", lineHeight: 1.1 }}
+            >
+              Werken in de stad.
+              <br />
+              <em className="not-italic" style={{ color: "#8C7F6E" }}>
+                Herstellen in de tuin.
+              </em>
+            </h2>
+            <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+              NORDE is een plek om even te stoppen met rennen, de telefoon weg te leggen en je lichaam te laten voelen wat het nodig heeft. De tuin is het product, niet het gebouw.
+            </p>
+            <p className="mt-4 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+              Alles wat je hier ziet groeien komt uit deze streek. Alles wat verwarmt of koelt, werkt zonder gas. We meten elk jaar wat we verbruiken en maken dat openbaar.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {["Natuur-first", "Gasvrij", "Inheems groen", "Adults only", "Kleinschalig"].map((tag) => (
+                <span
+                  key={tag}
+                  className="font-sans text-steen font-light uppercase"
+                  style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "8px 16px", border: "0.5px solid #C8BAA8" }}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="mt-4 flex flex-wrap justify-center items-center gap-2 text-sm">
-            <span className="opacity-50 text-xs">Populair:</span>
-            {["Running schoenen", "Tuinmeubelen", "Sportkleding", "Adidas", "Outdoor"].map((tag) => (
-              <Link key={tag} href={`/search?q=${encodeURIComponent(tag)}`}
-                className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 transition-all text-white/80 hover:text-white">
-                {tag}
-              </Link>
+          <div className="aspect-[3/4] relative overflow-hidden">
+            <div className="absolute inset-0 grid grid-cols-2">
+              <div className="bg-ijssel" />
+              <div className="bg-eiken" />
+            </div>
+            <div className="absolute inset-y-0 left-1/2 w-px" style={{ background: "rgba(242,237,230,0.12)" }} />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+              <div className="font-serif text-koud-licht/50 font-light" style={{ fontSize: "11px", letterSpacing: "0.4em" }}>8°</div>
+              <div className="text-lin my-3" style={{ fontFamily: "var(--font-nord)", fontWeight: 900, fontSize: "clamp(36px, 5vw, 52px)", letterSpacing: "0.05em", lineHeight: 1 }}>
+                NORDE
+              </div>
+              <div className="font-serif text-warm-licht/50 font-light" style={{ fontSize: "11px", letterSpacing: "0.4em" }}>90°</div>
+              <div className="w-14 my-5" style={{ height: "0.5px", background: "rgba(242,237,230,0.18)" }} />
+              <p className="text-lin/70 leading-snug" style={{ fontFamily: "var(--font-nord)", fontWeight: 300, fontSize: "clamp(16px, 2vw, 20px)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                Warmte. Kou.
+                <br />
+                Herstel.
+              </p>
+              <p className="mt-6 font-sans text-lin/30 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                NORDE Groningen · 2026
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DRIE PIJLERS ────────────────────────────────────────── */}
+      <section className="bg-nacht py-20 px-6">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 text-center">
+          {[
+            {
+              label: "Natuur",
+              desc: "Inheems groen, geen exoten, faunavriendelijk. Het Groningse landschap als setting.",
+            },
+            {
+              label: "Contrast",
+              desc: "Sauna 90°. Cold plunge 8°. Steam 45°. Jacuzzi 38°.",
+            },
+            {
+              label: "Stilte",
+              desc: "Hier hoor je stoom, water, vuur en wind.",
+            },
+          ].map((pillar, i) => (
+            <div
+              key={i}
+              className={`px-10 py-16 ${i < 2 ? "md:border-r" : ""}`}
+              style={{ borderColor: "rgba(242,237,230,0.08)" }}
+            >
+              <p className="text-warm-licht mb-6" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                {pillar.label}
+              </p>
+              <p className="font-sans font-light text-sm leading-relaxed" style={{ color: "rgba(242,237,230,0.4)" }}>
+                {pillar.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── SFEERBEELDEN GALERIJ ────────────────────────────────── */}
+      <section id="sfeer" className="bg-nacht py-0">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="relative overflow-hidden" style={{ height: "65vh" }}>
+            <img
+              src="/sfeer/exterieur.png"
+              alt="Café-paviljoen Norde - half open met groendak en buitenterras"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+            <div className="absolute bottom-10 left-10">
+              <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.8rem", letterSpacing: "0.03em" }}>CAFE-PAVILJOEN</p>
+              <p className="font-sans text-lin/40 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                Groendak · Lokale producten · Geen gas
+              </p>
+            </div>
+          </div>
+          <div className="relative overflow-hidden" style={{ height: "65vh" }}>
+            <img
+              src="/sfeer/coldplunge.png"
+              alt="Cold plunge met gefilterd grondwater - Norde Groningen"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+            <div className="absolute bottom-10 left-10">
+              <p className="text-lin flex items-baseline gap-3" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.8rem", letterSpacing: "0.03em" }}>
+                Cold plunge
+                <span className="font-serif text-koud-licht/80 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>8°</span>
+              </p>
+              <p className="font-sans text-lin/40 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                Puur grondwater · Gesloten circuit
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative w-full overflow-hidden" style={{ height: "70vh" }}>
+          <img
+            src="/sfeer/sauna.png"
+            alt="Pinewood Sauna - FSC grenenhout met warmteterugwinning · Norde Groningen"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute bottom-10 left-10">
+            <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", letterSpacing: "0.03em" }}>
+              SAUNA
+            </p>
+            <p className="font-sans text-lin/35 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+              SAUNA · NORDE
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="md:col-span-2 relative overflow-hidden" style={{ height: "60vh" }}>
+            <img
+              src="/sfeer/firecircle.png"
+              alt="Fire circle - koperen vuurschaal in het Groningse landschap"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+            <div className="absolute bottom-10 left-10">
+              <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.8rem", letterSpacing: "0.03em" }}>Fire circle</p>
+              <p className="font-sans text-lin/40 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                Koperen vuurschaal · Het Groningse landschap · Verbinding
+              </p>
+            </div>
+          </div>
+          <div className="relative overflow-hidden" style={{ height: "60vh" }}>
+            <img
+              src="/sfeer/steamdome.png"
+              alt="Steam dome - eucalyptus en kruiden, geen chemicaliën · Norde"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-8 left-8">
+              <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.5rem", letterSpacing: "0.03em" }}>Steam dome</p>
+              <p className="font-sans text-lin/40 uppercase font-light mt-1" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                45-50° · Eucalyptus · Geen chemicaliën
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative w-full overflow-hidden" style={{ height: "60vh" }}>
+          <img
+            src="/sfeer/jacuzzi.png"
+            alt="Magnesium jacuzzi buiten in het Groningse landschap - Norde"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+          <div className="absolute bottom-10 left-10">
+            <p className="text-lin flex items-baseline gap-3" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "1.8rem", letterSpacing: "0.03em" }}>
+              Magnesium jacuzzi
+              <span className="font-serif text-warm-licht/80 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>38°</span>
+            </p>
+            <p className="font-sans text-lin/40 uppercase font-light mt-2" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+              Magnesiumchloride · Spierherstel · Buiten
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WAT NORDE ANDERS MAAKT ──────────────────────────────── */}
+      <section id="onderscheid" className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Wat NORDE anders maakt</SectionLabel>
+          <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Boutique. Duurzaam. Kleinschalig.
+          </h2>
+          <div className="mt-8 space-y-5 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+            <p>
+              Geen massale spa met dagarrangementen, massale drukte en een restaurant als tussenstop. NORDE is boutique, kleinschalig en ontworpen voor stadjers die wellness niet zien als luxe uitzondering, maar als onderdeel van hun routine.
+            </p>
+            <p>
+              Op fietsafstand van de stad stap je in een andere versnelling. Sauna, stoom, jacuzzi, koud bad. Goede koffie, lokale producten, rust.
+            </p>
+            <p>
+              Adults only. Duurzaam gebouwd.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FACILITEITEN ────────────────────────────────────────── */}
+      <section id="faciliteiten" className="bg-lin py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <SectionLabel>Het circuit</SectionLabel>
+          <div className="grid md:grid-cols-2 gap-16 items-end mb-16">
+            <h2
+              className="text-nacht"
+              style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}
+            >
+              Elk element in de tuin heeft een eigen verhaal.
+            </h2>
+            <p className="font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+              Het water in de jacuzzi is anders dan het water in de plunge. De hitte van de sauna voelt anders dan de stoom van de dome.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[2px]" style={{ background: "#C8BAA8" }}>
+            {facilities.map((f) => (
+              <div
+                key={f.name}
+                className="p-8 flex flex-col gap-5 group hover:bg-nacht transition-colors duration-300 bg-wit"
+              >
+                <div className="flex justify-between items-start">
+                  <div className="text-nacht/60 group-hover:text-warm-licht/70 transition-colors duration-300">
+                    {f.icon}
+                  </div>
+                  {f.temp && (
+                    <span
+                      className={`font-serif font-light transition-colors duration-300 ${
+                        f.koud
+                          ? "text-koud/70 group-hover:text-koud-licht"
+                          : "text-warm/60 group-hover:text-warm-licht"
+                      }`}
+                      style={{ fontSize: "11px", letterSpacing: "0.3em" }}
+                    >
+                      {f.temp}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <h3
+                    className="text-nacht group-hover:text-lin transition-colors duration-300"
+                    style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "22px", letterSpacing: "0.03em" }}
+                  >
+                    {f.name}
+                  </h3>
+                  <p
+                    className="font-sans text-steen group-hover:text-lin/50 uppercase font-light mt-1 transition-colors duration-300"
+                    style={{ fontSize: "9px", letterSpacing: "0.3em" }}
+                  >
+                    {f.sub}
+                  </p>
+                </div>
+                <p
+                  className="font-sans font-light leading-relaxed group-hover:text-lin/60 transition-colors duration-300"
+                  style={{ fontSize: "14px", color: "#5C5248" }}
+                >
+                  {f.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 1 — Stats bar met icoontjes */}
-      <div className="bg-white shadow-sm border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {STATS.map(({ value, label, icon }) => (
-              <div key={label} className="flex items-center gap-3 px-6 py-5 border-r last:border-r-0 border-gray-100">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#f0fdf4" }}>
-                  <svg className="w-5 h-5" fill="none" stroke="#1b693d" viewBox="0 0 24 24">{icon}</svg>
+      {/* ── DUURZAAMHEID ────────────────────────────────────────── */}
+      <section id="duurzaamheid" className="bg-nacht py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-5 mb-10">
+            <span className="font-sans text-[9px] tracking-[0.4em] uppercase whitespace-nowrap font-light text-lin/30">Duurzaamheid</span>
+            <div className="flex-1 bg-lin/10" style={{ height: "0.5px" }} />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-16 mb-16 items-start">
+            <div>
+              <h2 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+                Duurzaamheid is geen toevoeging.
+                <br />
+                <em className="not-italic text-warm-licht">Het is de fundering.</em>
+              </h2>
+              <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "rgba(242,237,230,0.5)" }}>
+                Geen gas. Geen chloor. Geen greenwashing. Alles wat je hier ziet groeien komt uit deze streek. We meten elk jaar wat we verbruiken en maken dat openbaar.
+              </p>
+            </div>
+
+            <div className="space-y-0">
+              {[
+                {
+                  pijler: "Energie",
+                  icon: "⚡",
+                  maatregelen: [
+                    "Geen gasaansluiting",
+                    "Warmtepompen voor alle verwarming",
+                    "Zonnepanelen + zonnecollectoren op café-dak",
+                    "Warmteterugwinning sauna",
+                    "Groendak café-paviljoen",
+                  ],
+                },
+                {
+                  pijler: "Water",
+                  icon: "◌",
+                  maatregelen: [
+                    "Zoutwaterbad - elektrolyse, geen chloor",
+                    "Magnesium jacuzzi - geen kunstmatige toevoegingen",
+                    "Cold plunge - puur gefilterd grondwater",
+                    "Regenwateropvang & grijs water hergebruik",
+                    "UV-filtratie, geen chemicaliën",
+                  ],
+                },
+                {
+                  pijler: "Tuin",
+                  icon: "◍",
+                  maatregelen: [
+                    "Uitsluitend inheemse planten",
+                    "Geen bestrijdingsmiddelen",
+                    "Insectenhotels & voedselbos-elementen",
+                    "Faunavriendelijke verlichting",
+                    "Het Groningse landschap",
+                  ],
+                },
+                {
+                  pijler: "Cafe",
+                  icon: "◎",
+                  maatregelen: [
+                    "Lokale leveranciers max 50km",
+                    "Biologisch menu",
+                    "Geen wegwerpplastic",
+                    "FSC-hout in interieur",
+                    "Jaarlijkse CO₂-rapportage",
+                  ],
+                },
+              ].map((p, i) => (
+                <div key={p.pijler} className="py-6" style={{ borderTop: "0.5px solid rgba(242,237,230,0.08)" }}>
+                  <div className="flex items-baseline gap-4 mb-4">
+                    <span className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "18px", letterSpacing: "0.03em" }}>{p.pijler}</span>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {p.maatregelen.map((m) => (
+                      <li key={m} className="flex items-start gap-3">
+                        <div className="w-1 h-1 rounded-full mt-2 shrink-0" style={{ background: "rgba(160,112,64,0.6)" }} />
+                        <span className="font-sans font-light" style={{ fontSize: "13px", color: "rgba(242,237,230,0.45)" }}>{m}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div>
-                  <div className="text-xl font-extrabold leading-none" style={{ color: "#173441" }}>{value}</div>
-                  <div className="text-xs text-gray-400 mt-0.5 font-medium">{label}</div>
-                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Waterfilosofie */}
+          <div className="grid md:grid-cols-5 gap-[2px]" style={{ background: "rgba(242,237,230,0.06)" }}>
+            {[
+              { naam: "Zoutwaterbad", temp: "30-32°", detail: "Elektrolyse genereert eigen reiniging. Geen chloor. Zachter voor huid en natuur." },
+              { naam: "Magnesium jacuzzi", temp: "38°", detail: "Magnesiumchloride bevordert spierherstel. Klein warm volume." },
+              { naam: "Cold Plunge", temp: "8°", detail: "Puur gefilterd grondwater. Gesloten circuit. Geen toevoegingen." },
+              { naam: "Steam Dome", temp: "45-50°", detail: "Eucalyptus en kruiden. Geen chemicaliën. Aromatherapie." },
+              { naam: "SAUNA", temp: "90°", detail: "FSC-hout. Warmteterugwinning. Traditioneel opgiet met etherische oliën." },
+            ].map((w) => (
+              <div key={w.naam} className="p-6" style={{ background: "rgba(255,255,255,0.02)" }}>
+                <div className="font-serif text-warm-licht/60 font-light mb-2" style={{ fontSize: "22px", letterSpacing: "0.1em" }}>{w.temp}</div>
+                <div className="font-serif text-lin font-light mb-3" style={{ fontSize: "14px", letterSpacing: "0.05em" }}>{w.naam}</div>
+                <p className="font-sans font-light leading-relaxed" style={{ fontSize: "12px", color: "rgba(242,237,230,0.35)" }}>{w.detail}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Categories */}
-        <section className="py-10">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Categorieën</h2>
-            <ArrowLink href="/categories">Alle categorieën</ArrowLink>
+      {/* ── QUOTE ───────────────────────────────────────────────── */}
+      <section className="bg-wit py-24 px-6 text-center" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+        <div className="max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-5 mb-10">
+            <div className="w-12" style={{ height: "0.5px", background: "#C8BAA8" }} />
+            <span className="font-sans text-steen/60 uppercase font-light" style={{ fontSize: "9px", letterSpacing: "0.4em" }}>Eerlijkheid</span>
+            <div className="w-12" style={{ height: "0.5px", background: "#C8BAA8" }} />
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {CATEGORIES.map((cat) => (
-              <Link key={cat.href} href={cat.href}
-                className="group relative overflow-hidden rounded-2xl hover:shadow-xl transition-all duration-300"
-                style={{ aspectRatio: "4/3" }}>
-                {cat.image ? (
-                  <img src={cat.image} alt={cat.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                ) : (
-                  <div className="absolute inset-0" style={{ background: cat.gradient }} />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <span className="block font-bold text-white text-sm leading-tight drop-shadow">{cat.label}</span>
-                  <span className="text-white/70 text-xs mt-0.5 block">{cat.count} producten</span>
-                </div>
-                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+          <blockquote className="text-nacht leading-snug" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(1.8rem, 4.5vw, 3rem)", letterSpacing: "0.02em" }}>
+            Transparant over keuzes.
+            <br />
+            <em className="not-italic" style={{ color: "#8C7F6E" }}>Geen greenwashing.</em>
+          </blockquote>
+          <p className="mt-8 font-sans font-light leading-relaxed mx-auto" style={{ fontSize: "15px", color: "#5C5248", maxWidth: "480px" }}>
+            We publiceren jaarlijks ons energieverbruik, onze CO₂-uitstoot en onze waterrapportage. Eerlijk is eerlijk.
+          </p>
+        </div>
+      </section>
 
-        {/* 2 — Featured deals met echte productfoto's */}
-        <section className="py-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Uitgelichte deals</h2>
-            <ArrowLink href="/deals">Alle deals</ArrowLink>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {FEATURED_DEALS.map((deal) => (
-              <Link key={deal.id} href={deal.href}
-                className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-200 border border-gray-100 hover:border-gray-200 flex flex-col">
-                <div className="relative h-48 overflow-hidden bg-gray-50 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  {deal.badge && (
-                    <span className="absolute top-3 left-3 text-white text-xs font-bold px-2.5 py-1 rounded-full"
-                      style={{ backgroundColor: deal.badgeColor! }}>
-                      {deal.badge}
-                    </span>
-                  )}
-                </div>
-                <div className="p-4 flex flex-col flex-1">
-                  <div className="text-xs font-semibold mb-1" style={{ color: "#00ca41" }}>{deal.brand}</div>
-                  <h3 className="font-semibold text-sm leading-snug mb-2 group-hover:underline line-clamp-2" style={{ color: "#173441" }}>
-                    {deal.title}
-                  </h3>
-                  <div className="text-xs text-gray-400 mb-3">{deal.options}</div>
-                  <div className="mt-auto flex items-center justify-between">
-                    <div>
-                      <span className="text-lg font-extrabold" style={{ color: "#173441" }}>{deal.price}</span>
-                      {deal.originalPrice && (
-                        <span className="text-xs text-gray-400 line-through ml-2">{deal.originalPrice}</span>
-                      )}
-                    </div>
-                    <span className="text-xs font-semibold px-3 py-1.5 rounded-full text-white" style={{ backgroundColor: "#00ca41" }}>
-                      Bekijk
-                    </span>
+      {/* ── TARIEVEN & WACHTLIJST ───────────────────────────────── */}
+      <section id="wachtlijst" className="bg-lin py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Tarieven &amp; wachtlijst</SectionLabel>
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+                Een keer, regelmatig,
+                <br />
+                <em className="not-italic" style={{ color: "#8C7F6E" }}>of vast.</em>
+              </h2>
+              <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+                NORDE blijft laagdrempelig. Een dagkaart is genoeg om langs te komen. Wie vaker komt, kan kiezen voor een 10-rittenkaart of een abonnement. Concrete tarieven volgen zodra de locatie definitief is.
+              </p>
+
+              <div className="mt-10 grid grid-cols-3 gap-px" style={{ background: "#C8BAA8" }}>
+                {[
+                  { label: "Dagkaart", note: "Eenmalig" },
+                  { label: "10-ritten", note: "Regelmatig" },
+                  { label: "Abonnement", note: "Vast" },
+                ].map((tier) => (
+                  <div key={tier.label} className="bg-lin p-5">
+                    <p className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "13px", letterSpacing: "0.03em" }}>
+                      {tier.label}
+                    </p>
+                    <p className="mt-2 font-sans font-light uppercase" style={{ fontSize: "9px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                      {tier.note}
+                    </p>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* 4 — Merkkaarten met verbeterde hover */}
-        <section className="py-8 mb-4">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold" style={{ color: "#173441" }}>Populaire merken</h2>
-            <ArrowLink href="/brands">Alle merken</ArrowLink>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {TOP_BRANDS.map((brand) => (
-              <Link key={brand.name} href={brand.href}
-                className="group bg-white rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-green-100">
-                <div className="w-20 h-14 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-200">
-                  <BrandLogo name={brand.name} logo={brand.logo} />
-                </div>
-                <span className="font-semibold text-sm" style={{ color: "#173441" }}>{brand.name}</span>
-                <span className="text-xs text-gray-400 mt-0.5">{brand.count} producten</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* 6 — CTA banner verbeterd */}
-        <section className="mb-10">
-          <div
-            className="rounded-3xl overflow-hidden relative"
-            style={{ background: "linear-gradient(135deg, #173441 0%, #1b693d 100%)" }}
-          >
-            {/* Decoratieve elementen */}
-            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full opacity-10" style={{ backgroundColor: "#00ca41" }} />
-            <div className="absolute -bottom-10 right-32 w-40 h-40 rounded-full opacity-10" style={{ backgroundColor: "#00ca41" }} />
-
-            <div className="relative px-8 md:px-12 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="text-white text-center md:text-left">
-                {/* Trust badge */}
-                <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4" style={{ backgroundColor: "rgba(0,202,65,0.2)", color: "#00ca41" }}>
-                  Voor webshops
-                </span>
-                <h2 className="text-2xl md:text-3xl font-extrabold mb-2">
-                  Jouw webshop op Productdeal?
-                </h2>
-                <p className="opacity-75 max-w-md text-sm leading-relaxed">
-                  Bereik miljoenen shoppers en verhoog je omzet. Al 300+ webshops gingen je voor.
-                </p>
-                {/* Mini social proof */}
+                ))}
               </div>
-              <div className="flex-shrink-0">
-                <Link href="/pricing"
-                  className="bg-white font-bold px-8 py-3.5 rounded-full hover:shadow-xl transition-all hover:scale-105 text-sm"
-                  style={{ color: "#1b693d" }}>
-                  Bekijk pricing →
-                </Link>
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "20px", letterSpacing: "0.03em", lineHeight: 1.3 }}>
+                Schrijf je in voor de wachtlijst.
+              </p>
+              <p className="font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                Eerste inschrijvers horen als eerste wanneer locatie, tarieven en opening bekend zijn.
+              </p>
+              <form className="flex flex-col sm:flex-row" action="#">
+                <input
+                  type="email"
+                  placeholder="jouw@email.nl"
+                  className="flex-1 font-sans font-light text-nacht placeholder:text-nacht/30 px-5 py-4 outline-none"
+                  style={{ fontSize: "13px", background: "#FAF8F4", border: "0.5px solid #C8BAA8" }}
+                />
+                <button
+                  type="submit"
+                  className="font-sans text-lin uppercase font-light bg-warm hover:bg-warm-licht transition-colors duration-200 whitespace-nowrap"
+                  style={{ fontSize: "9px", letterSpacing: "0.3em", padding: "16px 24px" }}
+                >
+                  Schrijf me in
+                </button>
+              </form>
+              <p className="font-sans font-light" style={{ fontSize: "11px", color: "#C8BAA8" }}>
+                Geen spam. Alleen updates over NORDE.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── EVENTS ──────────────────────────────────────────────── */}
+      <section id="events" className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <SectionLabel>Community &amp; Events</SectionLabel>
+              <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+                Verbinding in de natuur.
+                <br />
+                <em className="not-italic" style={{ color: "#8C7F6E" }}>Een community.</em>
+              </h2>
+              <p className="mt-8 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+                NORDE organiseert regelmatig events voor leden en bezoekers. Van maandbaden onder de sterrenhemel tot workshops en besloten groepsbijeenkomsten rondom de fire circle.
+              </p>
+              <div className="mt-10 space-y-0">
+                {[
+                  { name: "Maandbaden", desc: "Maandelijks collectief bad bij volle maan in de wellness tuin. Stilte verplicht." },
+                  { name: "Seizoensevents", desc: "Vuur in de winter. Water in de zomer. Elk seizoen heeft zijn eigen ritueel." },
+                  { name: "Corporate Wellness", desc: "Besloten sessies voor teams in de tuin. Herstel als teambuilding." },
+                ].map((ev, i) => (
+                  <div key={ev.name} className="py-5" style={{ borderTop: "0.5px solid #C8BAA8", marginTop: i === 0 ? "24px" : 0 }}>
+                    <p className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "20px", letterSpacing: "0.03em" }}>{ev.name}</p>
+                    <p className="font-sans font-light mt-1" style={{ fontSize: "14px", color: "#5C5248" }}>{ev.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-[2px]">
+              {[
+                { label: "Maandbad", detail: "Maandelijks", bg: "bg-ijssel" },
+                { label: "Seizoen", detail: "Buiten · natuur", bg: "bg-eiken" },
+                { label: "Corporate", detail: "Op aanvraag", bg: "bg-eiken" },
+                { label: "Cadeau", detail: "Gift cards", bg: "bg-ijssel" },
+              ].map((card, i) => (
+                <div key={i} className={`${card.bg} aspect-square flex flex-col justify-end p-8`}>
+                  <p className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "22px", letterSpacing: "0.03em" }}>{card.label}</p>
+                  <p className="font-sans text-lin/40 uppercase font-light mt-1" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>{card.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HET VERHAAL ─────────────────────────────────────────── */}
+      <section id="verhaal" className="bg-wit py-24 px-6" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Het verhaal</SectionLabel>
+          <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Niet bedacht
+            <br />
+            <em className="not-italic" style={{ color: "#8C7F6E" }}>achter een bureau.</em>
+          </h2>
+          <div className="mt-8 max-w-2xl space-y-5 font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+            <p>
+              Josine Kremer en Yuri Solinger zijn partners - in het leven en in NORDE. Beiden geworteld in het Groningse noorden, reisden ze samen de wereld over. Bali bleef hangen. Daar leerden ze het idee van een recovery club kennen. Geen wellness als beauty, maar als rust. Geen ritueel om beter te lijken, maar om beter te voelen.
+            </p>
+            <p>
+              Terug thuis miste het iets. Bad Nieuweschans is mooi, maar voelt niet als hun plek. Een wellness gericht op de jonge werkende stadjer ontbrak.
+            </p>
+            <p>
+              Daar komt NORDE uit voort. Josine brengt het verhaal, Yuri brengt het ondernemerschap - samen bouwen ze NORDE van concept tot opening.
+            </p>
+          </div>
+
+          {/* Founder grid */}
+          <div className="mt-20 grid md:grid-cols-2 gap-10">
+            <div>
+              <div className="relative aspect-square overflow-hidden bg-lin">
+                <img
+                  src="/team/josine.jpg"
+                  alt="Josine Kremer - oprichter NORDE"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="mt-6 font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                Oprichter &amp; contactpersoon
+              </p>
+              <p className="mt-2 text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "22px", letterSpacing: "0.03em" }}>
+                Josine Kremer
+              </p>
+              <p className="mt-3 font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                Geboren in Stadskanaal, sinds 2010 stadjer. Achtergrond in communicatie, design en marketing. Brengt concept, merk en positionering.
+              </p>
+            </div>
+            <div>
+              <div className="relative aspect-square overflow-hidden bg-lin">
+                <img
+                  src="/team/yuri.jpg"
+                  alt="Yuri Solinger - oprichter NORDE"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <p className="mt-6 font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                Oprichter
+              </p>
+              <p className="mt-2 text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "22px", letterSpacing: "0.03em" }}>
+                Yuri Solinger
+              </p>
+              <p className="mt-3 font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                Opgegroeid in Eenrum. Voormalig schaatser, daarna ondernemer in e-commerce. Specialiseert in het opzetten, aansturen en financieel gezond maken van bedrijven.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VOOR GRONINGEN ──────────────────────────────────────── */}
+      <section id="stad" className="bg-lin py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <SectionLabel>Voor Groningen</SectionLabel>
+          <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Wat NORDE
+            <br />
+            <em className="not-italic" style={{ color: "#8C7F6E" }}>de stad oplevert.</em>
+          </h2>
+          <p className="mt-8 max-w-2xl font-sans font-light leading-relaxed" style={{ fontSize: "15px", color: "#5C5248" }}>
+            NORDE is geen externe investering die toevallig in Groningen landt. Het is een lokaal initiatief van twee Groningers, gebouwd met Groningse partners. Drie vlakken waarop NORDE iets teruggeeft aan de stad.
+          </p>
+
+          <div className="mt-16 grid md:grid-cols-3 gap-x-10 gap-y-12">
+            {[
+              {
+                label: "Werk en lokale economie",
+                desc: "Vast team van 3-5 medewerkers, plus oproepkrachten. Materialen, beplanting en F&B uit leveranciers binnen 50 km - geen ketens, wel Groningse makers. Tijdens de bouwfase: lokale aannemers en ontwerpers.",
+              },
+              {
+                label: "Disconnectie voor jonge werkenden",
+                desc: "Burn-outcijfers onder 25- tot 40-jarigen stijgen jaarlijks. Schermen blijven aan, werkdruk volgt thuis. NORDE is een tegenwicht: telefoonloos, een paar uur niets, herhaalbaar in de week.",
+              },
+              {
+                label: "Duurzaam en kleinschalig",
+                desc: "Gasvrij, zonnepanelen, regenwateropvang, inheemse beplanting, geen chloor. Sluit aan op gemeentelijke klimaatdoelen. Boutique-schaal, fietsafstand bedoeld - minder druk op de omgeving dan een dagspa-formule.",
+              },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="font-sans font-light uppercase mb-4" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>
+                  {item.label}
+                </p>
+                <p className="font-sans font-light leading-relaxed" style={{ fontSize: "14px", color: "#5C5248" }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATUS & ROUTE ──────────────────────────────────────── */}
+      <section id="status" className="bg-nacht py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <SectionLabel light>Status &amp; route</SectionLabel>
+          <h2 className="text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+            Op weg naar
+            <br />
+            <em className="not-italic" style={{ color: "#D4A878" }}>opening 2028.</em>
+          </h2>
+
+          <div className="mt-16 grid md:grid-cols-5 gap-px" style={{ background: "rgba(242,237,230,0.12)" }}>
+            {[
+              { phase: "01", label: "Concept", detail: "Businessplan en positionering afgerond.", status: "Afgerond" },
+              { phase: "02", label: "Financiering", detail: "Gesprekken met investeerders lopen.", status: "In de pijplijn" },
+              { phase: "03", label: "Locatie", detail: "Actief zoekend in en rond Groningen.", status: "Actief" },
+              { phase: "04", label: "Vergunning", detail: "Start na locatieselectie.", status: "Volgend" },
+              { phase: "05", label: "Opening", detail: "Soft launch en opening in 2028.", status: "Doel" },
+            ].map((stage) => (
+              <div key={stage.phase} className="bg-nacht p-8 flex flex-col justify-between" style={{ minHeight: "260px" }}>
+                <div>
+                  <div className="font-serif text-warm-licht/60 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>{stage.phase}</div>
+                  <p className="mt-4 text-lin" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "15px", letterSpacing: "0.03em" }}>
+                    {stage.label}
+                  </p>
+                  <p className="mt-3 font-sans font-light leading-relaxed" style={{ fontSize: "12px", color: "rgba(242,237,230,0.55)" }}>{stage.detail}</p>
+                </div>
+                <p className="mt-6 font-sans font-light uppercase" style={{ fontSize: "9px", letterSpacing: "0.3em", color: "#D4A878" }}>
+                  {stage.status}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT ─────────────────────────────────────────────── */}
+      <section id="contact" className="bg-wit py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "0.03em", lineHeight: 1.1 }}>
+                Contact.
+              </h2>
+              <p className="mt-8 font-sans font-light leading-relaxed max-w-md" style={{ fontSize: "15px", color: "#5C5248" }}>
+                NORDE wordt gebouwd door Josine Kremer en Yuri Solinger. Voor alles rondom NORDE - direct contact via Josine.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <p className="font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>Contactpersoon</p>
+                <p className="mt-2 text-nacht" style={{ fontFamily: "var(--font-nord)", fontWeight: 700, fontSize: "24px", letterSpacing: "0.03em" }}>Josine Kremer</p>
+                <p className="font-sans font-light" style={{ fontSize: "13px", color: "#5C5248" }}>Oprichter NORDE</p>
+              </div>
+              <div className="pt-8" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+                <p className="font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>E-mail</p>
+                <a href="mailto:hallo@norde.nl" className="mt-2 inline-block text-nacht hover:text-warm transition-colors" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "18px", letterSpacing: "0.02em" }}>
+                  hallo@norde.nl
+                </a>
+              </div>
+              <div className="pt-8" style={{ borderTop: "0.5px solid #C8BAA8" }}>
+                <p className="font-sans font-light uppercase" style={{ fontSize: "10px", letterSpacing: "0.3em", color: "#8C7F6E" }}>Telefoon</p>
+                <a href="tel:+31657582152" className="mt-2 inline-block text-nacht hover:text-warm transition-colors" style={{ fontFamily: "var(--font-nord)", fontWeight: 400, fontSize: "18px", letterSpacing: "0.02em" }}>
+                  +31 6 57 58 21 52
+                </a>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER ──────────────────────────────────────────────── */}
+      <footer className="bg-nacht">
+        <div className="grid grid-cols-2" style={{ borderBottom: "0.5px solid rgba(242,237,230,0.06)" }}>
+          <div className="bg-ijssel px-10 md:px-14 py-10 flex flex-col justify-between" style={{ minHeight: "140px" }}>
+            <div className="font-serif text-koud-licht/50 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>8°</div>
+            <div className="font-serif text-lin font-light" style={{ fontSize: "clamp(28px, 4vw, 44px)", letterSpacing: "0.2em" }}>NOR</div>
+          </div>
+          <div className="bg-eiken px-10 md:px-14 py-10 flex flex-col justify-between" style={{ minHeight: "140px" }}>
+            <div className="font-serif text-warm-licht/50 font-light" style={{ fontSize: "11px", letterSpacing: "0.3em" }}>90°</div>
+            <div className="font-serif text-lin font-light" style={{ fontSize: "clamp(28px, 4vw, 44px)", letterSpacing: "0.2em" }}>DE</div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-14 py-16">
+          <div className="grid md:grid-cols-4 gap-12 pb-12" style={{ borderBottom: "0.5px solid rgba(242,237,230,0.08)" }}>
+            <div className="md:col-span-2">
+              <p className="font-sans font-light text-lin/30 leading-relaxed" style={{ fontSize: "14px" }}>
+                Een wellness tuin in het Noord-Nederlandse landschap.
+                <br />
+                Geen gas. Geen chloor. Geen greenwashing.
+              </p>
+              <div className="flex gap-5 mt-6">
+                {["Instagram", "TikTok"].map((platform) => (
+                  <a key={platform} href="#" className="font-sans font-light text-lin/30 hover:text-lin/60 uppercase transition-colors duration-200" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>
+                    {platform}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="font-sans font-light text-lin/20 uppercase mb-5" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Navigatie</p>
+              <ul className="space-y-3">
+                {["Concept", "Faciliteiten", "Duurzaamheid", "Events"].map((link) => (
+                  <li key={link}>
+                    <a href={`#${link.toLowerCase()}`} className="font-sans font-light text-lin/40 hover:text-lin/70 transition-colors duration-200" style={{ fontSize: "14px" }}>
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="font-sans font-light text-lin/20 uppercase mb-5" style={{ fontSize: "9px", letterSpacing: "0.3em" }}>Contact</p>
+              <ul className="space-y-3 font-sans font-light text-lin/40" style={{ fontSize: "14px" }}>
+                <li>Groningen, Nederland</li>
+                <li>
+                  <a href="mailto:hallo@norde.nl" className="hover:text-lin/70 transition-colors duration-200">hallo@norde.nl</a>
+                </li>
+                <li className="pt-2 text-lin/20" style={{ fontSize: "11px" }}>Opening verwacht 2028</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-sans font-light text-lin/20" style={{ fontSize: "11px" }}>
+            <p>© 2026 NORDE Wellness Recovery Club Groningen. Alle rechten voorbehouden.</p>
+            <div className="flex gap-6">
+              {["Privacybeleid", "Algemene voorwaarden"].map((link) => (
+                <a key={link} href="#" className="hover:text-lin/40 transition-colors duration-200">{link}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
