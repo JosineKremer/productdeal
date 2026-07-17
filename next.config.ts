@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/",
-        destination: "/sdeal-v2",
+        destination: "/skooby",
         permanent: false,
       },
     ];
